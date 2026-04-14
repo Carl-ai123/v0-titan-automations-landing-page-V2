@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section"
 import { MarqueeStrip } from "@/components/marquee-strip"
 import { HowItWorks } from "@/components/how-it-works"
 import { ServicesSection } from "@/components/services-section"
+import { AutomationFlow } from "@/components/automation-flow"
 import { IndustriesSection } from "@/components/industries-section"
 import { ResultsSection } from "@/components/results-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
@@ -21,6 +22,7 @@ export default function Home() {
         <MarqueeStrip />
         <HowItWorks />
         <ServicesSection />
+        <AutomationFlow />
         <IndustriesSection />
         <ResultsSection />
         <TestimonialsSection />
