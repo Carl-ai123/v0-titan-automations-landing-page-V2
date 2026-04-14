@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
 import { Geist, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-const geist = Geist({ 
+const geist = Geist({
   subsets: ["latin"],
   variable: '--font-geist',
   display: 'swap',
 });
 
-const dmSans = DM_Sans({ 
+const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: '--font-dm-sans',
   display: 'swap',
@@ -27,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth bg-dark">
-      <body className={`${geist.variable} ${dmSans.variable} font-body antialiased`}>
-        {children}
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${geist.variable} ${dmSans.variable} font-body antialiased bg-light text-text-light dark:bg-dark dark:text-text-dark`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

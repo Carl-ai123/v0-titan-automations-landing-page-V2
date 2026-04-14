@@ -24,21 +24,25 @@ export function TestimonialsSection() {
   ]
 
   return (
-    <section className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16 fade-up-section">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-[-0.03em]">
             What clients say.
           </h2>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 fade-up-section">
-          {testimonials.map((testimonial) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 fade-up-section">
+          {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.initials}
-              className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7"
+              className={
+                index === 0
+                  ? "ring-1 ring-[rgba(255,255,255,0.08)] border-l-2 border-l-accent rounded-xl p-5 sm:p-7"
+                  : "bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7"
+              }
             >
               {/* Accent Rule */}
               <div className="w-8 h-px bg-accent mb-5" />

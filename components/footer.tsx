@@ -85,7 +85,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-6 md:pt-8 border-t border-[rgba(255,255,255,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
           <p className="text-sm text-muted">
-            &copy; 2026 Titan Automations · Kent, UK
+            &copy; {new Date().getFullYear()} Titan Automations · Kent, UK
           </p>
           <p className="text-sm text-muted">
             Built with AI. Owned by you.

@@ -15,7 +15,7 @@ export function MarqueeStrip() {
   ]
 
   return (
-    <section className="bg-[#0D0D0D] py-3 md:py-4 overflow-hidden border-y border-[rgba(255,255,255,0.04)]">
+    <section className="bg-dark py-3 md:py-4 overflow-hidden border-y border-[rgba(255,255,255,0.04)]">
       <div className="flex items-center">
         {/* Label */}
         <div className="shrink-0 pl-4 md:pl-8 pr-8 text-xs text-muted tracking-[0.15em] uppercase font-medium">

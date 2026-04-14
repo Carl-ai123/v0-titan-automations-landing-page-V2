@@ -41,14 +41,14 @@ export function IndustriesSection() {
   ]
 
   return (
-    <section className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="industries" className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16 fade-up-section">
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Industries
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light tracking-[-0.03em] text-balance">
             Built for businesses that are serious about growth.
           </h2>
         </div>
@@ -58,10 +58,10 @@ export function IndustriesSection() {
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="bg-card-light border border-[rgba(0,0,0,0.08)] rounded-xl p-5"
+              className="bg-card-light border border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.18)] transition-colors duration-200 rounded-xl p-5"
             >
               <div className="w-8 h-8 mb-4 text-accent">{industry.icon}</div>
-              <h3 className="font-display text-lg font-semibold text-text-light mb-2">
+              <h3 className="font-display text-2xl font-semibold text-text-light tracking-[-0.03em] mb-2">
                 {industry.title}
               </h3>
               <p className="text-sm text-muted leading-relaxed">{industry.description}</p>

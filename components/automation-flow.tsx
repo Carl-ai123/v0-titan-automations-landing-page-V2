@@ -91,7 +91,7 @@ const scenarios: Scenario[] = [
 function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
   return (
     <div
-      className={`relative w-44 shrink-0 rounded-xl p-4 border ${
+      className={`relative w-40 shrink-0 rounded-xl p-4 border ${
         node.isLast
           ? "bg-green/5 border-green/25"
           : "bg-card-dark border-[rgba(255,255,255,0.08)] animate-node-ring"
@@ -113,7 +113,7 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
       </div>
 
       {/* Title */}
-      <div className="text-sm font-medium text-white leading-snug mb-1">
+      <div className="text-sm font-medium text-white leading-snug mb-1 tracking-[-0.02em]">
         {node.title}
       </div>
 
@@ -136,10 +136,10 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
 function DesktopConnector({ delay }: { delay: number }) {
   return (
     <div className="flex items-center flex-1 mt-9 min-w-0 px-2">
-      {/* Animated line */}
+      {/* Animated line — solid accent pulse, no gradient */}
       <div className="w-full h-px bg-[rgba(255,255,255,0.06)] relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent animate-flow-line"
+          className="absolute top-0 h-full w-8 bg-accent/40 animate-flow-line"
           style={{ animationDelay: `${delay}s` }}
         />
       </div>
@@ -180,7 +180,7 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
           <div className="text-[10px] tracking-[0.15em] uppercase text-muted font-medium mb-0.5">
             {node.label}
           </div>
-          <div className="text-sm font-medium text-white leading-snug">
+          <div className="text-sm font-medium text-white leading-snug tracking-[-0.02em]">
             {node.title}
           </div>
           <div className="text-xs text-muted mt-0.5 leading-relaxed">
@@ -202,7 +202,7 @@ function MobileConnector({ delay }: { delay: number }) {
   return (
     <div className="h-8 w-px bg-[rgba(255,255,255,0.06)] relative overflow-hidden my-1">
       <div
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-accent to-transparent animate-flow-line-vertical"
+        className="absolute left-0 w-full h-8 bg-accent/40 animate-flow-line-vertical"
         style={{ animationDelay: `${delay}s` }}
       />
     </div>
@@ -244,18 +244,18 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
 
 export function AutomationFlow() {
   return (
-    <section className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="automation" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-14 md:mb-20 fade-up-section">
+        {/* Header — left-aligned */}
+        <div className="mb-14 md:mb-20 fade-up-section">
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Under the hood
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-[-0.03em] text-balance">
             A single trigger.<br className="hidden sm:block" /> A whole system in motion.
           </h2>
-          <p className="text-base text-muted max-w-lg mx-auto leading-relaxed">
+          <p className="text-base text-muted max-w-lg mt-4 leading-relaxed">
             The moment someone interacts with your business, a fully automated system takes over — no manual steps, no delays.
           </p>
         </div>
@@ -266,7 +266,6 @@ export function AutomationFlow() {
             <Fragment key={node.label}>
               <DesktopNodeCard node={node} index={i} />
               {i < nodes.length - 1 && (
-                // Connector delay is midway between surrounding nodes
                 <DesktopConnector delay={i * 0.5 + 0.25} />
               )}
             </Fragment>
@@ -286,7 +285,7 @@ export function AutomationFlow() {
         </div>
 
         {/* ── Scenario cards ── */}
-        <div className="grid sm:grid-cols-3 gap-3 fade-up-section">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 fade-up-section">
           {scenarios.map((scenario, i) => (
             <ScenarioCard key={i} scenario={scenario} />
           ))}

@@ -4,7 +4,7 @@ export function FinalCTA() {
       <div className="max-w-3xl mx-auto text-center fade-up-section">
         {/* Accent rule */}
         <div className="w-12 h-px bg-accent mx-auto mb-12" />
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6">
+        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-[-0.03em] mb-4 md:mb-6">
           Ready to see what&apos;s possible?
         </h2>
         <p className="text-base md:text-lg text-muted mb-6 md:mb-8 max-w-xl mx-auto leading-relaxed">
@@ -12,7 +12,7 @@ export function FinalCTA() {
         </p>
         <a
           href="mailto:carl@titan-automations.com?subject=Free Demo Request"
-          className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors"
+          className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
         >
           Book Your Free Demo
           <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

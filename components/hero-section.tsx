@@ -1,30 +1,42 @@
 export function HeroSection() {
   return (
-    <section className="bg-dark min-h-screen pt-28 md:pt-36 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-light dark:bg-dark min-h-[100dvh] pt-28 md:pt-36 pb-16 md:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Column */}
-          <div className="fade-up-section">
+          <div>
             {/* Eyebrow */}
-            <span className="block text-xs tracking-[0.2em] uppercase text-muted font-medium mb-8">
+            <span
+              className="block text-xs tracking-[0.2em] uppercase text-muted font-medium mb-8 opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.1s" }}
+            >
               AI Automation Agency · Kent &amp; South East
             </span>
 
             {/* Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance">
+            <h1
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-text-light dark:text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               Build smarter. Automate everything. Grow without limits.
             </h1>
 
             {/* Subtext */}
-            <p className="text-base md:text-lg text-muted max-w-[480px] mb-6 md:mb-8 leading-relaxed">
+            <p
+              className="text-base md:text-lg text-muted max-w-[480px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.35s" }}
+            >
               We design and build AI-powered systems for businesses that are ready to stop doing things manually. Websites, automations, chatbots — all connected, all yours.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-6 md:mb-8">
+            <div
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-6 md:mb-8 opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.5s" }}
+            >
               <a
                 href="#cta"
-                className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
               >
                 Book a Free Demo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -33,27 +45,33 @@ export function HeroSection() {
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center px-6 py-3 text-base font-medium text-white border border-[rgba(255,255,255,0.2)] rounded-full hover:border-[rgba(255,255,255,0.4)] transition-colors"
+                className="inline-flex items-center px-6 py-3 text-base font-medium text-text-light dark:text-white border border-[rgba(0,0,0,0.2)] dark:border-[rgba(255,255,255,0.2)] rounded-full hover:border-[rgba(0,0,0,0.4)] dark:hover:border-[rgba(255,255,255,0.4)] transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
               >
                 See How It Works
               </a>
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-muted">
+            <div
+              className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-muted opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.65s" }}
+            >
               <span>50+ Systems Built</span>
-              <span className="hidden sm:inline text-[rgba(255,255,255,0.2)]">·</span>
+              <span className="hidden sm:inline text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)]">·</span>
               <span>2 Week Delivery</span>
-              <span className="hidden sm:inline text-[rgba(255,255,255,0.2)]">·</span>
+              <span className="hidden sm:inline text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)]">·</span>
               <span>100% Client Owned</span>
-              <span className="hidden sm:inline text-[rgba(255,255,255,0.2)]">·</span>
+              <span className="hidden sm:inline text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)]">·</span>
               <span>Kent Based</span>
             </div>
           </div>
 
           {/* Right Column — Dashboard Card */}
-          <div className="fade-up-section">
-            <div className="bg-card-dark border border-[rgba(255,255,255,0.12)] rounded-2xl p-5 sm:p-6">
+          <div
+            className="opacity-0 animate-fade-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <div className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.12)] dark:border-[rgba(255,255,255,0.12)] rounded-2xl p-5 sm:p-6">
               {/* Card Header */}
               <div className="flex items-center justify-between mb-8">
                 <span className="text-xs tracking-[0.15em] uppercase text-muted font-medium">
@@ -66,27 +84,27 @@ export function HeroSection() {
               </div>
 
               {/* 2×2 Stat Grid — gap-px creates hairline dividers */}
-              <div className="grid grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden mb-6">
-                <div className="bg-card-dark p-5">
-                  <div className="text-2xl font-display font-semibold text-white mb-1">47</div>
+              <div className="grid grid-cols-2 gap-px bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden mb-6">
+                <div className="bg-card-light dark:bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1">47</div>
                   <div className="text-xs text-muted">Leads enriched today</div>
                 </div>
-                <div className="bg-card-dark p-5">
-                  <div className="text-2xl font-display font-semibold text-white mb-1">10</div>
+                <div className="bg-card-light dark:bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1">10</div>
                   <div className="text-xs text-muted">Emails dispatched</div>
                 </div>
-                <div className="bg-card-dark p-5">
-                  <div className="text-2xl font-display font-semibold text-white mb-1">2</div>
+                <div className="bg-card-light dark:bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1">2</div>
                   <div className="text-xs text-muted">Replies received</div>
                 </div>
-                <div className="bg-card-dark p-5">
+                <div className="bg-card-light dark:bg-card-dark p-5">
                   <div className="text-2xl font-display font-semibold text-accent mb-1">100%</div>
                   <div className="text-xs text-muted">Automated</div>
                 </div>
               </div>
 
               {/* Footer Bar */}
-              <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.06)]">
+              <div className="flex items-center justify-between pt-4 border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)]">
                 <span className="text-xs text-muted">Outreach Engine · Running</span>
                 <span className="px-2 py-1 text-xs font-medium text-green bg-green/10 rounded-md">Live</span>
               </div>

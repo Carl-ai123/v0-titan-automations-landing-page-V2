@@ -25,13 +25,13 @@ export function ResultsSection() {
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Real results
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-[-0.03em]">
             Systems that actually work.
           </h2>
         </div>
 
         {/* Results Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 fade-up-section">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 fade-up-section">
           {results.map((result) => (
             <div
               key={result.metric}

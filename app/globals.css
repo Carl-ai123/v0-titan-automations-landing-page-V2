@@ -76,17 +76,22 @@
     scroll-padding-top: 5rem;
   }
   body {
-    @apply bg-dark text-text-dark;
-    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    /* bg and text-color are applied via Tailwind classes in layout.tsx */
+    background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
     background-size: 28px 28px;
+  }
+  .dark body {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   }
 }
 
+/* SVG network grid — stroke/fill swap for light/dark */
+.network-grid-line { stroke: rgba(0,0,0,0.08); }
+.dark .network-grid-line { stroke: rgba(255,255,255,0.08); }
+.network-dot { fill: rgba(0,0,0,0.15); }
+.dark .network-dot { fill: rgba(255,255,255,0.15); }
+
 /* Custom animations */
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
 
 @keyframes fade-up {
   from {
@@ -109,15 +114,6 @@
   100% { stroke-dashoffset: 0; }
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.animate-pulse-dot {
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
 .animate-fade-up {
   animation: fade-up 0.6s ease-out forwards;
 }
@@ -130,10 +126,6 @@
   stroke-dasharray: 24;
   stroke-dashoffset: 24;
   animation: check 0.4s ease-out forwards;
-}
-
-.animate-blink {
-  animation: blink 2s ease-in-out infinite;
 }
 
 /* Intersection Observer animations */
@@ -152,13 +144,6 @@
 section {
   overflow-x: hidden;
 }
-
-/* Stagger animations for mobile nav */
-.stagger-1 { animation-delay: 0.05s; }
-.stagger-2 { animation-delay: 0.1s; }
-.stagger-3 { animation-delay: 0.15s; }
-.stagger-4 { animation-delay: 0.2s; }
-.stagger-5 { animation-delay: 0.25s; }
 
 /* Accordion styles */
 .accordion-content {
@@ -191,10 +176,10 @@ section {
   100% { transform: translateY(200%); }
 }
 
-/* AutomationFlow — subtle ring pulse on nodes */
+/* AutomationFlow — subtle border pulse on nodes (border-only, no box-shadow) */
 @keyframes node-ring {
-  0%, 65%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-  30%           { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.12); }
+  0%, 65%, 100% { border-color: rgba(255,255,255,0.08); }
+  30%           { border-color: rgba(37, 99, 235, 0.45); }
 }
 
 .animate-flow-line {
