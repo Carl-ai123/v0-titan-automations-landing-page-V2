@@ -35,9 +35,9 @@ export function ResultsSection() {
           {results.map((result) => (
             <div
               key={result.metric}
-              className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7"
+              className="ring-1 ring-[rgba(255,255,255,0.08)] border-l-2 border-l-accent rounded-xl p-5 sm:p-7"
             >
-              <div className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-3 md:mb-4">
+              <div className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-3 md:mb-4">
                 {result.metric}
               </div>
               <p className="text-sm text-muted mb-3 leading-relaxed">{result.context}</p>

@@ -77,6 +77,8 @@
   }
   body {
     @apply bg-dark text-text-dark;
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 }
 
@@ -138,7 +140,7 @@
 .fade-up-section {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-up-section.visible {
@@ -166,5 +168,14 @@ section {
 }
 
 .accordion-content.open {
-  max-height: 200px;
+  max-height: 500px;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
 }

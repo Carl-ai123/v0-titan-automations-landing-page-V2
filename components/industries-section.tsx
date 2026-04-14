@@ -54,13 +54,13 @@ export function IndustriesSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 fade-up-section">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 fade-up-section">
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="bg-card-light border border-[rgba(0,0,0,0.08)] rounded-xl p-5 sm:p-7"
+              className="bg-card-light border border-[rgba(0,0,0,0.08)] rounded-xl p-5"
             >
-              <div className="w-10 h-10 mb-4 text-accent">{industry.icon}</div>
+              <div className="w-8 h-8 mb-4 text-accent">{industry.icon}</div>
               <h3 className="font-display text-lg font-semibold text-text-light mb-2">
                 {industry.title}
               </h3>

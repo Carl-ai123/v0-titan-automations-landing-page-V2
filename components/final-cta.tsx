@@ -2,6 +2,8 @@ export function FinalCTA() {
   return (
     <section id="cta" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto text-center fade-up-section">
+        {/* Accent rule */}
+        <div className="w-12 h-px bg-accent mx-auto mb-12" />
         <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6">
           Ready to see what&apos;s possible?
         </h2>

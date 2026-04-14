@@ -5,15 +5,13 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Column */}
           <div className="fade-up-section">
-            {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-tint mb-8">
-              <span className="text-sm font-medium text-accent">
-                AI Automation Agency · Kent &amp; South East
-              </span>
-            </div>
+            {/* Eyebrow */}
+            <span className="block text-xs tracking-[0.2em] uppercase text-muted font-medium mb-8">
+              AI Automation Agency · Kent &amp; South East
+            </span>
 
             {/* Headline */}
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-semibold text-white leading-[1.1] tracking-tight mb-5 md:mb-6 text-balance">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance">
               Build smarter. Automate everything. Grow without limits.
             </h1>
 
@@ -53,57 +51,44 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Dashboard Card */}
+          {/* Right Column — Dashboard Card */}
           <div className="fade-up-section">
-            <div className="bg-card-dark border border-[rgba(255,255,255,0.1)] rounded-2xl p-5 sm:p-6">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 bg-green rounded-full animate-pulse-dot" />
-                  <span className="text-sm text-muted">Systems Running</span>
-                </div>
-                <span className="px-2 py-1 text-xs font-medium text-green bg-green/10 rounded">
-                  Live
+            <div className="bg-card-dark border border-[rgba(255,255,255,0.12)] rounded-2xl p-5 sm:p-6">
+              {/* Card Header */}
+              <div className="flex items-center justify-between mb-8">
+                <span className="text-xs tracking-[0.15em] uppercase text-muted font-medium">
+                  Live System Overview
                 </span>
-              </div>
-
-              {/* Metrics */}
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center justify-between py-3 border-b border-[rgba(255,255,255,0.06)]">
-                  <span className="text-sm text-muted">Leads found today</span>
-                  <span className="text-lg font-display font-semibold text-white">47</span>
-                </div>
-                <div className="flex items-center justify-between py-3 border-b border-[rgba(255,255,255,0.06)]">
-                  <span className="text-sm text-muted">Emails sent</span>
-                  <span className="text-lg font-display font-semibold text-white">10</span>
-                </div>
-                <div className="flex items-center justify-between py-3 border-b border-[rgba(255,255,255,0.06)]">
-                  <span className="text-sm text-muted">Replies received</span>
-                  <span className="text-lg font-display font-semibold text-white">2</span>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green rounded-full" />
+                  <span className="text-xs text-muted">All systems live</span>
                 </div>
               </div>
 
-              {/* Company List */}
-              <div className="space-y-3 mb-6">
-                {["Guildford Dental", "Metro Trades Ltd", "Riverside Clinic"].map((company) => (
-                  <div
-                    key={company}
-                    className="flex items-center justify-between px-3 py-2 bg-[rgba(255,255,255,0.02)] rounded-lg"
-                  >
-                    <span className="text-sm text-text-dark">{company}</span>
-                    <span className="px-2 py-0.5 text-xs font-medium text-accent bg-accent/10 rounded">
-                      Active
-                    </span>
-                  </div>
-                ))}
+              {/* 2×2 Stat Grid — gap-px creates hairline dividers */}
+              <div className="grid grid-cols-2 gap-px bg-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden mb-6">
+                <div className="bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-white mb-1">47</div>
+                  <div className="text-xs text-muted">Leads enriched today</div>
+                </div>
+                <div className="bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-white mb-1">10</div>
+                  <div className="text-xs text-muted">Emails dispatched</div>
+                </div>
+                <div className="bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-white mb-1">2</div>
+                  <div className="text-xs text-muted">Replies received</div>
+                </div>
+                <div className="bg-card-dark p-5">
+                  <div className="text-2xl font-display font-semibold text-accent mb-1">100%</div>
+                  <div className="text-xs text-muted">Automated</div>
+                </div>
               </div>
 
-              {/* Status Bar */}
-              <div className="flex items-center gap-2 pt-4 border-t border-[rgba(255,255,255,0.06)]">
-                <span className="w-2 h-2 bg-green rounded-full animate-pulse-dot" />
-                <span className="text-sm text-muted animate-blink">
-                  Outreach Engine · Running
-                </span>
+              {/* Footer Bar */}
+              <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.06)]">
+                <span className="text-xs text-muted">Outreach Engine · Running</span>
+                <span className="px-2 py-1 text-xs font-medium text-green bg-green/10 rounded-md">Live</span>
               </div>
             </div>
           </div>

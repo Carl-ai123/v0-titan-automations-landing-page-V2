@@ -34,11 +34,11 @@ export function FAQSection() {
   ]
 
   return (
-    <section id="faq" className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 fade-up-section">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             Common questions.
           </h2>
         </div>
@@ -48,13 +48,13 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-card-light border border-[rgba(0,0,0,0.08)] rounded-xl overflow-hidden"
+              className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left"
               >
-                <span className="font-display font-medium text-text-light pr-4 text-sm sm:text-base">
+                <span className="font-display font-medium text-white pr-4 text-sm sm:text-base">
                   {faq.question}
                 </span>
                 <svg
@@ -75,7 +75,7 @@ export function FAQSection() {
               </button>
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-40" : "max-h-0"
+                  openIndex === index ? "max-h-96" : "max-h-0"
                 }`}
               >
                 <p className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm sm:text-base text-muted leading-relaxed">{faq.answer}</p>

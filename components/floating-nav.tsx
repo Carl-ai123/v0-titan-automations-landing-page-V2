@@ -23,6 +23,9 @@ export function FloatingNav() {
             <span className="text-muted">Automations</span>
           </a>
 
+          {/* Separator */}
+          <span className="w-px h-4 bg-[rgba(255,255,255,0.1)]" aria-hidden="true" />
+
           {/* Links */}
           <div className="flex items-center gap-6">
             {navLinks.map((link) => (
@@ -92,9 +95,12 @@ export function FloatingNav() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`text-2xl font-display text-white opacity-0 ${
-                isOpen ? `animate-fade-up stagger-${index + 1}` : ""
-              }`}
+              className="text-2xl font-display text-white transition-all duration-300"
+              style={{
+                transitionDelay: isOpen ? `${index * 50}ms` : "0ms",
+                opacity: isOpen ? 1 : 0,
+                transform: isOpen ? "translateY(0)" : "translateY(12px)",
+              }}
             >
               {link.label}
             </a>
@@ -102,9 +108,12 @@ export function FloatingNav() {
           <a
             href="#cta"
             onClick={() => setIsOpen(false)}
-            className={`mt-4 px-6 py-3 text-lg font-medium text-white bg-accent rounded-full opacity-0 ${
-              isOpen ? "animate-fade-up stagger-5" : ""
-            }`}
+            className="mt-4 px-6 py-3 text-lg font-medium text-white bg-accent rounded-full transition-all duration-300"
+            style={{
+              transitionDelay: isOpen ? `${navLinks.length * 50}ms` : "0ms",
+              opacity: isOpen ? 1 : 0,
+              transform: isOpen ? "translateY(0)" : "translateY(12px)",
+            }}
           >
             Book a Call
           </a>

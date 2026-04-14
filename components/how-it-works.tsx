@@ -12,7 +12,7 @@ function ChecklistItem({ label, delay }: { label: string; delay: number }) {
 
   return (
     <div className="flex items-center gap-2 py-1">
-      <div className="w-4 h-4 rounded border border-[rgba(0,0,0,0.1)] flex items-center justify-center bg-white">
+      <div className="w-4 h-4 rounded border border-[rgba(255,255,255,0.15)] flex items-center justify-center bg-[rgba(255,255,255,0.05)]">
         {checked && (
           <svg className="w-3 h-3 text-green" viewBox="0 0 24 24" fill="none">
             <path
@@ -26,7 +26,7 @@ function ChecklistItem({ label, delay }: { label: string; delay: number }) {
           </svg>
         )}
       </div>
-      <span className={`text-xs ${checked ? "text-text-light" : "text-muted"}`}>{label}</span>
+      <span className={`text-xs ${checked ? "text-white" : "text-muted"}`}>{label}</span>
     </div>
   )
 }
@@ -38,10 +38,10 @@ export function HowItWorks() {
       title: "Discovery Call",
       description: "We learn about your business, identify automation opportunities, and map out your ideal system.",
       card: (
-        <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4">
+        <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
           <div className="text-xs text-muted mb-2">Available Slot</div>
-          <div className="font-display font-medium text-text-light mb-1">Tomorrow, 10:00 AM</div>
-          <div className="inline-flex items-center px-2 py-1 text-xs bg-accent-tint text-accent rounded">
+          <div className="font-display font-medium text-white mb-1">Tomorrow, 10:00 AM</div>
+          <div className="inline-flex items-center px-2 py-1 text-xs bg-accent/10 text-accent rounded">
             20 min · Free
           </div>
         </div>
@@ -52,7 +52,7 @@ export function HowItWorks() {
       title: "We Build It",
       description: "Our team designs, develops, and tests your custom AI-powered system in under two weeks.",
       card: (
-        <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4">
+        <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
           <div className="text-xs text-muted mb-2">Build Progress</div>
           <ChecklistItem label="Website deployed" delay={500} />
           <ChecklistItem label="Automations configured" delay={1500} />
@@ -65,9 +65,9 @@ export function HowItWorks() {
       title: "You Go Live",
       description: "Your system launches. We monitor performance and handle any adjustments you need.",
       card: (
-        <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4">
+        <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 bg-green rounded-full animate-pulse-dot" />
+            <span className="w-2 h-2 bg-green rounded-full" />
             <span className="text-xs font-medium text-green">System Live</span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -81,33 +81,33 @@ export function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16 fade-up-section">
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Simple process
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             Live in 14 days. No fluff.
           </h2>
         </div>
 
         {/* Steps */}
         <div className="grid md:grid-cols-3 gap-10 md:gap-6 lg:gap-8 relative fade-up-section">
-          {/* Dashed line connector - desktop only */}
-          <div className="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-px border-t-2 border-dashed border-[rgba(0,0,0,0.1)]" />
+          {/* Dashed line connector — desktop only */}
+          <div className="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-px border-t-2 border-dashed border-[rgba(255,255,255,0.1)]" />
 
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
               {/* Step Number */}
-              <div className="font-display text-[80px] font-bold text-[rgba(0,0,0,0.06)] leading-none mb-2">
+              <div className="font-display text-[80px] font-bold text-[rgba(255,255,255,0.06)] leading-none mb-2">
                 {step.number}
               </div>
 
               {/* Content */}
               <div className="relative z-10 -mt-12">
-                <h3 className="font-display text-xl font-semibold text-text-light mb-2">
+                <h3 className="font-display text-xl font-semibold text-white mb-2">
                   {step.title}
                 </h3>
                 <p className="text-sm text-muted mb-4 leading-relaxed">
@@ -121,7 +121,7 @@ export function HowItWorks() {
               {/* Mobile connector */}
               {index < steps.length - 1 && (
                 <div className="md:hidden flex justify-center py-4">
-                  <div className="w-px h-8 border-l-2 border-dashed border-[rgba(0,0,0,0.1)]" />
+                  <div className="w-px h-8 border-l-2 border-dashed border-[rgba(255,255,255,0.1)]" />
                 </div>
               )}
             </div>
