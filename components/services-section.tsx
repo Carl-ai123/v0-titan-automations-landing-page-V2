@@ -1,21 +1,21 @@
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-dark py-20 md:py-32 px-4">
+    <section id="services" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-4">
+        <div className="text-center mb-10 md:mb-16 fade-up-section">
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             What we build
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-balance">
             Every system your business needs to grow.
           </h2>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 fade-up-section">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 fade-up-section">
           {/* Large Card - AI-Powered Websites */}
-          <div className="md:col-span-2 lg:col-span-2 bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-7">
+          <div className="sm:col-span-2 lg:col-span-2 bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7">
             {/* Icon */}
             <div className="w-10 h-10 mb-4 text-accent">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -59,7 +59,7 @@ export function ServicesSection() {
           </div>
 
           {/* Small Card 1 - Booking Systems */}
-          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-7">
+          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7">
             <div className="w-10 h-10 mb-4 text-accent">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <circle cx="12" cy="12" r="10" />
@@ -75,7 +75,7 @@ export function ServicesSection() {
           </div>
 
           {/* Small Card 2 - CRM & Pipelines */}
-          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-7">
+          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7">
             <div className="w-10 h-10 mb-4 text-accent">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 17h6M17 14v6" />
@@ -90,7 +90,7 @@ export function ServicesSection() {
           </div>
 
           {/* Small Card 3 - AI Chatbots */}
-          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-7">
+          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7">
             <div className="w-10 h-10 mb-4 text-accent">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
@@ -106,7 +106,7 @@ export function ServicesSection() {
           </div>
 
           {/* Small Card 4 - Review & Recall */}
-          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-7">
+          <div className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7">
             <div className="w-10 h-10 mb-4 text-accent">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />

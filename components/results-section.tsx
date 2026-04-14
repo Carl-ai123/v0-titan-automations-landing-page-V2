@@ -18,26 +18,26 @@ export function ResultsSection() {
   ]
 
   return (
-    <section id="results" className="bg-dark py-20 md:py-32 px-4">
+    <section id="results" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-4">
+        <div className="text-center mb-10 md:mb-16 fade-up-section">
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Real results
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             Systems that actually work.
           </h2>
         </div>
 
         {/* Results Grid */}
-        <div className="grid md:grid-cols-3 gap-4 fade-up-section">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 fade-up-section">
           {results.map((result) => (
             <div
               key={result.metric}
-              className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-7"
+              className="bg-card-dark border border-[rgba(255,255,255,0.08)] rounded-xl p-5 sm:p-7"
             >
-              <div className="font-display text-4xl md:text-5xl font-semibold text-white mb-4">
+              <div className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-3 md:mb-4">
                 {result.metric}
               </div>
               <p className="text-sm text-muted mb-3 leading-relaxed">{result.context}</p>

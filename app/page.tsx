@@ -13,18 +13,20 @@ import { ScrollAnimations } from "@/components/scroll-animations"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       <ScrollAnimations />
       <FloatingNav />
-      <HeroSection />
-      <MarqueeStrip />
-      <HowItWorks />
-      <ServicesSection />
-      <IndustriesSection />
-      <ResultsSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <FinalCTA />
+      <div className="flex flex-col">
+        <HeroSection />
+        <MarqueeStrip />
+        <HowItWorks />
+        <ServicesSection />
+        <IndustriesSection />
+        <ResultsSection />
+        <TestimonialsSection />
+        <FAQSection />
+        <FinalCTA />
+      </div>
       <Footer />
     </main>
   )

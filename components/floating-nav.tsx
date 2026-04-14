@@ -15,8 +15,8 @@ export function FloatingNav() {
   return (
     <>
       {/* Desktop Nav */}
-      <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 hidden md:block">
-        <div className="flex items-center gap-8 px-6 py-3 rounded-full bg-[rgba(10,10,10,0.7)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.08)]">
+      <nav className="fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 hidden md:block">
+        <div className="flex items-center gap-6 lg:gap-8 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-[rgba(10,10,10,0.85)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.08)] shadow-lg">
           {/* Logo */}
           <a href="#" className="flex items-center gap-1 font-display">
             <span className="text-white font-medium">Titan</span>
@@ -47,8 +47,8 @@ export function FloatingNav() {
       </nav>
 
       {/* Mobile Nav */}
-      <nav className="fixed top-5 left-4 right-4 z-50 md:hidden">
-        <div className="flex items-center justify-between px-4 py-3 rounded-full bg-[rgba(10,10,10,0.7)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.08)]">
+      <nav className="fixed top-4 left-4 right-4 z-50 md:hidden">
+        <div className="flex items-center justify-between px-4 py-2.5 rounded-full bg-[rgba(10,10,10,0.9)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.08)] shadow-lg">
           {/* Logo */}
           <a href="#" className="flex items-center gap-1 font-display">
             <span className="text-white font-medium">Titan</span>

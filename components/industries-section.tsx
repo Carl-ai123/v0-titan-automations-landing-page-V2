@@ -41,24 +41,24 @@ export function IndustriesSection() {
   ]
 
   return (
-    <section className="bg-light py-20 md:py-32 px-4">
+    <section className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-4">
+        <div className="text-center mb-10 md:mb-16 fade-up-section">
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Industries
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light text-balance">
             Built for businesses that are serious about growth.
           </h2>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-4 fade-up-section">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 fade-up-section">
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="bg-card-light border border-[rgba(0,0,0,0.08)] rounded-xl p-7"
+              className="bg-card-light border border-[rgba(0,0,0,0.08)] rounded-xl p-5 sm:p-7"
             >
               <div className="w-10 h-10 mb-4 text-accent">{industry.icon}</div>
               <h3 className="font-display text-lg font-semibold text-text-light mb-2">

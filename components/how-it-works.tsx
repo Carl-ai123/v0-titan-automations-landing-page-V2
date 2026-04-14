@@ -81,20 +81,20 @@ export function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" className="bg-light py-20 md:py-32 px-4">
+    <section id="how-it-works" className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-4">
+        <div className="text-center mb-10 md:mb-16 fade-up-section">
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
             Simple process
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light">
             Live in 14 days. No fluff.
           </h2>
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-4 relative fade-up-section">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-6 lg:gap-8 relative fade-up-section">
           {/* Dashed line connector - desktop only */}
           <div className="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-px border-t-2 border-dashed border-[rgba(0,0,0,0.1)]" />
 

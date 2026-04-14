@@ -34,17 +34,17 @@ export function FAQSection() {
   ]
 
   return (
-    <section id="faq" className="bg-light py-20 md:py-32 px-4">
+    <section id="faq" className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 fade-up-section">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light">
+        <div className="text-center mb-8 md:mb-12 fade-up-section">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light">
             Common questions.
           </h2>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3 fade-up-section">
+        <div className="space-y-2 sm:space-y-3 fade-up-section">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -52,9 +52,9 @@ export function FAQSection() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-left"
               >
-                <span className="font-display font-medium text-text-light pr-4">
+                <span className="font-display font-medium text-text-light pr-4 text-sm sm:text-base">
                   {faq.question}
                 </span>
                 <svg
@@ -78,7 +78,7 @@ export function FAQSection() {
                   openIndex === index ? "max-h-40" : "max-h-0"
                 }`}
               >
-                <p className="px-5 pb-5 text-muted leading-relaxed">{faq.answer}</p>
+                <p className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm sm:text-base text-muted leading-relaxed">{faq.answer}</p>
               </div>
             </div>
           ))}
