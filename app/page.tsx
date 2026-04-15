@@ -16,7 +16,7 @@ import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden pb-16 md:pb-0">
       <ScrollAnimations />
       <FloatingNav />
       <StickyMobileCTA />

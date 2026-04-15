@@ -143,6 +143,10 @@
 /* Prevent content from being cut off on smaller screens */
 section {
   overflow-x: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.dark section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* Accordion styles */
