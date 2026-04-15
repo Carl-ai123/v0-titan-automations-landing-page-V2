@@ -8,7 +8,6 @@ type Result = {
   suffix: string
   context: string
   outcome: string
-  decimals?: number
 }
 
 const results: Result[] = [

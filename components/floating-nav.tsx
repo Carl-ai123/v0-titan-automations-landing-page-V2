@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 type NavLink = {
@@ -31,6 +31,15 @@ const navLinks: NavLink[] = [
     ],
   },
   {
+    href: "#pricing",
+    label: "Pricing",
+    items: [
+      "Project Build from £1,200",
+      "Retainer from £150/mo",
+      "Custom — let's talk",
+    ],
+  },
+  {
     href: "#results",
     label: "Results",
     items: [
@@ -51,8 +60,16 @@ const navLinks: NavLink[] = [
   },
 ]
 
+// Stable module-level array — no need to recompute per render
+const sectionIds = navLinks.map((l) => l.href.slice(1))
+
 function useActiveSection(ids: string[]) {
   const [active, setActive] = useState<string>("")
+
+  // Stable memo so the effect never re-runs due to reference churn
+  const stableIds = useMemo(() => ids, // eslint-disable-line react-hooks/exhaustive-deps
+    // ids is already module-level so this never changes; memo just satisfies lint
+    [ids.join(",")])
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
@@ -67,7 +84,7 @@ function useActiveSection(ids: string[]) {
       setActive(best ? `#${best}` : "")
     }
 
-    ids.forEach((id) => {
+    stableIds.forEach((id) => {
       const el = document.getElementById(id)
       if (!el) return
       const obs = new IntersectionObserver(
@@ -86,38 +103,51 @@ function useActiveSection(ids: string[]) {
     })
 
     return () => observers.forEach((o) => o.disconnect())
-  }, [ids])
+  }, [stableIds])
 
   return active
 }
 
 export function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false)
-  const sectionIds = navLinks.map((l) => l.href.slice(1))
   const activeSection = useActiveSection(sectionIds)
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) setIsOpen(false)
+    }
+    document.addEventListener("keydown", handleKey)
+    return () => document.removeEventListener("keydown", handleKey)
+  }, [isOpen])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : ""
+    return () => { document.body.style.overflow = "" }
+  }, [isOpen])
 
   return (
     <>
       {/* Desktop Nav */}
       <nav className="fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 hidden md:block">
-        <div className="flex items-center gap-6 lg:gap-8 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-[rgba(250,250,249,0.9)] dark:bg-[rgba(10,10,10,0.85)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
+        <div className="flex items-center gap-5 lg:gap-7 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-[rgba(250,250,249,0.9)] dark:bg-[rgba(10,10,10,0.85)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1 font-display">
+          <a href="#" className="flex items-center gap-1 font-display shrink-0">
             <span className="text-text-light dark:text-white font-medium">Titan</span>
             <span className="text-muted">Automations</span>
           </a>
 
           {/* Separator */}
-          <span className="w-px h-4 bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.1)]" aria-hidden="true" />
+          <span className="w-px h-4 bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.1)] shrink-0" aria-hidden="true" />
 
           {/* Links with dropdowns */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 lg:gap-6">
             {navLinks.map((link) => (
               <div key={link.href} className="relative group">
-                {/* Link */}
                 <a
                   href={link.href}
-                  className={`text-sm transition-colors ${
+                  className={`text-sm transition-colors whitespace-nowrap ${
                     activeSection === link.href
                       ? "text-text-light dark:text-white font-medium"
                       : "text-muted hover:text-text-light dark:hover:text-white"
@@ -165,7 +195,7 @@ export function FloatingNav() {
           {/* CTA */}
           <a
             href="#cta"
-            className="px-4 py-2 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
+            className="shrink-0 px-4 py-2 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
           >
             Book a Call
           </a>
@@ -175,7 +205,6 @@ export function FloatingNav() {
       {/* Mobile Nav */}
       <nav className="fixed top-4 left-4 right-4 z-50 md:hidden">
         <div className="flex items-center justify-between px-4 py-2.5 rounded-full bg-[rgba(250,250,249,0.95)] dark:bg-[rgba(10,10,10,0.9)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
-          {/* Logo */}
           <a href="#" className="flex items-center gap-1 font-display">
             <span className="text-text-light dark:text-white font-medium">Titan</span>
             <span className="text-muted">Automations</span>
@@ -187,6 +216,8 @@ export function FloatingNav() {
               onClick={() => setIsOpen(!isOpen)}
               className="relative w-6 h-6 flex items-center justify-center"
               aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               <span className={`absolute w-5 h-0.5 bg-text-light dark:bg-white transition-all duration-300 ${isOpen ? "rotate-45" : "-translate-y-1.5"}`} />
               <span className={`absolute w-5 h-0.5 bg-text-light dark:bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`} />
@@ -198,6 +229,10 @@ export function FloatingNav() {
 
       {/* Mobile Menu Overlay */}
       <div
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
         className={`fixed inset-0 z-40 bg-light dark:bg-dark transition-opacity duration-300 md:hidden ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}

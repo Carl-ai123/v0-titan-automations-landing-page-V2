@@ -181,8 +181,12 @@ section {
 }
 
 /* AutomationFlow — subtle border pulse on nodes (border-only, no box-shadow) */
+/* CSS variable lets the resting color respond to light/dark mode */
+:root        { --node-ring-rest: rgba(0,0,0,0.08); }
+.dark        { --node-ring-rest: rgba(255,255,255,0.08); }
+
 @keyframes node-ring {
-  0%, 65%, 100% { border-color: rgba(255,255,255,0.08); }
+  0%, 65%, 100% { border-color: var(--node-ring-rest); }
   30%           { border-color: rgba(37, 99, 235, 0.45); }
 }
 

@@ -1,30 +1,33 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false)
-  const heroRef = useRef<Element | null>(null)
-  const ctaRef = useRef<Element | null>(null)
 
   useEffect(() => {
-    // Show after hero exits viewport; hide when final CTA enters
-    const handleScroll = () => {
-      if (!heroRef.current) heroRef.current = document.querySelector('#hero-sentinel') ?? document.querySelector('section')
-      if (!ctaRef.current) ctaRef.current = document.querySelector('#cta')
+    // Show once hero exits viewport; hide once the final CTA section enters
+    let heroPast = false
+    let ctaNear = false
 
-      const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0
-      const ctaTop = ctaRef.current?.getBoundingClientRect().top ?? Infinity
+    const update = () => setVisible(heroPast && !ctaNear)
 
-      const pastHero = heroBottom < 0
-      const nearCTA = ctaTop < window.innerHeight * 0.8
+    const heroEl = document.querySelector('section') // first section = hero
+    const ctaEl = document.getElementById('cta')
 
-      setVisible(pastHero && !nearCTA)
-    }
+    const heroObs = new IntersectionObserver(
+      ([entry]) => { heroPast = !entry.isIntersecting; update() },
+      { threshold: 0 }
+    )
+    const ctaObs = new IntersectionObserver(
+      ([entry]) => { ctaNear = entry.isIntersecting; update() },
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+    )
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    if (heroEl) heroObs.observe(heroEl)
+    if (ctaEl) ctaObs.observe(ctaEl)
+
+    return () => { heroObs.disconnect(); ctaObs.disconnect() }
   }, [])
 
   return (

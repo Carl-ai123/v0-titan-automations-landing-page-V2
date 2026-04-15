@@ -48,6 +48,37 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'FAQPage',
+      '@id': `${siteUrl}/#faq`,
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What exactly do you build?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Websites, booking systems, CRM automations, AI chatbots, lead generation pipelines, review systems, and custom integrations between any tools your business already uses.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How long does it take?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Most systems go live within 14 days of our first call. Simple websites in under a week.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do I own everything?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every website, workflow and system is yours. No lock-in, no platform dependency.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'What does it cost?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Project builds start from £1,200. Monthly retainers from £150/month. We\'ll give you a clear fixed quote before anything starts.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you work outside Kent?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes — we work with businesses across the South East and remotely across the UK.' },
+        },
+      ],
+    },
+    {
       '@type': 'LocalBusiness',
       '@id': `${siteUrl}/#business`,
       name: 'Titan Automations',
