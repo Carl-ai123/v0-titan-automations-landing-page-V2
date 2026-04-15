@@ -34,11 +34,11 @@ export function FAQSection() {
   ]
 
   return (
-    <section id="faq" className="bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Header — left-aligned */}
         <div className="mb-8 md:mb-12 fade-up-section">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-[-0.03em]">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em]">
             Common questions.
           </h2>
         </div>
@@ -48,13 +48,13 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.14)] transition-colors duration-200 rounded-xl overflow-hidden"
+              className="bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.03)] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] hover:border-[rgba(0,0,0,0.14)] dark:hover:border-[rgba(255,255,255,0.14)] transition-colors duration-200 rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-4 sm:p-5 text-left"
               >
-                <span className="font-display font-medium text-white pr-4 text-sm sm:text-base">
+                <span className="font-display font-medium text-text-light dark:text-white pr-4 text-sm sm:text-base">
                   {faq.question}
                 </span>
                 <svg

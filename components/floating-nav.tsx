@@ -1,17 +1,60 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
+
+const navLinks = [
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#services", label: "Services" },
+  { href: "#results", label: "Results" },
+  { href: "#faq", label: "FAQ" },
+]
+
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string>("")
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+
+    const visibleSections = new Map<string, number>()
+
+    const pickMostVisible = () => {
+      let best = ""
+      let bestRatio = 0
+      visibleSections.forEach((ratio, id) => {
+        if (ratio > bestRatio) { bestRatio = ratio; best = id }
+      })
+      setActive(best ? `#${best}` : "")
+    }
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(id, entry.intersectionRatio)
+          } else {
+            visibleSections.delete(id)
+          }
+          pickMostVisible()
+        },
+        { threshold: [0, 0.1, 0.3, 0.5, 0.75, 1] }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+
+    return () => observers.forEach((o) => o.disconnect())
+  }, [ids])
+
+  return active
+}
 
 export function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false)
-
-  const navLinks = [
-    { href: "#how-it-works", label: "How It Works" },
-    { href: "#services", label: "Services" },
-    { href: "#results", label: "Results" },
-    { href: "#faq", label: "FAQ" },
-  ]
+  const sectionIds = navLinks.map((l) => l.href.slice(1))
+  const activeSection = useActiveSection(sectionIds)
 
   return (
     <>
@@ -33,7 +76,11 @@ export function FloatingNav() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors"
+                className={`text-sm transition-colors ${
+                  activeSection === link.href
+                    ? "text-text-light dark:text-white font-medium"
+                    : "text-muted hover:text-text-light dark:hover:text-white"
+                }`}
               >
                 {link.label}
               </a>
@@ -104,7 +151,11 @@ export function FloatingNav() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-display text-text-light dark:text-white transition-all duration-300"
+              className={`text-2xl font-display transition-all duration-300 ${
+                activeSection === link.href
+                  ? "text-text-light dark:text-white font-medium"
+                  : "text-text-light dark:text-white"
+              }`}
               style={{
                 transitionDelay: isOpen ? `${index * 50}ms` : "0ms",
                 opacity: isOpen ? 1 : 0,

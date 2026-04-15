@@ -16,10 +16,68 @@ const dmSans = DM_Sans({
   display: 'swap',
 });
 
+const siteUrl = 'https://titan-automations.com'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Titan Automations | AI Automation Agency | Kent & South East',
   description: 'We design and build AI-powered systems for businesses that are ready to stop doing things manually. Websites, automations, chatbots — all connected, all yours.',
   keywords: ['AI automation', 'business automation', 'Kent', 'South East England', 'chatbots', 'CRM', 'booking systems'],
+  authors: [{ name: 'Titan Automations' }],
+  openGraph: {
+    type: 'website',
+    url: siteUrl,
+    title: 'Titan Automations | AI Automation Agency | Kent & South East',
+    description: 'We design and build AI-powered systems for businesses that are ready to stop doing things manually. Websites, automations, chatbots — all connected, all yours.',
+    siteName: 'Titan Automations',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Titan Automations — AI Automation Agency' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Titan Automations | AI Automation Agency',
+    description: 'AI-powered websites, automations, chatbots, and CRM systems for ambitious businesses in Kent & South East England.',
+    images: ['/opengraph-image'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#business`,
+      name: 'Titan Automations',
+      description: 'AI automation agency specialising in websites, booking systems, CRM pipelines, chatbots, and lead generation for businesses in Kent and the South East.',
+      url: siteUrl,
+      email: 'carl@titan-automations.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Kent',
+        addressCountry: 'GB',
+      },
+      areaServed: ['Kent', 'South East England', 'United Kingdom'],
+      priceRange: '££',
+      serviceType: 'AI Automation',
+    },
+    {
+      '@type': 'Service',
+      '@id': `${siteUrl}/#services`,
+      name: 'AI Business Automation',
+      provider: { '@id': `${siteUrl}/#business` },
+      serviceType: 'Business Process Automation',
+      offers: [
+        { '@type': 'Offer', name: 'AI-Powered Websites' },
+        { '@type': 'Offer', name: 'Booking & Scheduling Systems' },
+        { '@type': 'Offer', name: 'CRM & Lead Pipelines' },
+        { '@type': 'Offer', name: 'AI Chatbots' },
+        { '@type': 'Offer', name: 'Review & Recall Systems' },
+      ],
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -29,6 +87,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${geist.variable} ${dmSans.variable} font-body antialiased bg-light text-text-light dark:bg-dark dark:text-text-dark`}>
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           {children}

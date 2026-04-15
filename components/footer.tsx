@@ -1,13 +1,13 @@
 export function Footer() {
   return (
-    <footer className="bg-dark border-t border-[rgba(255,255,255,0.06)] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-light dark:bg-dark border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-1 font-display mb-3 md:mb-4">
-              <span className="text-white font-medium">Titan</span>
+              <span className="text-text-light dark:text-white font-medium">Titan</span>
               <span className="text-muted">Automations</span>
             </div>
             <p className="text-sm text-muted leading-relaxed max-w-xs">
@@ -17,30 +17,30 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-medium text-white mb-3 md:mb-4 text-sm sm:text-base">Services</h4>
+            <h4 className="font-display font-medium text-text-light dark:text-white mb-3 md:mb-4 text-sm sm:text-base">Services</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#services" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   AI-Powered Websites
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   Booking Systems
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   CRM &amp; Pipelines
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   AI Chatbots
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   Review &amp; Recall
                 </a>
               </li>
@@ -49,20 +49,20 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-display font-medium text-white mb-3 md:mb-4 text-sm sm:text-base">Company</h4>
+            <h4 className="font-display font-medium text-text-light dark:text-white mb-3 md:mb-4 text-sm sm:text-base">Company</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#how-it-works" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#how-it-works" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#cta" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#cta" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#results" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#results" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   Results
                 </a>
               </li>
@@ -71,10 +71,10 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-display font-medium text-white mb-3 md:mb-4 text-sm sm:text-base">Legal</h4>
+            <h4 className="font-display font-medium text-text-light dark:text-white mb-3 md:mb-4 text-sm sm:text-base">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm text-muted hover:text-white transition-colors">
+                <a href="#" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
                   Privacy Policy
                 </a>
               </li>
@@ -83,7 +83,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 md:pt-8 border-t border-[rgba(255,255,255,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
+        <div className="pt-6 md:pt-8 border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
           <p className="text-sm text-muted">
             &copy; {new Date().getFullYear()} Titan Automations · Kent, UK
           </p>

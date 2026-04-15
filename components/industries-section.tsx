@@ -41,7 +41,8 @@ export function IndustriesSection() {
   ]
 
   return (
-    <section id="industries" className="bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    // In dark mode: warm-white contrast break. In light mode: subtle grey contrast break.
+    <section id="industries" className="bg-[#EEEEEC] dark:bg-light py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16 fade-up-section">

@@ -15,7 +15,7 @@ export function MarqueeStrip() {
   ]
 
   return (
-    <section className="bg-dark py-3 md:py-4 overflow-hidden border-y border-[rgba(255,255,255,0.04)]">
+    <section className="bg-light dark:bg-dark py-3 md:py-4 overflow-hidden border-y border-[rgba(0,0,0,0.04)] dark:border-[rgba(255,255,255,0.04)]">
       <div className="flex items-center">
         {/* Label */}
         <div className="shrink-0 pl-4 md:pl-8 pr-8 text-xs text-muted tracking-[0.15em] uppercase font-medium">
@@ -28,19 +28,19 @@ export function MarqueeStrip() {
             {/* First set */}
             {items.map((item, index) => (
               <div key={`a-${index}`} className="flex items-center shrink-0">
-                <span className="text-sm font-medium text-text-dark whitespace-nowrap px-6">
+                <span className="text-sm font-medium text-text-light dark:text-text-dark whitespace-nowrap px-6">
                   {item}
                 </span>
-                <span className="w-1.5 h-1.5 bg-[rgba(255,255,255,0.2)] rounded-full shrink-0" />
+                <span className="w-1.5 h-1.5 bg-[rgba(0,0,0,0.2)] dark:bg-[rgba(255,255,255,0.2)] rounded-full shrink-0" />
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
             {items.map((item, index) => (
               <div key={`b-${index}`} className="flex items-center shrink-0">
-                <span className="text-sm font-medium text-text-dark whitespace-nowrap px-6">
+                <span className="text-sm font-medium text-text-light dark:text-text-dark whitespace-nowrap px-6">
                   {item}
                 </span>
-                <span className="w-1.5 h-1.5 bg-[rgba(255,255,255,0.2)] rounded-full shrink-0" />
+                <span className="w-1.5 h-1.5 bg-[rgba(0,0,0,0.2)] dark:bg-[rgba(255,255,255,0.2)] rounded-full shrink-0" />
               </div>
             ))}
           </div>

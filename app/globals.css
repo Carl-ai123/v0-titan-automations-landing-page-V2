@@ -193,3 +193,15 @@ section {
 .animate-node-ring {
   animation: node-ring 2.5s ease-in-out infinite;
 }
+
+/* Accessible focus-visible ring — keyboard nav only */
+:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Suppress outline for mouse/touch interactions */
+:focus:not(:focus-visible) {
+  outline: none;
+}
