@@ -136,9 +136,20 @@ export function FloatingNav() {
       <nav className="fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <div className="flex items-center gap-5 lg:gap-7 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-[rgba(250,250,249,0.9)] dark:bg-[rgba(10,10,10,0.85)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1 shrink-0">
-            <span className="font-audiowide text-[14px] tracking-wide text-text-light dark:text-white">Titan</span>
-            <span className="font-audiowide text-[14px] tracking-wide text-muted">Automations</span>
+          <a href="#" className="flex items-center gap-2.5 shrink-0">
+            {/* T mark icon */}
+            <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+              <rect width="64" height="64" rx="13" className="fill-[#0A0A0A]"/>
+              <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="12.25" stroke="white" strokeOpacity="0.1" strokeWidth="0.5"/>
+              <rect x="9.5" y="13.5" width="45" height="9" rx="2.5" fill="white"/>
+              <rect x="27.5" y="13.5" width="9" height="37" rx="2.5" fill="white"/>
+              <circle cx="32" cy="18" r="6.5" fill="#2563EB" fillOpacity="0.2"/>
+              <circle cx="32" cy="18" r="4.5" fill="#2563EB"/>
+              <circle cx="12" cy="18" r="2.75" fill="#2563EB" fillOpacity="0.8"/>
+              <circle cx="52" cy="18" r="2.75" fill="#2563EB" fillOpacity="0.8"/>
+            </svg>
+            <span className="font-audiowide text-[13px] tracking-wide text-text-light dark:text-white">Titan</span>
+            <span className="font-audiowide text-[13px] tracking-wide text-muted">Automations</span>
           </a>
 
           {/* Separator */}
@@ -208,9 +219,19 @@ export function FloatingNav() {
       {/* Mobile Nav */}
       <nav className="fixed top-4 left-4 right-4 z-50 md:hidden">
         <div className="flex items-center justify-between px-4 py-2.5 rounded-full bg-[rgba(250,250,249,0.95)] dark:bg-[rgba(10,10,10,0.9)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
-          <a href="#" className="flex items-center gap-1">
-            <span className="font-audiowide text-[14px] tracking-wide text-text-light dark:text-white">Titan</span>
-            <span className="font-audiowide text-[14px] tracking-wide text-muted">Automations</span>
+          <a href="#" className="flex items-center gap-2 shrink-0">
+            <svg width="24" height="24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+              <rect width="64" height="64" rx="13" className="fill-[#0A0A0A]"/>
+              <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="12.25" stroke="white" strokeOpacity="0.1" strokeWidth="0.5"/>
+              <rect x="9.5" y="13.5" width="45" height="9" rx="2.5" fill="white"/>
+              <rect x="27.5" y="13.5" width="9" height="37" rx="2.5" fill="white"/>
+              <circle cx="32" cy="18" r="6.5" fill="#2563EB" fillOpacity="0.2"/>
+              <circle cx="32" cy="18" r="4.5" fill="#2563EB"/>
+              <circle cx="12" cy="18" r="2.75" fill="#2563EB" fillOpacity="0.8"/>
+              <circle cx="52" cy="18" r="2.75" fill="#2563EB" fillOpacity="0.8"/>
+            </svg>
+            <span className="font-audiowide text-[13px] tracking-wide text-text-light dark:text-white">Titan</span>
+            <span className="font-audiowide text-[13px] tracking-wide text-muted">Automations</span>
           </a>
 
           <div className="flex items-center gap-1">

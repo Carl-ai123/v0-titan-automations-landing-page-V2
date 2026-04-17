@@ -1,0 +1,46 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded square container -->
+  <rect width="64" height="64" rx="13" fill="#0A0A0A"/>
+
+  <!-- Faint inner border glow -->
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="12.25"
+        stroke="white" stroke-opacity="0.07" stroke-width="0.5"/>
+
+  <!-- Ambient blue radial glow — top centre, very subtle depth -->
+  <radialGradient id="a" cx="50%" cy="0%" r="70%" gradientUnits="userSpaceOnUse"
+                  x1="32" y1="0" x2="32" y2="44">
+    <stop offset="0%" stop-color="#2563EB" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="64" height="64" rx="13" fill="url(#a)"/>
+
+  <!-- T crossbar — solid white -->
+  <rect x="9.5" y="13.5" width="45" height="9" rx="2.5" fill="white"/>
+
+  <!-- T stem — gradient from blue-tinted top to clean white, gives "powered" look -->
+  <linearGradient id="b" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"  stop-color="#3B82F6" stop-opacity="0.55"/>
+    <stop offset="22%" stop-color="white"   stop-opacity="1"/>
+    <stop offset="100%" stop-color="white"  stop-opacity="1"/>
+  </linearGradient>
+  <rect x="27.5" y="13.5" width="9" height="37" rx="2.5" fill="url(#b)"/>
+
+  <!-- Hairline circuit-trace through crossbar connecting all three nodes -->
+  <rect x="9.5" y="17.5" width="45" height="1" fill="#2563EB" opacity="0.22"/>
+
+  <!-- Left endpoint node — glow ring + fill -->
+  <circle cx="12" cy="18" r="4.5" fill="#2563EB" opacity="0.14"/>
+  <circle cx="12" cy="18" r="2.75" fill="#2563EB" opacity="0.85"/>
+
+  <!-- Right endpoint node — glow ring + fill -->
+  <circle cx="52" cy="18" r="4.5" fill="#2563EB" opacity="0.14"/>
+  <circle cx="52" cy="18" r="2.75" fill="#2563EB" opacity="0.85"/>
+
+  <!-- Centre junction node — larger, with glow + highlight -->
+  <circle cx="32" cy="18" r="6.5" fill="#2563EB" opacity="0.18"/>
+  <circle cx="32" cy="18" r="4.5" fill="#2563EB"/>
+  <circle cx="30.5" cy="16.5" r="1.4" fill="white" opacity="0.35"/>
+
+  <!-- Bottom stem accent dot -->
+  <circle cx="32" cy="49.5" r="1.75" fill="#2563EB" opacity="0.28"/>
+</svg>

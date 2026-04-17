@@ -34,14 +34,37 @@ export default function OGImage() {
           }}
         />
 
-        {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{ color: '#FAFAF9', fontSize: '22px', fontWeight: 600, letterSpacing: '-0.02em' }}>
-            Titan
-          </span>
-          <span style={{ color: '#888888', fontSize: '22px', letterSpacing: '-0.02em' }}>
-            Automations
-          </span>
+        {/* Logo — T mark icon + wordmark */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          {/* T mark */}
+          <div
+            style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '10px',
+              background: '#111111',
+              border: '1px solid rgba(255,255,255,0.08)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            {/* Glow */}
+            <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '40px', height: '28px', background: 'radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%)' }} />
+            {/* T crossbar */}
+            <div style={{ position: 'absolute', top: '12px', left: '7px', width: '30px', height: '5.5px', borderRadius: '1.5px', background: 'white' }} />
+            {/* T stem */}
+            <div style={{ position: 'absolute', top: '12px', left: '18px', width: '8px', height: '22px', borderRadius: '1.5px', background: 'white' }} />
+            {/* Blue junction node */}
+            <div style={{ position: 'absolute', top: '9px', left: '19px', width: '6px', height: '6px', borderRadius: '50%', background: '#2563EB' }} />
+          </div>
+          {/* Wordmark */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+            <span style={{ color: '#F5F5F5', fontSize: '18px', fontWeight: 600, letterSpacing: '1px' }}>TITAN</span>
+            <span style={{ color: '#666666', fontSize: '9px', letterSpacing: '3px' }}>AUTOMATIONS</span>
+          </div>
         </div>
 
         {/* Main content */}
