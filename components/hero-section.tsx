@@ -1,3 +1,8 @@
+"use client"
+
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+
 export function HeroSection() {
   return (
     <section className="bg-light dark:bg-dark min-h-[100dvh] pt-28 md:pt-36 pb-16 md:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8">
@@ -34,15 +39,15 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-6 md:mb-8 opacity-0 animate-fade-up"
               style={{ animationDelay: "0.5s" }}
             >
-              <a
-                href="#cta"
-                className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
+              <button
+                onClick={openCalendly}
+                className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
               >
                 Book a Free Demo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </button>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center px-6 py-3 text-base font-medium text-text-light dark:text-white border border-[rgba(0,0,0,0.2)] dark:border-[rgba(255,255,255,0.2)] rounded-full hover:border-[rgba(0,0,0,0.4)] dark:hover:border-[rgba(255,255,255,0.4)] transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"

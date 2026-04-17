@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react"
 
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+
 export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false)
 
@@ -43,15 +46,15 @@ export function StickyMobileCTA() {
         <div className="flex-1 min-w-0">
           <p className="text-xs text-muted truncate">Free 20-min discovery call</p>
         </div>
-        <a
-          href="mailto:carl@titan-automations.com?subject=Free Demo Request"
+        <button
+          onClick={openCalendly}
           className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors active:scale-95"
         >
           Book Free Demo
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
-        </a>
+        </button>
       </div>
     </div>
   )

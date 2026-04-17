@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+
 type NavLink = {
   href: string
   label: string
@@ -193,12 +196,12 @@ export function FloatingNav() {
           <ThemeToggle />
 
           {/* CTA */}
-          <a
-            href="#cta"
-            className="shrink-0 px-4 py-2 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
+          <button
+            onClick={openCalendly}
+            className="shrink-0 px-4 py-2 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
           >
             Book a Call
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -253,9 +256,8 @@ export function FloatingNav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#cta"
-            onClick={() => setIsOpen(false)}
+          <button
+            onClick={() => { setIsOpen(false); openCalendly() }}
             className="mt-4 px-6 py-3 text-lg font-medium text-white bg-accent rounded-full transition-all duration-300"
             style={{
               transitionDelay: isOpen ? `${navLinks.length * 50}ms` : "0ms",
@@ -264,7 +266,7 @@ export function FloatingNav() {
             }}
           >
             Book a Call
-          </a>
+          </button>
         </div>
       </div>
     </>

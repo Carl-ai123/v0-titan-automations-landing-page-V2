@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(mkdir -p \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\app\\\\actions\")",
+      "Bash(echo \"\")",
+      "Bash(mkdir -p \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\types\")"
     ]
   }
 }

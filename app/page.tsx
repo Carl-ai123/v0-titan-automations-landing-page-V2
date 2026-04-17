@@ -9,7 +9,7 @@ import { ResultsSection } from "@/components/results-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
-import { FinalCTA } from "@/components/final-cta"
+import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { ScrollAnimations } from "@/components/scroll-animations"
 import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
@@ -31,7 +31,7 @@ export default function Home() {
         <TestimonialsSection />
         <PricingSection />
         <FAQSection />
-        <FinalCTA />
+        <ContactSection />
       </div>
       <Footer />
     </main>
