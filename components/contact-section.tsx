@@ -68,6 +68,76 @@ function CalendlyEmbed() {
   )
 }
 
+function ServiceSelect({
+  value,
+  onChange,
+  inputClass,
+}: {
+  value: string
+  onChange: (v: string) => void
+  inputClass: string
+}) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener("mousedown", handler)
+    return () => document.removeEventListener("mousedown", handler)
+  }, [])
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className={`${inputClass} flex items-center justify-between text-left w-full ${
+          value ? "text-text-light dark:text-white" : ""
+        }`}
+      >
+        <span>{value || "Select a service..."}</span>
+        <svg
+          className={`w-4 h-4 text-muted shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 right-0 z-50 mt-1 rounded-xl overflow-hidden border border-[rgba(0,0,0,0.12)] dark:border-[rgba(255,255,255,0.12)] bg-[#F5F2EE] dark:bg-card-dark shadow-xl dark:shadow-[0_12px_32px_rgba(0,0,0,0.6)]">
+          <button
+            type="button"
+            onClick={() => { onChange(""); setOpen(false) }}
+            className="w-full text-left px-4 py-2.5 text-sm text-muted hover:bg-[rgba(0,0,0,0.04)] dark:hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+          >
+            Select a service...
+          </button>
+          <div className="h-px bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.06)]" />
+          {serviceOptions.map((opt) => (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => { onChange(opt); setOpen(false) }}
+              className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                value === opt
+                  ? "text-accent bg-accent/8 dark:bg-accent/10"
+                  : "text-text-light dark:text-white hover:bg-[rgba(0,0,0,0.04)] dark:hover:bg-[rgba(255,255,255,0.05)]"
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function ContactForm({ onSuccess }: { onSuccess: () => void }) {
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
@@ -149,33 +219,16 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
         />
       </div>
 
-      {/* Service dropdown */}
+      {/* Service dropdown — custom component, fully styled in dark mode */}
       <div>
         <label className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
           What do you need help with?
         </label>
-        <div className="relative">
-          <select
-            value={form.service}
-            onChange={set("service")}
-            className={`${inputClass} appearance-none pr-10`}
-          >
-            <option value="">Select a service...</option>
-            {serviceOptions.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
-          </select>
-          <svg
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
+        <ServiceSelect
+          value={form.service}
+          onChange={(v) => setForm((f) => ({ ...f, service: v }))}
+          inputClass={inputClass}
+        />
       </div>
 
       {/* Message */}

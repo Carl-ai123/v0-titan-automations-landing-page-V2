@@ -6,9 +6,9 @@
 :root {
   /* Titan Automations Brand Tokens */
   --dark-bg: #0A0A0A;
-  --light-bg: #FAFAF9;
-  --card-dark: #111111;
-  --card-light: #FFFFFF;
+  --light-bg: #F5F2EE;        /* warm off-white — was #FAFAF9 */
+  --card-dark: #131313;       /* slightly warmer — was #111111 */
+  --card-light: #EDE9E3;      /* warm card bg — was #FFFFFF */
   --border-dark: rgba(255, 255, 255, 0.08);
   --border-light: rgba(0, 0, 0, 0.08);
   --accent: #2563EB;
@@ -40,15 +40,18 @@
   --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
   
   --color-dark: #0A0A0A;
-  --color-light: #FAFAF9;
-  --color-card-dark: #111111;
-  --color-card-light: #FFFFFF;
+  --color-light: #F5F2EE;       /* warm off-white */
+  --color-card-dark: #131313;   /* slightly warmer card */
+  --color-card-light: #EDE9E3;  /* warm card bg */
   --color-accent: #2563EB;
   --color-accent-tint: #EFF4FF;
   --color-text-dark: #F5F5F5;
   --color-text-light: #0A0A0A;
   --color-muted: #888888;
   --color-green: #22C55E;
+
+  /* Audiowide — Google Font, applied to the "Titan Automations" brand logo only */
+  --font-audiowide: var(--font-audiowide), 'Audiowide', sans-serif;
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -68,6 +71,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -83,6 +87,11 @@
   .dark body {
     background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   }
+}
+
+/* Audiowide utility class — used for "Titan Automations" brand logo */
+.font-audiowide {
+  font-family: var(--font-audiowide);
 }
 
 /* SVG network grid — stroke/fill swap for light/dark */
@@ -212,4 +221,19 @@ section {
 /* Suppress outline for mouse/touch interactions */
 :focus:not(:focus-visible) {
   outline: none;
+}
+
+/* Native <select> in dark mode — forces browser to render dropdown with dark colours */
+.dark select {
+  color-scheme: dark;
+}
+
+/* ── Warm colour transition flanking the light-break (Industries) section ── */
+/* AutomationFlow fades to a warm dark at its base, leading into the off-white */
+.dark #automation {
+  background: linear-gradient(to bottom, #0A0A0A 0%, #0A0A0A 55%, #13100C 100%);
+}
+/* Results emerges from the same warm dark, fading back to soft black */
+.dark #results {
+  background: linear-gradient(to bottom, #13100C 0%, #0A0A0A 40%);
 }

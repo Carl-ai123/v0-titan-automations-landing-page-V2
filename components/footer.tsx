@@ -6,9 +6,9 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-1 font-display mb-3 md:mb-4">
-              <span className="text-text-light dark:text-white font-medium">Titan</span>
-              <span className="text-muted">Automations</span>
+            <div className="flex items-center gap-1 mb-3 md:mb-4">
+              <span className="font-audiowide text-sm tracking-wide text-text-light dark:text-white">Titan</span>
+              <span className="font-audiowide text-sm tracking-wide text-muted">Automations</span>
             </div>
             <p className="text-sm text-muted leading-relaxed max-w-xs">
               AI automation for businesses that mean it.

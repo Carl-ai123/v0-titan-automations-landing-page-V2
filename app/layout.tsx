@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, DM_Sans } from 'next/font/google'
+import { Geist, DM_Sans, Audiowide } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import Script from 'next/script'
@@ -14,6 +14,13 @@ const geist = Geist({
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+const audiowide = Audiowide({
+  subsets: ["latin"],
+  weight: "400",
+  variable: '--font-audiowide',
   display: 'swap',
 });
 
@@ -126,7 +133,7 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
       </head>
-      <body className={`${geist.variable} ${dmSans.variable} font-body antialiased bg-light text-text-light dark:bg-dark dark:text-text-dark`}>
+      <body className={`${geist.variable} ${dmSans.variable} ${audiowide.variable} font-body antialiased bg-light text-text-light dark:bg-dark dark:text-text-dark`}>
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           {children}
         </ThemeProvider>

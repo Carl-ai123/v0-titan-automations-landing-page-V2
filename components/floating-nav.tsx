@@ -136,9 +136,9 @@ export function FloatingNav() {
       <nav className="fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <div className="flex items-center gap-5 lg:gap-7 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-[rgba(250,250,249,0.9)] dark:bg-[rgba(10,10,10,0.85)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1 font-display shrink-0">
-            <span className="text-text-light dark:text-white font-medium">Titan</span>
-            <span className="text-muted">Automations</span>
+          <a href="#" className="flex items-center gap-1 shrink-0">
+            <span className="font-audiowide text-[14px] tracking-wide text-text-light dark:text-white">Titan</span>
+            <span className="font-audiowide text-[14px] tracking-wide text-muted">Automations</span>
           </a>
 
           {/* Separator */}
@@ -208,9 +208,9 @@ export function FloatingNav() {
       {/* Mobile Nav */}
       <nav className="fixed top-4 left-4 right-4 z-50 md:hidden">
         <div className="flex items-center justify-between px-4 py-2.5 rounded-full bg-[rgba(250,250,249,0.95)] dark:bg-[rgba(10,10,10,0.9)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
-          <a href="#" className="flex items-center gap-1 font-display">
-            <span className="text-text-light dark:text-white font-medium">Titan</span>
-            <span className="text-muted">Automations</span>
+          <a href="#" className="flex items-center gap-1">
+            <span className="font-audiowide text-[14px] tracking-wide text-text-light dark:text-white">Titan</span>
+            <span className="font-audiowide text-[14px] tracking-wide text-muted">Automations</span>
           </a>
 
           <div className="flex items-center gap-1">
