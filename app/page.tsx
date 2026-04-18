@@ -23,12 +23,12 @@ export default function Home() {
       <div className="flex flex-col">
         <HeroSection />
         <MarqueeStrip />
-        <HowItWorks />
         <ServicesSection />
         <AutomationFlow />
-        <IndustriesSection />
         <ResultsSection />
         <TestimonialsSection />
+        <HowItWorks />
+        <IndustriesSection />
         <PricingSection />
         <FAQSection />
         <ContactSection />

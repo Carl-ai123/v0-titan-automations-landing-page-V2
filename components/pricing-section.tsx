@@ -1,3 +1,8 @@
+"use client"
+
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+
 const tiers = [
   {
     name: "Project Build",
@@ -119,8 +124,8 @@ export function PricingSection() {
               </ul>
 
               {/* CTA */}
-              <a
-                href="mailto:carl@titan-automations.com?subject=Pricing Enquiry"
+              <button
+                onClick={openCalendly}
                 className={`w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-colors ${
                   tier.highlight
                     ? "bg-accent text-white hover:bg-accent/90"
@@ -131,14 +136,14 @@ export function PricingSection() {
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </button>
             </div>
           ))}
         </div>
 
         {/* Footer note */}
         <p className="text-center text-xs text-muted mt-8 fade-up-section">
-          All prices exclude VAT. Fixed quotes provided before any work begins — no surprises, no hidden fees.
+          All prices exclude VAT. Fixed quotes before work starts. If it doesn&apos;t perform as scoped, we fix it free — no debate.
         </p>
       </div>
     </section>

@@ -39,6 +39,18 @@ const faqs: FAQ[] = [
     answer:
       "Yes — we work with businesses across the South East and remotely across the UK.",
   },
+  {
+    id: "diy",
+    question: "Can't I just use Zapier or Make myself?",
+    answer:
+      "You can — but most business owners get halfway through a workflow, hit an error, and leave it broken for months. We build it properly, test it against real scenarios, and hand it over running. You get the result without the hours of trial and error.",
+  },
+  {
+    id: "guarantee",
+    question: "What if it doesn't work as expected?",
+    answer:
+      "If something we build doesn't perform as scoped, we fix it — no charge, no debate. Every project comes with 30 days of post-launch support and we don't consider a job done until it works.",
+  },
 ]
 
 export function FAQSection() {

@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+
 type Result = {
   prefix?: string
   value: number
@@ -110,6 +113,20 @@ export function ResultsSection() {
           {results.map((result, i) => (
             <MetricCard key={i} result={result} index={i} />
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-10 md:mt-14 fade-up-section">
+          <button
+            onClick={openCalendly}
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
+          >
+            See what we&apos;d build for you
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+          <p className="text-xs text-muted mt-3">Free 20-min call · No pitch</p>
         </div>
       </div>
     </section>

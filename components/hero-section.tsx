@@ -23,7 +23,7 @@ export function HeroSection() {
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-text-light dark:text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance opacity-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Build smarter. Automate everything. Grow without limits.
+              Your business runs on you. That needs to change.
             </h1>
 
             {/* Subtext */}

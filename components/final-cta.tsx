@@ -1,3 +1,8 @@
+"use client"
+
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+
 const steps = [
   { number: "01", label: "We review your business", detail: "Tell us what you do — we'll look at your current tools and workflows." },
   { number: "02", label: "20-min discovery call", detail: "No pitch, no pressure. Just a clear picture of what we'd build for you." },
@@ -37,17 +42,17 @@ export function FinalCTA() {
           ))}
         </div>
 
-        <a
-          href="mailto:carl@titan-automations.com?subject=Free Demo Request"
-          className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
+        <button
+          onClick={openCalendly}
+          className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
         >
           Book Your Free Demo
           <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
-        </a>
-        <p className="mt-5 md:mt-6 text-sm text-muted">
-          carl@titan-automations.com
+        </button>
+        <p className="mt-4 text-xs text-muted/70">
+          We take on 3–4 new clients per month — currently 1 slot open.
         </p>
 
         {/* GDPR note */}
