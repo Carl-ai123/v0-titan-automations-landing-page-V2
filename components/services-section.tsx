@@ -3,23 +3,20 @@ import type { ReactNode } from "react"
 type ServiceCardProps = {
   icon: ReactNode
   title: string
-  description: string
   bullets: string[]
+  outcome: string
 }
 
-function ServiceCard({ icon, title, description, bullets }: ServiceCardProps) {
+function ServiceCard({ icon, title, bullets, outcome }: ServiceCardProps) {
   return (
-    <div className="group bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] hover:border-accent/25 dark:hover:border-accent/35 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(37,99,235,0.07)] dark:hover:shadow-[0_12px_32px_rgba(37,99,235,0.14)] hover:bg-[rgba(37,99,235,0.012)] dark:hover:bg-[rgba(37,99,235,0.045)] transition-all duration-300 ease-out rounded-2xl p-6 cursor-default">
+    <div className="group bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] hover:border-accent/25 dark:hover:border-accent/35 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(37,99,235,0.07)] dark:hover:shadow-[0_12px_32px_rgba(37,99,235,0.14)] transition-all duration-300 ease-out rounded-2xl p-6 sm:p-8 cursor-default flex flex-col">
       <div className="w-10 h-10 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mb-5 text-accent transition-all duration-300">
         {icon}
       </div>
-      <h3 className="font-display text-xl font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-2">
+      <h3 className="font-display text-xl font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-4">
         {title}
       </h3>
-      <p className="text-sm text-muted mb-5 leading-relaxed">
-        {description}
-      </p>
-      <ul className="space-y-2">
+      <ul className="space-y-2.5 flex-1 mb-6">
         {bullets.map((b) => (
           <li key={b} className="flex items-start gap-2.5 text-sm text-muted">
             <span className="w-1 h-1 rounded-full bg-accent/50 shrink-0 mt-[7px]" />
@@ -27,6 +24,9 @@ function ServiceCard({ icon, title, description, bullets }: ServiceCardProps) {
           </li>
         ))}
       </ul>
+      <div className="pt-4 border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)]">
+        <p className="text-xs font-medium text-accent leading-relaxed">{outcome}</p>
+      </div>
     </div>
   )
 }
@@ -42,106 +42,49 @@ export function ServicesSection() {
             What we build
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
-            Every system your business needs to grow.
+            Three systems. One connected business.
           </h2>
         </div>
 
-        {/* Bento Grid — 3 cols on desktop fills evenly: 2+1 top / 1+1+1 bottom */}
+        {/* 3-col grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-up-section">
 
-          {/* ── Large Feature Card ── */}
-          <div className="group sm:col-span-2 lg:col-span-2 bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] hover:border-accent/25 dark:hover:border-accent/35 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(37,99,235,0.07)] dark:hover:shadow-[0_12px_32px_rgba(37,99,235,0.14)] hover:bg-[rgba(37,99,235,0.012)] dark:hover:bg-[rgba(37,99,235,0.045)] transition-all duration-300 ease-out rounded-2xl p-6 sm:p-8 cursor-default">
-            <div className="w-10 h-10 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mb-5 text-accent transition-all duration-300">
+          {/* AI-Powered Website */}
+          <ServiceCard
+            icon={
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="2" y="3" width="20" height="14" rx="2" />
                 <path d="M8 21h8M12 17v4" />
               </svg>
-            </div>
+            }
+            title="AI-Powered Website"
+            bullets={[
+              "Built in Next.js — loads under 1s, mobile-first, designed to convert visitors into enquiries",
+              "AI chat widget embedded on day one: answers FAQs, qualifies visitors and books them into your calendar",
+              "Lead capture forms feed directly into your CRM — every enquiry tracked from first click to close",
+            ]}
+            outcome="Result: a site that generates appointments around the clock — not just a digital brochure."
+          />
 
-            <h3 className="font-display text-2xl font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-2">
-              AI-Powered Websites
-            </h3>
-            <p className="text-sm text-muted mb-6 leading-relaxed max-w-lg">
-              Fast, modern, conversion-focused sites built in Next.js — with live chat, booking and lead capture embedded from day one. No templates. No compromise.
-            </p>
-
-            {/* Bullets + Visual side-by-side on wider breakpoints */}
-            <div className="flex flex-col md:flex-row md:items-end gap-6">
-              <ul className="space-y-2.5 flex-1">
-                {[
-                  "Loads in under 1 second on any device",
-                  "Live chat, forms & booking ready on launch day",
-                  "Editable by you — no developer ever required",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 text-sm text-muted">
-                    <span className="w-1 h-1 rounded-full bg-accent/60 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Network Grid Visual */}
-              <div className="rounded-xl overflow-hidden border border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] p-3 bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] w-full md:w-52 shrink-0">
-                <svg viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full opacity-60 group-hover:opacity-90 transition-opacity duration-500">
-                  <line x1="20" y1="20" x2="200" y2="20" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="20" y1="50" x2="200" y2="50" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="20" y1="80" x2="200" y2="80" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="20" y1="110" x2="200" y2="110" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="20" y1="20" x2="20" y2="110" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="65" y1="20" x2="65" y2="110" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="110" y1="20" x2="110" y2="110" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="155" y1="20" x2="155" y2="110" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="200" y1="20" x2="200" y2="110" className="network-grid-line" strokeWidth="0.5"/>
-                  <line x1="65" y1="50" x2="110" y2="80" stroke="#2563EB" strokeWidth="1" strokeOpacity="0.6"/>
-                  <line x1="110" y1="20" x2="155" y2="50" stroke="#2563EB" strokeWidth="1" strokeOpacity="0.6"/>
-                  <line x1="20" y1="80" x2="65" y2="50" stroke="#2563EB" strokeWidth="1" strokeOpacity="0.4"/>
-                  {[20,65,110,155,200].flatMap(x =>
-                    [20,50,80,110].map(y =>
-                      <circle key={`${x}-${y}`} cx={x} cy={y} r="2" className="network-dot" />
-                    )
-                  )}
-                  <circle cx="110" cy="20" r="4" fill="#2563EB"/>
-                  <circle cx="65" cy="50" r="4" fill="#2563EB"/>
-                  <circle cx="155" cy="80" r="3" fill="#2563EB" opacity="0.7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* ── Booking Systems ── */}
+          {/* Booking System & CRM Pipeline */}
           <ServiceCard
             icon={
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
               </svg>
             }
-            title="Booking Systems"
-            description="Real-time availability, deposit capture and automated reminders — so you never chase a client again."
+            title="Booking System & CRM Pipeline"
             bullets={[
-              "Deposits & payments collected upfront",
-              "SMS & email reminders auto-sent",
-              "Syncs with Google Calendar",
+              "Real-time online booking with deposit capture, Google Calendar sync and automated SMS/email reminders",
+              "Every lead tracked from first touch to close — automated follow-up sequences run without you",
+              "Win-back flows for gone-quiet clients; pipeline replaces HubSpot, Pipedrive and spreadsheets",
             ]}
+            outcome="Result: no missed bookings, no chased leads — your pipeline runs itself."
           />
 
-          {/* ── CRM & Pipelines ── */}
-          <ServiceCard
-            icon={
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 17h6M17 14v6" />
-              </svg>
-            }
-            title="CRM & Pipelines"
-            description="Every lead tracked from first touch to close — with automated follow-ups that run without you."
-            bullets={[
-              "Lead capture → follow-up → close in one flow",
-              "Replaces HubSpot, Pipedrive & spreadsheets",
-              "Full client history always at your fingertips",
-            ]}
-          />
-
-          {/* ── AI Chatbots ── */}
+          {/* AI Chatbots & Automation */}
           <ServiceCard
             icon={
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -149,29 +92,13 @@ export function ServicesSection() {
                 <path d="M8 10h.01M12 10h.01M16 10h.01" />
               </svg>
             }
-            title="AI Chatbots"
-            description="Trained on your business to answer questions, qualify leads and book appointments around the clock."
+            title="AI Chatbots & Automation"
             bullets={[
-              "Handles your most common FAQs instantly",
-              "Qualifies and books leads 24/7",
-              "Escalates to you only when it matters",
+              "AI chatbot trained on your business — qualifies leads and books them directly into your calendar, 24/7",
+              "Automated Google review requests sent after every completed job via n8n + Resend",
+              "Re-engagement sequences for inactive clients; outreach pipelines powered by Claude AI and Airtable",
             ]}
-          />
-
-          {/* ── Review & Recall ── */}
-          <ServiceCard
-            icon={
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            }
-            title="Review & Recall"
-            description="Automatically chase Google reviews after every job and re-engage customers who've gone quiet."
-            bullets={[
-              "Review requests sent automatically post-job",
-              "Win-back sequences for inactive customers",
-              "Passively boosts your Google ranking",
-            ]}
+            outcome="Result: leads handled, reviews collected and lapsed clients won back — all on autopilot."
           />
 
         </div>

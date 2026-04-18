@@ -23,7 +23,7 @@ export function HeroSection() {
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-text-light dark:text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance opacity-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Your business runs on you. That needs to change.
+              We build AI-powered websites and automation systems for dental practices that generate more patients on autopilot.
             </h1>
 
             {/* Subtext */}
@@ -31,7 +31,7 @@ export function HeroSection() {
               className="text-base md:text-lg text-muted max-w-[480px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
               style={{ animationDelay: "0.35s" }}
             >
-              We design and build AI-powered systems for businesses that are ready to stop doing things manually. Websites, automations, chatbots — all connected, all yours.
+              A conversion-focused website, automated booking pipeline and AI chatbot — built and live in 14 days. No agency overhead. No lock-in.
             </p>
 
             {/* CTAs */}

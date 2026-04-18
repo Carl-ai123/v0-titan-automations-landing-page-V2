@@ -26,11 +26,9 @@ const navLinks: NavLink[] = [
     href: "#services",
     label: "Services",
     items: [
-      "AI-Powered Websites",
-      "Booking Systems",
-      "CRM & Pipelines",
-      "AI Chatbots",
-      "Review & Recall",
+      "AI-Powered Website",
+      "Booking System & CRM Pipeline",
+      "AI Chatbots & Automation",
     ],
   },
   {

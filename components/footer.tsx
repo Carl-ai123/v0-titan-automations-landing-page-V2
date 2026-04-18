@@ -33,27 +33,17 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  AI-Powered Websites
+                  AI-Powered Website
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  Booking Systems
+                  Booking System &amp; CRM
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  CRM &amp; Pipelines
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  AI Chatbots
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  Review &amp; Recall
+                  AI Chatbots &amp; Automation
                 </a>
               </li>
             </ul>

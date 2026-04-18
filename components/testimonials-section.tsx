@@ -57,8 +57,8 @@ export function TestimonialsSection() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.08)] flex items-center justify-center">
-                  <span className="text-sm font-medium text-text-light dark:text-white">
+                <div className="w-10 h-10 rounded-full bg-[#1a1a1a] dark:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center shrink-0">
+                  <span className="text-sm font-medium text-white">
                     {testimonial.initials}
                   </span>
                 </div>
