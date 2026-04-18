@@ -6,7 +6,10 @@
       "Bash(echo \"\")",
       "Bash(mkdir -p \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\types\")",
       "Bash(npm info *)",
-      "Read(//c/Users/carlw/Downloads/**)"
+      "Read(//c/Users/carlw/Downloads/**)",
+      "Bash(pnpm install *)",
+      "Bash(npm install *)",
+      "Bash(npx pnpm *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"
