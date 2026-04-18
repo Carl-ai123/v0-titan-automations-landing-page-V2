@@ -375,9 +375,11 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* Tab content */}
+        {/* Tab content — CalendlyEmbed always mounted so it loads in background */}
         <div className="fade-up-section">
-          {tab === "book" && <CalendlyEmbed />}
+          <div className={tab === "book" ? "block" : "hidden"}>
+            <CalendlyEmbed />
+          </div>
 
           {tab === "message" && (
             submitted
