@@ -128,10 +128,9 @@ const BookingVisual = (
     {/* Avatar */}
     <circle cx="46" cy="36" r="14" fill="rgba(37,99,235,0.2)"/>
     <circle cx="46" cy="36" r="10" fill="rgba(37,99,235,0.5)"/>
-    <text x="40" y="40" fontSize="9" fontWeight="700" fill="white" fontFamily="system-ui">CA</text>
+    <text x="40" y="40" fontSize="9" fontWeight="700" fill="white" fontFamily="system-ui">TA</text>
     {/* Name */}
-    <text x="22" y="62" fontSize="7.5" fontWeight="600" fill="rgba(255,255,255,0.9)" fontFamily="system-ui">Carl Wilkins</text>
-    <text x="22" y="72" fontSize="6" fill="rgba(255,255,255,0.4)" fontFamily="system-ui">Titan Automations</text>
+    <text x="22" y="62" fontSize="7.5" fontWeight="600" fill="rgba(255,255,255,0.9)" fontFamily="system-ui">Titan Automations</text>
     {/* Call type */}
     <text x="22" y="86" fontSize="8" fontWeight="600" fill="white" fontFamily="system-ui">Discovery Call</text>
     {/* Meta */}
