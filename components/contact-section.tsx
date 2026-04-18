@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useRef, useState, useTransition } from "react"
+// useRef kept for ServiceSelect
 import { submitContact, type ContactFormData } from "@/app/actions/contact"
 
 const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const CALENDLY_DARK = `${CALENDLY_URL}?background_color=0a0a0a&text_color=f5f5f5&primary_color=2563eb&hide_gdpr_banner=1`
+const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
 
 const serviceOptions = [
   "AI-Powered Website",
@@ -35,36 +36,61 @@ const steps = [
 
 type Tab = "book" | "message"
 
-function CalendlyEmbed() {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    // If Calendly script already loaded, init inline widget directly
-    if (window.Calendly) {
-      window.Calendly.initInlineWidget({ url: CALENDLY_DARK, parentElement: el })
-      return
-    }
-
-    // Otherwise wait for the script to load then init
-    const onLoad = () => {
-      window.Calendly?.initInlineWidget({ url: CALENDLY_DARK, parentElement: el })
-    }
-    const script = document.querySelector(
-      'script[src="https://assets.calendly.com/assets/external/widget.js"]'
-    )
-    script?.addEventListener("load", onLoad)
-    return () => script?.removeEventListener("load", onLoad)
-  }, [])
-
+function BookingCard() {
   return (
-    <div
-      ref={ref}
-      className="w-full rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]"
-      style={{ minWidth: "320px", height: "700px" }}
-    />
+    <div className="max-w-xl mx-auto">
+      {/* Card */}
+      <div className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-2xl p-8 sm:p-10 text-center">
+        {/* Icon */}
+        <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6 text-accent">
+          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+        </div>
+
+        <h3 className="font-display text-2xl font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-2">
+          Titan Onboarding Call
+        </h3>
+        <p className="text-sm text-muted mb-1">with Carl Wilkins</p>
+
+        {/* Meta pills */}
+        <div className="flex items-center justify-center gap-4 mt-4 mb-8">
+          <div className="flex items-center gap-1.5 text-sm text-muted">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            30 minutes
+          </div>
+          <div className="flex items-center gap-1.5 text-sm text-muted">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+              <path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8h12v9a1 1 0 01-1 1H4a1 1 0 01-1-1V8z"/>
+            </svg>
+            Video call
+          </div>
+          <div className="flex items-center gap-1.5 text-sm text-green">
+            <span className="w-1.5 h-1.5 rounded-full bg-green" />
+            Free
+          </div>
+        </div>
+
+        <p className="text-sm text-muted leading-relaxed mb-8 max-w-sm mx-auto">
+          No pitch, no pressure. We&apos;ll review your business and show you exactly what we&apos;d build — for free.
+        </p>
+
+        <button
+          onClick={openCalendly}
+          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
+        >
+          Pick a time that works
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </button>
+
+        <p className="text-xs text-muted/60 mt-4">Opens in a quick pop-up · No account needed</p>
+      </div>
+    </div>
   )
 }
 
@@ -378,7 +404,7 @@ export function ContactSection() {
         {/* Tab content — CalendlyEmbed always mounted so it loads in background */}
         <div className="fade-up-section">
           <div className={tab === "book" ? "block" : "hidden"}>
-            <CalendlyEmbed />
+            <BookingCard />
           </div>
 
           {tab === "message" && (

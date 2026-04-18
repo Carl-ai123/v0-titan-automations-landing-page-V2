@@ -131,6 +131,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
       </head>
       <body className={`${geist.variable} ${dmSans.variable} ${audiowide.variable} font-body antialiased bg-light text-text-light dark:bg-dark dark:text-text-dark`}>
