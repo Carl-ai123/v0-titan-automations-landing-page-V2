@@ -52,70 +52,6 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'FAQPage',
-      '@id': `${siteUrl}/#faq`,
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'What exactly do you build?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Websites, booking systems, CRM automations, AI chatbots, lead generation pipelines, review systems, and custom integrations between any tools your business already uses.' },
-        },
-        {
-          '@type': 'Question',
-          name: 'How long does it take?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Most systems go live within 14 days of our first call. Simple websites in under a week.' },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do I own everything?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every website, workflow and system is yours. No lock-in, no platform dependency.' },
-        },
-        {
-          '@type': 'Question',
-          name: 'What does it cost?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Project builds start from £1,200. Monthly retainers from £150/month. We\'ll give you a clear fixed quote before anything starts.' },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do you work outside Kent?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Yes — we work with businesses across the South East and remotely across the UK.' },
-        },
-      ],
-    },
-    {
-      '@type': 'LocalBusiness',
-      '@id': `${siteUrl}/#business`,
-      name: 'Titan Automations',
-      description: 'AI automation agency specialising in websites, booking systems, CRM pipelines, chatbots, and lead generation for businesses in Kent and the South East.',
-      url: siteUrl,
-      email: 'carl@titan-automations.com',
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Kent',
-        addressCountry: 'GB',
-      },
-      areaServed: ['Kent', 'South East England', 'United Kingdom'],
-      priceRange: '££',
-      serviceType: 'AI Automation',
-    },
-    {
-      '@type': 'Service',
-      '@id': `${siteUrl}/#services`,
-      name: 'AI Business Automation',
-      provider: { '@id': `${siteUrl}/#business` },
-      serviceType: 'Business Process Automation',
-      offers: [
-        { '@type': 'Offer', name: 'AI-Powered Website' },
-        { '@type': 'Offer', name: 'Booking System & CRM Pipeline' },
-        { '@type': 'Offer', name: 'AI Chatbots & Automation' },
-      ],
-    },
-  ],
-}
 
 export default function RootLayout({
   children,
@@ -123,12 +59,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
         <link rel="preconnect" href="https://calendly.com" />
         <link rel="preconnect" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />

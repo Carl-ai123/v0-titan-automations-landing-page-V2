@@ -4,7 +4,12 @@
       "Bash(npm run:*)",
       "Bash(mkdir -p \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\app\\\\actions\")",
       "Bash(echo \"\")",
-      "Bash(mkdir -p \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\types\")"
+      "Bash(mkdir -p \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\types\")",
+      "Bash(npm info *)",
+      "Read(//c/Users/carlw/Downloads/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\carlw\\Downloads"
     ]
   }
 }

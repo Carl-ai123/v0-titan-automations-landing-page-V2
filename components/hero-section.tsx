@@ -23,7 +23,7 @@ export function HeroSection() {
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-text-light dark:text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance opacity-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              We build AI-powered websites and automation systems for dental practices that generate more patients on autopilot.
+              More clients. Less admin. All automated.
             </h1>
 
             {/* Subtext */}
@@ -31,7 +31,7 @@ export function HeroSection() {
               className="text-base md:text-lg text-muted max-w-[480px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
               style={{ animationDelay: "0.35s" }}
             >
-              A conversion-focused website, automated booking pipeline and AI chatbot — built and live in 14 days. No agency overhead. No lock-in.
+              We build AI-powered websites and automation systems for businesses — generating leads, booking clients and collecting reviews on autopilot. Live in 14 days.
             </p>
 
             {/* CTAs */}
@@ -43,7 +43,7 @@ export function HeroSection() {
                 onClick={openCalendly}
                 className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
               >
-                Book a Free Demo
+                Book a Free Call
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -52,7 +52,7 @@ export function HeroSection() {
                 href="#how-it-works"
                 className="inline-flex items-center px-6 py-3 text-base font-medium text-text-light dark:text-white border border-[rgba(0,0,0,0.2)] dark:border-[rgba(255,255,255,0.2)] rounded-full hover:border-[rgba(0,0,0,0.4)] dark:hover:border-[rgba(255,255,255,0.4)] transition-colors hover:-translate-y-px active:translate-y-0 transition-transform"
               >
-                See How It Works
+                How It Works
               </a>
             </div>
 
