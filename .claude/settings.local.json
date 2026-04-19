@@ -9,7 +9,8 @@
       "Read(//c/Users/carlw/Downloads/**)",
       "Bash(pnpm install *)",
       "Bash(npm install *)",
-      "Bash(npx pnpm *)"
+      "Bash(npx pnpm *)",
+      "WebFetch(domain:titansautomation.com)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"

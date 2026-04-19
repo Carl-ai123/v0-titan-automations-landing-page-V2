@@ -31,7 +31,7 @@ export function HeroSection() {
               className="text-base md:text-lg text-muted max-w-[480px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
               style={{ animationDelay: "0.35s" }}
             >
-              We build AI-powered websites and automation systems for businesses — generating leads, booking clients and collecting reviews on autopilot. Live in 14 days.
+              We build AI-powered websites and automation systems for businesses. You run your business — we automate everything behind it. Live in 14 days.
             </p>
 
             {/* CTAs */}

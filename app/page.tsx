@@ -1,6 +1,7 @@
 import { FloatingNav } from "@/components/floating-nav"
 import { HeroSection } from "@/components/hero-section"
 import { MarqueeStrip } from "@/components/marquee-strip"
+import { BeforeAfterSection } from "@/components/before-after-section"
 import { HowItWorks } from "@/components/how-it-works"
 import { ServicesSection } from "@/components/services-section"
 import { AutomationFlow } from "@/components/automation-flow"
@@ -24,6 +25,7 @@ const jsonLd = {
       description: 'AI automation agency specialising in websites, booking systems, CRM pipelines, chatbots, and lead generation for businesses in Kent and the South East.',
       url: 'https://titan-automations.com',
       email: 'info@titan-automations.com',
+      telephone: '+447464256627',
       address: { '@type': 'PostalAddress', addressRegion: 'Kent', addressCountry: 'GB' },
       areaServed: ['Kent', 'South East England', 'United Kingdom'],
       priceRange: '££',
@@ -56,6 +58,7 @@ export default function Home() {
       <div className="flex flex-col">
         <HeroSection />
         <MarqueeStrip />
+        <BeforeAfterSection />
         <ServicesSection />
         <AutomationFlow />
         <ResultsSection />

@@ -83,7 +83,7 @@ export function HowItWorks() {
     {
       number: "03",
       title: "You Go Live",
-      description: "Your system launches. We monitor performance and handle any adjustments you need.",
+      description: "Your system launches with a full handover document. We don't close the project until everything works — and you get 30 days of support included.",
       card: (
         <div className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-lg p-4">
           <div className="flex items-center gap-2 mb-3">
@@ -94,6 +94,7 @@ export function HowItWorks() {
             <span className="px-2 py-1 text-xs bg-green/10 text-green rounded">Automated</span>
             <span className="px-2 py-1 text-xs bg-green/10 text-green rounded">Connected</span>
             <span className="px-2 py-1 text-xs bg-green/10 text-green rounded">Monitored</span>
+            <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded">30-day support</span>
           </div>
         </div>
       ),

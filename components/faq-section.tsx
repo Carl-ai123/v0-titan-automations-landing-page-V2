@@ -51,6 +51,18 @@ const faqs: FAQ[] = [
     answer:
       "If something we build doesn't perform as scoped, we fix it — no charge, no debate. Every project comes with 30 days of post-launch support and we don't consider a job done until it works.",
   },
+  {
+    id: "results",
+    question: "When will I see results?",
+    answer:
+      "It depends on what we build. Booking systems and websites generate results from day one. Automation pipelines and lead systems typically show measurable impact within the first 30 days. We'll be honest with you in the discovery call about what to expect and by when — no inflated promises.",
+  },
+  {
+    id: "right-for-me",
+    question: "Is this right for my business?",
+    answer:
+      "If you're a service business spending hours a week on admin, follow-ups, or manual processes — almost certainly yes. We work best with trades, clinics, consultants, and local service businesses who are busy and ready to scale. If you're not sure, book a free call and we'll tell you honestly whether it makes sense.",
+  },
 ]
 
 export function FAQSection() {
