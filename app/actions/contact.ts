@@ -29,7 +29,7 @@ export async function submitContact(data: ContactFormData): Promise<ContactResul
   try {
     await resend.emails.send({
       from: "Titan Automations <noreply@titan-automations.com>",
-      to: "carl@titan-automations.com",
+      to: "info@titan-automations.com",
       replyTo: data.email,
       subject: `New enquiry — ${data.businessName} (${data.name})`,
       text: [
@@ -50,7 +50,7 @@ export async function submitContact(data: ContactFormData): Promise<ContactResul
     console.error("Resend error:", err)
     return {
       success: false,
-      error: "Something went wrong. Email us directly at carl@titan-automations.com.",
+      error: "Something went wrong. Email us directly at info@titan-automations.com.",
     }
   }
 }

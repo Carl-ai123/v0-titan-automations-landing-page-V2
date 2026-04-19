@@ -14,7 +14,7 @@ const sections = [
     content: [
       'Titan Automations is a sole trader business operated by Carl Wilkins, based in Kent, United Kingdom.',
       'Carl Wilkins is the data controller for any personal data collected through this website.',
-      'If you have any questions about this policy or how your data is handled, contact us at carl@titan-automations.com.',
+      'If you have any questions about this policy or how your data is handled, contact us at info@titan-automations.com.',
     ],
   },
   {
@@ -55,7 +55,7 @@ const sections = [
     heading: 'Your rights',
     content: [
       'Under UK GDPR you have the right to: access the personal data we hold about you; have inaccurate data corrected; have your data erased; restrict how we use your data; receive your data in a portable format; object to our use of your data.',
-      'To exercise any of these rights, email carl@titan-automations.com. We will respond within 30 days.',
+      'To exercise any of these rights, email info@titan-automations.com. We will respond within 30 days.',
     ],
   },
   {
@@ -128,10 +128,10 @@ export default function PrivacyPage() {
           <p className="text-sm text-muted">
             Questions about this policy?{' '}
             <a
-              href="mailto:carl@titan-automations.com?subject=Privacy Policy Enquiry"
+              href="mailto:info@titan-automations.com?subject=Privacy Policy Enquiry"
               className="text-accent hover:text-accent/80 transition-colors"
             >
-              carl@titan-automations.com
+              info@titan-automations.com
             </a>
           </p>
         </div>
