@@ -10,15 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["var(--font-geist)", "Geist", "sans-serif"],
+        display: ["var(--font-bricolage)", "Bricolage Grotesque", "sans-serif"],
         body: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
         sans: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
       },
       colors: {
         dark: "#0A0A0A",
-        light: "#FAFAF9",
-        "card-dark": "#111111",
-        "card-light": "#FFFFFF",
+        light: "#F5F2EE",
+        "card-dark": "#131313",
+        "card-light": "#EDE9E3",
         accent: "#2563EB",
         "accent-tint": "#EFF4FF",
         "text-dark": "#F5F5F5",

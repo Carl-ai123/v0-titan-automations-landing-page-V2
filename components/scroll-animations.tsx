@@ -4,6 +4,14 @@ import { useEffect } from "react"
 
 export function ScrollAnimations() {
   useEffect(() => {
+    const elements = document.querySelectorAll(".fade-up-section")
+
+    // Skip animations entirely for users who prefer reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      elements.forEach((el) => el.classList.add("visible"))
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,7 +26,6 @@ export function ScrollAnimations() {
       }
     )
 
-    const elements = document.querySelectorAll(".fade-up-section")
     elements.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()

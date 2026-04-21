@@ -41,6 +41,11 @@ function useCountUp(target: number, duration = 1400, started = false) {
 
   useEffect(() => {
     if (!started) return
+    // Skip animation for users who prefer reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(target)
+      return
+    }
     const startTime = performance.now()
 
     const tick = (now: number) => {

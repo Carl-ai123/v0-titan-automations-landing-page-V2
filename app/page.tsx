@@ -45,7 +45,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden pb-16 md:pb-0">
+    <main id="main-content" className="min-h-screen overflow-x-hidden pb-16 md:pb-0">
       {/* JSON-LD — safe in Server Component, not affected by React 19 client hydration */}
       <script
         type="application/ld+json"

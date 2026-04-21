@@ -42,7 +42,7 @@ export function StickyMobileCTA() {
     >
       {/* Fade gradient above bar */}
       <div className="h-8 bg-gradient-to-t from-[rgba(10,10,10,0.6)] to-transparent pointer-events-none" />
-      <div className="bg-dark border-t border-[rgba(255,255,255,0.08)] px-4 py-3 flex items-center gap-3">
+      <div className="bg-dark border-t border-[rgba(255,255,255,0.08)] px-4 py-3 flex items-center gap-3" style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}>
         <div className="flex-1 min-w-0">
           <p className="text-xs text-muted truncate">Free 20-min discovery call</p>
         </div>

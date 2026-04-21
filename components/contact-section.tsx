@@ -203,28 +203,32 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       {/* Name + Business */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
+          <label htmlFor="contact-name" className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
             Name <span className="text-accent">*</span>
           </label>
           <input
+            id="contact-name"
             type="text"
             required
+            autoComplete="given-name"
             value={form.name}
             onChange={set("name")}
-            placeholder="Your name"
+            placeholder="Your name…"
             className={inputClass}
           />
         </div>
         <div>
-          <label className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
+          <label htmlFor="contact-business" className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
             Business name <span className="text-accent">*</span>
           </label>
           <input
+            id="contact-business"
             type="text"
             required
+            autoComplete="organization"
             value={form.businessName}
             onChange={set("businessName")}
-            placeholder="Your business"
+            placeholder="Your business…"
             className={inputClass}
           />
         </div>
@@ -232,15 +236,18 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
 
       {/* Email */}
       <div>
-        <label className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
+        <label htmlFor="contact-email" className="block text-[10px] text-muted uppercase tracking-[0.12em] font-medium mb-2">
           Email <span className="text-accent">*</span>
         </label>
         <input
+          id="contact-email"
           type="email"
           required
+          autoComplete="email"
+          spellCheck={false}
           value={form.email}
           onChange={set("email")}
-          placeholder="you@yourbusiness.com"
+          placeholder="you@yourbusiness.com…"
           className={inputClass}
         />
       </div>
@@ -274,7 +281,9 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
 
       {/* Error */}
       {error && (
-        <p className="text-sm text-red-500 leading-relaxed">{error}</p>
+        <div role="alert" aria-live="polite">
+          <p className="text-sm text-red-500 leading-relaxed">{error}</p>
+        </div>
       )}
 
       {/* Submit */}

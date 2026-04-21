@@ -59,6 +59,9 @@ export function TestimonialsSection() {
                   <img
                     src="/avatars/testimonials.png"
                     alt={testimonial.name}
+                    width={120}
+                    height={120}
+                    loading="lazy"
                     style={{
                       position: 'absolute',
                       width: '120px',

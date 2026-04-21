@@ -11,7 +11,9 @@
       "Bash(npm install *)",
       "Bash(npx pnpm *)",
       "WebFetch(domain:titansautomation.com)",
-      "Bash(npx skills *)"
+      "Bash(npx skills *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx next *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"
