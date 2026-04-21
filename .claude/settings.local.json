@@ -10,7 +10,8 @@
       "Bash(pnpm install *)",
       "Bash(npm install *)",
       "Bash(npx pnpm *)",
-      "WebFetch(domain:titansautomation.com)"
+      "WebFetch(domain:titansautomation.com)",
+      "Bash(npx skills *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"
