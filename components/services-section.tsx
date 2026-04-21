@@ -38,79 +38,50 @@ function ServiceCard({ visual, label, title, bullets, outcome }: ServiceCardProp
 }
 
 /* ─────────────────────────────────────────
-   Visual 1 — Dental Practice Website
+   Visual 1 — Site performance + conversion metrics
+   (No fake client mockup — shows what our builds deliver technically)
    ───────────────────────────────────────── */
 const WebsiteVisual = (
   <svg viewBox="0 0 340 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    {/* Browser frame */}
-    <rect x="12" y="10" width="316" height="178" rx="10" fill="#111114" stroke="rgba(255,255,255,0.07)" strokeWidth="1"/>
-    {/* Browser chrome */}
-    <rect x="12" y="10" width="316" height="24" rx="10" fill="#1a1a1f"/>
-    <rect x="12" y="26" width="316" height="8" fill="#1a1a1f"/>
-    {/* Traffic lights */}
-    <circle cx="26" cy="22" r="3.5" fill="#FF5F57"/>
-    <circle cx="36" cy="22" r="3.5" fill="#FFBD2E"/>
-    <circle cx="46" cy="22" r="3.5" fill="#28C840"/>
-    {/* URL bar */}
-    <rect x="66" y="16" width="180" height="12" rx="6" fill="#0a0a0c"/>
-    <text x="82" y="25" fontSize="6.5" fill="rgba(255,255,255,0.3)" fontFamily="system-ui">🔒 brightsmilesdental.co.uk</text>
+    <rect x="0" y="0" width="340" height="200" fill="#0d0d10"/>
 
-    {/* ── Site Nav ── */}
-    <rect x="12" y="34" width="316" height="20" fill="#0f0f12"/>
-    <text x="22" y="47" fontSize="7" fontWeight="600" fill="rgba(255,255,255,0.9)" fontFamily="system-ui">BrightSmiles</text>
-    <text x="86" y="47" fontSize="6.5" fill="rgba(255,255,255,0.4)" fontFamily="system-ui">Services</text>
-    <text x="118" y="47" fontSize="6.5" fill="rgba(255,255,255,0.4)" fontFamily="system-ui">About</text>
-    <text x="146" y="47" fontSize="6.5" fill="rgba(255,255,255,0.4)" fontFamily="system-ui">Pricing</text>
-    <text x="176" y="47" fontSize="6.5" fill="rgba(255,255,255,0.4)" fontFamily="system-ui">Contact</text>
-    <rect x="284" y="38" width="36" height="12" rx="6" fill="#2563EB"/>
-    <text x="291" y="47" fontSize="6" fontWeight="600" fill="white" fontFamily="system-ui">Book Now</text>
+    {/* ── Header row ── */}
+    <text x="20" y="30" fontSize="8" fontWeight="600" fill="rgba(255,255,255,0.35)" fontFamily="system-ui" letterSpacing="1.5">WHAT WE BUILD FOR</text>
+    <text x="20" y="46" fontSize="14" fontWeight="700" fill="white" fontFamily="system-ui">Every site we ship.</text>
 
-    {/* ── Hero section ── */}
-    <rect x="12" y="54" width="316" height="68" fill="#0a0a0d"/>
-    {/* Subtle gradient overlay */}
-    <rect x="12" y="54" width="160" height="68" fill="url(#heroGrad)" fillOpacity="0.3"/>
-    <text x="24" y="70" fontSize="6" fill="rgba(37,99,235,0.9)" fontFamily="system-ui" letterSpacing="1.5">NEW PATIENT OFFER</text>
-    <text x="24" y="82" fontSize="11" fontWeight="700" fill="white" fontFamily="system-ui">Welcoming New Patients</text>
-    <text x="24" y="93" fontSize="11" fontWeight="700" fill="white" fontFamily="system-ui">in Maidstone &amp; Kent</text>
-    <text x="24" y="104" fontSize="6.5" fill="rgba(255,255,255,0.45)" fontFamily="system-ui">Complete dental care, from check-ups to</text>
-    <text x="24" y="113" fontSize="6.5" fill="rgba(255,255,255,0.45)" fontFamily="system-ui">smile transformations. Book online 24/7.</text>
-    <rect x="24" y="116" width="62" height="14" rx="7" fill="#2563EB"/>
-    <text x="31" y="126" fontSize="6.5" fontWeight="600" fill="white" fontFamily="system-ui">Book Online →</text>
-    <rect x="93" y="116" width="54" height="14" rx="7" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" strokeWidth="0.7"/>
-    <text x="99" y="126" fontSize="6.5" fill="rgba(255,255,255,0.6)" fontFamily="system-ui">Our Services</text>
-    {/* Hero right image placeholder */}
-    <rect x="198" y="57" width="122" height="62" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
-    {/* Simulated photo blocks */}
-    <rect x="204" y="62" width="54" height="50" rx="4" fill="rgba(37,99,235,0.08)"/>
-    <rect x="264" y="62" width="50" height="24" rx="4" fill="rgba(37,99,235,0.06)"/>
-    <rect x="264" y="90" width="50" height="22" rx="4" fill="rgba(37,99,235,0.04)"/>
-    {/* Stat badge */}
-    <rect x="208" y="90" width="42" height="18" rx="4" fill="#0d0d0f" stroke="rgba(255,255,255,0.1)" strokeWidth="0.7"/>
-    <text x="215" y="101" fontSize="8" fontWeight="700" fill="#2563EB" fontFamily="system-ui">4.9 ★</text>
-    <text x="213" y="108" fontSize="5.5" fill="rgba(255,255,255,0.35)" fontFamily="system-ui">142 reviews</text>
-
-    {/* ── Services row ── */}
-    <rect x="12" y="122" width="316" height="66" fill="#0c0c0f"/>
-    <text x="24" y="136" fontSize="7" fontWeight="600" fill="rgba(255,255,255,0.6)" fontFamily="system-ui">Our Services</text>
+    {/* ── Core Web Vitals row ── */}
     {[
-      { x: 24, label: "Check-ups", icon: "🦷" },
-      { x: 122, label: "Whitening", icon: "✨" },
-      { x: 220, label: "Invisalign", icon: "😁" },
-    ].map(({ x, label, icon }) => (
+      { x: 20,  label: "Performance", score: "99", color: "#22C55E" },
+      { x: 116, label: "Accessibility", score: "100", color: "#22C55E" },
+      { x: 224, label: "SEO", score: "100", color: "#22C55E" },
+    ].map(({ x, label, score, color }) => (
       <g key={label}>
-        <rect x={x} y="142" width="88" height="40" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="0.7"/>
-        <text x={x + 8} y="158" fontSize="9" fontFamily="system-ui">{icon}</text>
-        <text x={x + 8} y="170" fontSize="6.5" fontWeight="500" fill="rgba(255,255,255,0.65)" fontFamily="system-ui">{label}</text>
-        <text x={x + 8} y="178" fontSize="5.5" fill="rgba(255,255,255,0.28)" fontFamily="system-ui">Learn more →</text>
+        <rect x={x} y="58" width="88" height="56" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8"/>
+        {/* Score circle */}
+        <circle cx={x + 44} cy={x === 20 ? 78 : 78} r="14" fill="none" stroke={color} strokeWidth="2.5" strokeDasharray="88" strokeDashoffset="2"/>
+        <text x={x + 44} y={83} fontSize={score === "100" ? "9" : "10"} fontWeight="700" fill={color} fontFamily="system-ui" textAnchor="middle">{score}</text>
+        <text x={x + 44} y={103} fontSize="6" fill="rgba(255,255,255,0.35)" fontFamily="system-ui" textAnchor="middle">{label}</text>
       </g>
     ))}
 
-    <defs>
-      <linearGradient id="heroGrad" x1="12" y1="54" x2="172" y2="122" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#2563EB"/>
-        <stop offset="1" stopColor="#0a0a0d" stopOpacity="0"/>
-      </linearGradient>
-    </defs>
+    {/* ── Performance stats row ── */}
+    {[
+      { x: 20,  stat: "0.8s",   label: "Load time" },
+      { x: 116, stat: "100%",   label: "Mobile-first" },
+      { x: 224, stat: "Conv.",   label: "CTA on day 1" },
+    ].map(({ x, stat, label }) => (
+      <g key={label}>
+        <rect x={x} y="124" width="88" height="40" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
+        <text x={x + 10} y="141" fontSize="11" fontWeight="700" fill="rgba(255,255,255,0.8)" fontFamily="system-ui">{stat}</text>
+        <text x={x + 10} y="155" fontSize="6" fill="rgba(255,255,255,0.3)" fontFamily="system-ui">{label}</text>
+      </g>
+    ))}
+
+    {/* ── Bottom strip ── */}
+    <rect x="20" y="174" width="300" height="18" rx="6" fill="rgba(37,99,235,0.08)" stroke="rgba(37,99,235,0.2)" strokeWidth="0.8"/>
+    <text x="34" y="186" fontSize="6.5" fill="rgba(37,99,235,0.9)" fontFamily="system-ui">✓  Booking embedded</text>
+    <text x="140" y="186" fontSize="6.5" fill="rgba(37,99,235,0.9)" fontFamily="system-ui">✓  Live chat wired up</text>
+    <text x="248" y="186" fontSize="6.5" fill="rgba(37,99,235,0.9)" fontFamily="system-ui">✓  SEO-ready</text>
   </svg>
 )
 
@@ -298,8 +269,11 @@ export function ServicesSection() {
             What we build
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
-            Three systems. One connected business.
+            The stack most agencies charge<br className="hidden sm:block" /> separately for — we build as one.
           </h2>
+          <p className="text-base text-muted mt-4 max-w-xl leading-relaxed">
+            Website that converts. Booking that fills itself. AI that handles enquiries before you wake up. All connected, all yours.
+          </p>
         </div>
 
         {/* 3-col grid */}
@@ -310,10 +284,10 @@ export function ServicesSection() {
             label="Web Design"
             title="AI-Powered Website"
             bullets={[
-              "Sub-1s load time, mobile-first, built to convert",
-              "Live chat & booking embedded on launch day",
+              "Sub-1s load, 99+ Lighthouse score, built around your specific offer",
+              "Booking widget, live chat, and lead capture wired up on day one",
             ]}
-            outcome="Result: turns visitors into booked appointments 24/7."
+            outcome="Visitors become booked clients — not just traffic."
           />
 
           <ServiceCard
@@ -321,10 +295,10 @@ export function ServicesSection() {
             label="Booking & CRM"
             title="Booking System & Pipeline"
             bullets={[
-              "Online booking with deposits, reminders & Google Calendar sync",
-              "Automated follow-up sequences from lead to close",
+              "Online booking with deposits, reminders, and Google Calendar sync",
+              "Every lead enters a follow-up sequence automatically — none fall through",
             ]}
-            outcome="Result: no missed bookings, no chased leads."
+            outcome="No missed bookings. No chased leads. No manual entry."
           />
 
           <ServiceCard
@@ -332,10 +306,10 @@ export function ServicesSection() {
             label="AI Agents"
             title="AI Chatbots & Automation"
             bullets={[
-              "Chatbot qualifies leads and books into your calendar, 24/7",
-              "Auto review requests, outreach & re-engagement flows",
+              "AI qualifies enquiries and books calls into your calendar at 2am",
+              "Review requests, re-engagement flows, and outreach — all automated",
             ]}
-            outcome="Result: leads handled and reviews collected on autopilot."
+            outcome="Your pipeline runs whether you're working or not."
           />
 
         </div>

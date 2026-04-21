@@ -61,7 +61,7 @@ const nodes: FlowNode[] = [
     sub: "Discovery slot confirmed",
     isLast: true,
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
@@ -70,19 +70,19 @@ const nodes: FlowNode[] = [
 
 const scenarios: Scenario[] = [
   {
-    when: "New form submission",
-    steps: ["AI scores intent", "CRM updated", "Email sequence starts"],
-    outcome: "Meeting booked within minutes",
+    when: "New enquiry lands",
+    steps: ["AI qualifies intent", "CRM record created", "Personalised email sent"],
+    outcome: "Discovery call booked — no human required",
   },
   {
-    when: "Client misses appointment",
-    steps: ["System detects no-show", "Rebooking SMS sent", "Slot offered"],
-    outcome: "Rescheduled — zero manual effort",
+    when: "Client no-shows",
+    steps: ["System flags no-show", "Rebooking SMS triggered", "New slot confirmed"],
+    outcome: "Appointment recovered in under 10 minutes",
   },
   {
     when: "Job marked complete",
-    steps: ["Completion triggers flow", "Review request sent", "Response tracked"],
-    outcome: "Google review collected automatically",
+    steps: ["Trigger fires on status change", "Review request sent", "Response logged"],
+    outcome: "5-star Google review — fully automated",
   },
 ]
 
@@ -93,7 +93,7 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
     <div
       className={`relative w-40 shrink-0 rounded-xl p-4 border ${
         node.isLast
-          ? "bg-green/5 border-green/25"
+          ? "bg-amber/5 border-amber/25"
           : "bg-card-light dark:bg-card-dark border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] animate-node-ring"
       }`}
       style={!node.isLast ? { animationDelay: `${index * 0.5}s` } : undefined}
@@ -101,7 +101,7 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
       {/* Icon */}
       <div
         className={`w-8 h-8 rounded-lg flex items-center justify-center mb-4 ${
-          node.isLast ? "bg-green/10 text-green" : "bg-accent/10 text-accent"
+          node.isLast ? "bg-amber/10 text-amber" : "bg-accent/10 text-accent"
         }`}
       >
         {node.icon}
@@ -125,8 +125,8 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
       {/* Outcome badge */}
       {node.isLast && (
         <div className="flex items-center gap-1.5 mt-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-green" />
-          <span className="text-xs text-green font-medium">Complete</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-amber" aria-hidden="true" />
+          <span className="text-xs text-amber font-medium">Outcome</span>
         </div>
       )}
     </div>
@@ -162,7 +162,7 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
     <div
       className={`w-full max-w-sm rounded-xl p-4 border ${
         node.isLast
-          ? "bg-green/5 border-green/25"
+          ? "bg-amber/5 border-amber/25"
           : "bg-card-light dark:bg-card-dark border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]"
       }`}
     >
@@ -170,7 +170,7 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
         {/* Icon */}
         <div
           className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-            node.isLast ? "bg-green/10 text-green" : "bg-accent/10 text-accent"
+            node.isLast ? "bg-amber/10 text-amber" : "bg-accent/10 text-accent"
           }`}
         >
           {node.icon}
@@ -188,8 +188,8 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
           </div>
           {node.isLast && (
             <div className="flex items-center gap-1.5 mt-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-green" />
-              <span className="text-xs text-green font-medium">Complete</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber" aria-hidden="true" />
+              <span className="text-xs text-amber font-medium">Outcome</span>
             </div>
           )}
         </div>
@@ -233,8 +233,8 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
 
       {/* Outcome */}
       <div className="flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-green shrink-0" />
-        <span className="text-xs text-green leading-relaxed">{scenario.outcome}</span>
+        <span className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" aria-hidden="true" />
+        <span className="text-xs text-amber leading-relaxed">{scenario.outcome}</span>
       </div>
     </div>
   )
@@ -250,13 +250,13 @@ export function AutomationFlow() {
         {/* Header — left-aligned */}
         <div className="mb-14 md:mb-20 fade-up-section">
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-            Under the hood
+            How it works under the hood
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
-            A single trigger.<br className="hidden sm:block" /> A whole system in motion.
+            One trigger.<br className="hidden sm:block" /> Your entire pipeline fires.
           </h2>
           <p className="text-base text-muted max-w-lg mt-4 leading-relaxed">
-            The moment someone interacts with your business, a fully automated system takes over — no manual steps, no delays.
+            The moment someone touches your business — form, chatbot, missed call — a fully connected system takes over. No delays, no manual steps, no dropped leads.
           </p>
         </div>
 

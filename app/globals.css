@@ -17,6 +17,7 @@
   --text-primary-dark: #F5F5F5;
   --text-muted: #888888;
   --green: #22C55E;
+  --amber: #F59E0B;
   
   --background: var(--dark-bg);
   --foreground: var(--text-primary-dark);
@@ -49,6 +50,7 @@
   --color-text-light: #0A0A0A;
   --color-muted: #888888;
   --color-green: #22C55E;
+  --color-amber: #F59E0B;
 
   /* Audiowide — Google Font, applied to the "Titan Automations" brand logo only */
   --font-audiowide: var(--font-audiowide), 'Audiowide', sans-serif;

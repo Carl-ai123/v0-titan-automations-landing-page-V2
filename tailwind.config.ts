@@ -25,6 +25,7 @@ const config: Config = {
         "text-light": "#0A0A0A",
         muted: "#888888",
         green: "#22C55E",
+        amber: "#F59E0B",
       },
       borderRadius: {
         lg: "var(--radius)",

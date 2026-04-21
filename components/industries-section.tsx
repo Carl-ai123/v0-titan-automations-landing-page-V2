@@ -7,7 +7,7 @@ export function IndustriesSection() {
         </svg>
       ),
       title: "Dental & Healthcare",
-      description: "Booking systems, patient recall, review automation and GDC-compliant websites.",
+      description: "Automated patient recall, online booking, and review collection — fewer no-shows, fuller diaries.",
     },
     {
       icon: (
@@ -16,7 +16,7 @@ export function IndustriesSection() {
         </svg>
       ),
       title: "Trades & Construction",
-      description: "Lead capture, quote follow-up automation and job management pipelines.",
+      description: "Stop chasing quotes. Leads are captured, followed up, and qualified before you pick up the phone.",
     },
     {
       icon: (
@@ -27,7 +27,7 @@ export function IndustriesSection() {
         </svg>
       ),
       title: "Professional Services",
-      description: "CRM automation, client onboarding sequences and document workflows.",
+      description: "Client onboarding in minutes, not days. Automated follow-ups, CRM pipelines, and document workflows.",
     },
     {
       icon: (
@@ -36,7 +36,7 @@ export function IndustriesSection() {
         </svg>
       ),
       title: "Hospitality & Retail",
-      description: "Reservation systems, loyalty automations and customer re-engagement.",
+      description: "Reservation systems, post-visit review requests, and re-engagement flows that run without staff.",
     },
   ]
 
@@ -46,11 +46,14 @@ export function IndustriesSection() {
         {/* Header */}
         <div className="text-center mb-10 md:mb-16 fade-up-section">
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-            Industries
+            Who we work with
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
-            Built for businesses that are serious about growth.
+            This isn&apos;t for every business.
           </h2>
+          <p className="text-base text-muted mt-4 max-w-xl mx-auto leading-relaxed">
+            We work with owners who are done doing things manually and ready to build something that runs without them.
+          </p>
         </div>
 
         {/* Grid */}

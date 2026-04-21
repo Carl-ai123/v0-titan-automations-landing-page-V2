@@ -15,23 +15,23 @@ type Result = {
 
 const results: Result[] = [
   {
-    value: 100,
-    suffix: "+",
-    context: "Leads found and enriched in a single automated run",
-    outcome: "Zero manual research required",
+    value: 3,
+    suffix: "–4 hrs",
+    context: "Spent daily on enquiries, follow-ups, bookings, and review chasing — tasks a system handles in seconds",
+    outcome: "80+ hours a month. Back in your pocket.",
   },
   {
     value: 14,
     suffix: " days",
-    context: "Average time from first call to live system",
-    outcome: "Faster than any agency you've tried",
+    context: "Our delivery commitment — from first call to a fully live, tested system, written into every contract",
+    outcome: "Every time. No exceptions.",
   },
   {
     prefix: "£",
     value: 280,
     suffix: "/mo",
-    context: "Avg monthly tool costs eliminated per client",
-    outcome: "One retainer replaces 4 subscriptions",
+    context: "Typical monthly cost of the tools we replace — booking platform, CRM, email marketing, Zapier",
+    outcome: "One retainer. No overlapping subscriptions.",
   },
 ]
 
@@ -106,11 +106,14 @@ export function ResultsSection() {
         {/* Header */}
         <div className="mb-10 md:mb-16 fade-up-section">
           <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-            Real results
+            The case for automation
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em]">
-            Systems that actually work.
+            What doing it manually costs you.
           </h2>
+          <p className="text-base text-muted mt-3 max-w-xl leading-relaxed">
+            Not client results — just what we&apos;ve seen manual processes cost, and what a system built around your business eliminates.
+          </p>
         </div>
 
         {/* Results Grid */}
@@ -126,8 +129,8 @@ export function ResultsSection() {
             onClick={openCalendly}
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
           >
-            See what we&apos;d build for you
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            Show me what I&apos;m losing
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>

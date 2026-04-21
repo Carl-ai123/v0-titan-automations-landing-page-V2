@@ -13,7 +13,11 @@
       "WebFetch(domain:titansautomation.com)",
       "Bash(npx skills *)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "WebFetch(domain:leftclick.ai)",
+      "WebFetch(domain:hatchworks.com)",
+      "WebFetch(domain:www.ninetwothree.co)",
+      "WebFetch(domain:cheesecakelabs.com)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"
