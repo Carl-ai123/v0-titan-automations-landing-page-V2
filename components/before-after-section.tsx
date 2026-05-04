@@ -37,15 +37,15 @@ export function BeforeAfterSection() {
         {/* Comparison — editorial two-column */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 fade-up-section">
 
-          {/* Before — raw numbered list, no card box */}
-          <div>
-            <div className="text-[10px] tracking-[0.18em] uppercase text-muted font-medium mb-7">
+          {/* Before — red treatment */}
+          <div className="ring-1 ring-[rgba(239,68,68,0.15)] dark:ring-[rgba(239,68,68,0.15)] border-l-2 border-l-red-500 rounded-2xl p-6 sm:p-8 bg-[rgba(239,68,68,0.02)] dark:bg-[rgba(239,68,68,0.03)]">
+            <div className="text-[10px] tracking-[0.18em] uppercase text-red-400 font-medium mb-7">
               How it runs today
             </div>
-            <ul className="space-y-6">
+            <ul className="space-y-5">
               {before.map((item, i) => (
                 <li key={item} className="flex items-start gap-4">
-                  <span className="font-display text-sm font-semibold text-[rgba(0,0,0,0.1)] dark:text-[rgba(255,255,255,0.1)] tabular-nums shrink-0 mt-0.5 w-6">
+                  <span className="font-display text-sm font-semibold text-red-500/25 tabular-nums shrink-0 mt-0.5 w-6">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-base text-muted leading-relaxed">{item}</span>
@@ -54,8 +54,8 @@ export function BeforeAfterSection() {
             </ul>
           </div>
 
-          {/* After — accent card treatment */}
-          <div className="ring-1 ring-[rgba(0,0,0,0.08)] dark:ring-[rgba(255,255,255,0.08)] border-l-2 border-l-accent rounded-2xl p-6 sm:p-8 bg-[rgba(37,99,235,0.02)] dark:bg-[rgba(37,99,235,0.04)]">
+          {/* After — blue accent treatment */}
+          <div className="ring-1 ring-[rgba(37,99,235,0.15)] dark:ring-[rgba(37,99,235,0.15)] border-l-2 border-l-accent rounded-2xl p-6 sm:p-8 bg-[rgba(37,99,235,0.02)] dark:bg-[rgba(37,99,235,0.04)]">
             <div className="text-[10px] tracking-[0.18em] uppercase text-accent font-medium mb-7">
               What a system does instead
             </div>

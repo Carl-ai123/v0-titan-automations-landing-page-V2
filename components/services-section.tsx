@@ -277,49 +277,41 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Asymmetric grid — large left card, two stacked on right */}
-        <div className="grid lg:grid-cols-5 gap-4 fade-up-section">
-
-          {/* Large card */}
-          <div className="lg:col-span-3">
-            <ServiceCard
-              visual={WebsiteVisual}
-              label="Web Design"
-              title="AI-Powered Website"
-              bullets={[
-                "Sub-1s load, 99+ Lighthouse score, built around your specific offer",
-                "Booking widget, live chat, and lead capture wired up on day one",
-              ]}
-              outcome="Visitors become booked clients — not just traffic."
-            />
-          </div>
-
-          {/* Two smaller cards stacked */}
-          <div className="lg:col-span-2 grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            <ServiceCard
-              visual={BookingVisual}
-              label="Booking & CRM"
-              title="Booking System & Pipeline"
-              bullets={[
-                "Online booking with deposits, reminders, and Calendar sync",
-                "Every lead enters a follow-up sequence — none fall through",
-              ]}
-              outcome="No missed bookings. No chased leads."
-              compact
-            />
-            <ServiceCard
-              visual={ChatbotVisual}
-              label="AI Agents"
-              title="AI Chatbots & Automation"
-              bullets={[
-                "AI qualifies enquiries and books calls at 2am",
-                "Review requests and outreach — fully automated",
-              ]}
-              outcome="Your pipeline runs while you sleep."
-              compact
-            />
-          </div>
-
+        {/* Uniform 3-column grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-up-section">
+          <ServiceCard
+            visual={WebsiteVisual}
+            label="Web Design"
+            title="AI-Powered Website"
+            bullets={[
+              "Sub-1s load, 99+ Lighthouse score, built around your specific offer",
+              "Booking widget, live chat, and lead capture wired up on day one",
+            ]}
+            outcome="Visitors become booked clients — not just traffic."
+            compact
+          />
+          <ServiceCard
+            visual={BookingVisual}
+            label="Booking & CRM"
+            title="Booking System & Pipeline"
+            bullets={[
+              "Online booking with deposits, reminders, and Calendar sync",
+              "Every lead enters a follow-up sequence — none fall through",
+            ]}
+            outcome="No missed bookings. No chased leads."
+            compact
+          />
+          <ServiceCard
+            visual={ChatbotVisual}
+            label="AI Agents"
+            title="AI Chatbots & Automation"
+            bullets={[
+              "AI qualifies enquiries and books calls at 2am",
+              "Review requests and outreach — fully automated",
+            ]}
+            outcome="Your pipeline runs while you sleep."
+            compact
+          />
         </div>
       </div>
     </section>

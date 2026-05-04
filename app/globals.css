@@ -6,9 +6,9 @@
 :root {
   /* Titan Automations Brand Tokens */
   --dark-bg: #0A0A0A;
-  --light-bg: #F5F2EE;        /* warm off-white — was #FAFAF9 */
+  --light-bg: #F8F8F8;        /* clean neutral white */
   --card-dark: #131313;       /* slightly warmer — was #111111 */
-  --card-light: #EDE9E3;      /* warm card bg — was #FFFFFF */
+  --card-light: #FFFFFF;      /* pure white cards */
   --border-dark: rgba(255, 255, 255, 0.08);
   --border-light: rgba(0, 0, 0, 0.08);
   --accent: #2563EB;
@@ -41,9 +41,9 @@
   --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
   
   --color-dark: #0A0A0A;
-  --color-light: #F5F2EE;       /* warm off-white */
+  --color-light: #F8F8F8;       /* clean neutral white */
   --color-card-dark: #131313;   /* slightly warmer card */
-  --color-card-light: #EDE9E3;  /* warm card bg */
+  --color-card-light: #FFFFFF;  /* pure white cards */
   --color-accent: #2563EB;
   --color-accent-tint: #EFF4FF;
   --color-text-dark: #F5F5F5;
