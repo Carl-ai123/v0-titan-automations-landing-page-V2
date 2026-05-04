@@ -149,15 +149,14 @@ export function HeroSection() {
               {/* Card Header */}
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs tracking-[0.15em] uppercase text-muted font-medium">
-                  Live System Overview
+                  Example client system
                 </span>
                 <div className="flex items-center gap-2">
-                  {/* Pulsing live dot */}
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-60" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
                   </span>
-                  <span className="text-xs text-muted">All systems live</span>
+                  <span className="text-xs text-muted">Running live</span>
                 </div>
               </div>
 
@@ -168,7 +167,7 @@ export function HeroSection() {
                   <div className={`text-2xl font-display font-semibold mb-1 tabular-nums transition-all duration-300 ${leadsFlash ? "text-accent" : "text-text-light dark:text-white"}`}>
                     {leads}
                   </div>
-                  <div className="text-xs text-muted">Leads enriched today</div>
+                  <div className="text-xs text-muted">Leads enriched</div>
                 </div>
 
                 {/* Emails — live incrementing */}
@@ -176,16 +175,16 @@ export function HeroSection() {
                   <div className={`text-2xl font-display font-semibold mb-1 tabular-nums transition-all duration-300 ${emailsFlash ? "text-accent" : "text-text-light dark:text-white"}`}>
                     {emails}
                   </div>
-                  <div className="text-xs text-muted">Emails dispatched</div>
+                  <div className="text-xs text-muted">Follow-ups sent</div>
                 </div>
 
                 <div className="bg-card-light dark:bg-card-dark p-5">
                   <div className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1">2</div>
-                  <div className="text-xs text-muted">Replies received</div>
+                  <div className="text-xs text-muted">Calls booked</div>
                 </div>
                 <div className="bg-card-light dark:bg-card-dark p-5">
                   <div className="text-2xl font-display font-semibold text-accent mb-1">100%</div>
-                  <div className="text-xs text-muted">Automated</div>
+                  <div className="text-xs text-muted">Zero manual work</div>
                 </div>
               </div>
 

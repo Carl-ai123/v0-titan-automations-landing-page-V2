@@ -17,7 +17,18 @@
       "WebFetch(domain:leftclick.ai)",
       "WebFetch(domain:hatchworks.com)",
       "WebFetch(domain:www.ninetwothree.co)",
-      "WebFetch(domain:cheesecakelabs.com)"
+      "WebFetch(domain:cheesecakelabs.com)",
+      "Read(//c/Users/carlw/**)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(git ls-remote *)",
+      "Bash(git credential-manager *)",
+      "Bash(git credential *)",
+      "Bash(git -c credential.helper=manager ls-remote https://github.com/LeonxInx/taste-skill.git)",
+      "WebFetch(domain:www.morningside.ai)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"

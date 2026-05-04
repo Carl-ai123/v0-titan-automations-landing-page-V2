@@ -2,14 +2,15 @@ import { FloatingNav } from "@/components/floating-nav"
 import { HeroSection } from "@/components/hero-section"
 import { MarqueeStrip } from "@/components/marquee-strip"
 import { BeforeAfterSection } from "@/components/before-after-section"
-import { HowItWorks } from "@/components/how-it-works"
 import { ServicesSection } from "@/components/services-section"
+import { HowItWorks } from "@/components/how-it-works"
 import { AutomationFlow } from "@/components/automation-flow"
-import { IndustriesSection } from "@/components/industries-section"
 import { ResultsSection } from "@/components/results-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { IndustriesSection } from "@/components/industries-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
+import { FinalCTA } from "@/components/final-cta"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { ScrollAnimations } from "@/components/scroll-animations"
@@ -60,13 +61,14 @@ export default function Home() {
         <MarqueeStrip />
         <BeforeAfterSection />
         <ServicesSection />
+        <HowItWorks />
         <AutomationFlow />
         <ResultsSection />
         <TestimonialsSection />
-        <HowItWorks />
         <IndustriesSection />
         <PricingSection />
         <FAQSection />
+        <FinalCTA />
         <ContactSection />
       </div>
       <Footer />

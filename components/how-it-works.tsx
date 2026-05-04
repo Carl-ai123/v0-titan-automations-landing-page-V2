@@ -70,7 +70,7 @@ export function HowItWorks() {
     {
       number: "02",
       title: "We Build It",
-      description: "Our team designs, develops, and tests your custom AI-powered system in under two weeks.",
+      description: "I personally design, build, and test your custom AI-powered system in under two weeks.",
       card: (
         <div ref={checklistRef} className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-lg p-4">
           <div className="text-xs text-muted mb-2">Build Progress</div>
