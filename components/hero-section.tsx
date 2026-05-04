@@ -164,36 +164,16 @@ export function HeroSection() {
               {/* 2×2 Stat Grid */}
               <div className="grid grid-cols-2 gap-px bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden mb-5">
                 {/* Leads — live incrementing */}
-                <div
-                  className="p-5 transition-colors duration-500"
-                  style={{
-                    background: leadsFlash
-                      ? "rgba(37,99,235,0.07)"
-                      : "var(--color-card-light, #EDE9E3)",
-                  }}
-                >
-                  <div
-                    className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1 tabular-nums transition-all duration-300"
-                    style={{ color: leadsFlash ? "#2563EB" : undefined }}
-                  >
+                <div className={`p-5 transition-colors duration-500 ${leadsFlash ? "bg-accent/5" : "bg-card-light dark:bg-card-dark"}`}>
+                  <div className={`text-2xl font-display font-semibold mb-1 tabular-nums transition-all duration-300 ${leadsFlash ? "text-accent" : "text-text-light dark:text-white"}`}>
                     {leads}
                   </div>
                   <div className="text-xs text-muted">Leads enriched today</div>
                 </div>
 
                 {/* Emails — live incrementing */}
-                <div
-                  className="p-5 transition-colors duration-500"
-                  style={{
-                    background: emailsFlash
-                      ? "rgba(37,99,235,0.07)"
-                      : "var(--color-card-light, #EDE9E3)",
-                  }}
-                >
-                  <div
-                    className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1 tabular-nums transition-all duration-300"
-                    style={{ color: emailsFlash ? "#2563EB" : undefined }}
-                  >
+                <div className={`p-5 transition-colors duration-500 ${emailsFlash ? "bg-accent/5" : "bg-card-light dark:bg-card-dark"}`}>
+                  <div className={`text-2xl font-display font-semibold mb-1 tabular-nums transition-all duration-300 ${emailsFlash ? "text-accent" : "text-text-light dark:text-white"}`}>
                     {emails}
                   </div>
                   <div className="text-xs text-muted">Emails dispatched</div>

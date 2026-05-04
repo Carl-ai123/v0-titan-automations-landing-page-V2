@@ -21,61 +21,49 @@ export function BeforeAfterSection() {
     <section className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-10 md:mb-16 fade-up-section">
-          <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium mb-4">
+        {/* Header — left-aligned, editorial */}
+        <div className="mb-12 md:mb-20 fade-up-section">
+          <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium mb-5">
             The problem
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] max-w-2xl mx-auto">
-            Most service businesses run on the owner.
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-text-light dark:text-white tracking-[-0.04em] leading-[1.1] max-w-3xl">
+            Most service businesses cap out. The owner is the bottleneck.
           </h2>
-          <p className="text-base text-muted mt-4 max-w-xl mx-auto leading-relaxed">
-            That works until it caps your growth. Here&apos;s what running on a system looks like instead.
+          <p className="text-base text-muted mt-5 max-w-xl leading-relaxed">
+            If you disappeared for two weeks, would the business keep running? If not — that&apos;s the problem we fix.
           </p>
         </div>
 
-        {/* Comparison Grid */}
-        <div className="grid md:grid-cols-2 gap-3 fade-up-section">
+        {/* Comparison — editorial two-column */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 fade-up-section">
 
-          {/* Before */}
-          <div className="bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-2xl p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-5 h-5 rounded-full bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.06)] flex items-center justify-center shrink-0">
-                <svg className="w-3 h-3 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-muted uppercase tracking-[0.12em]">Right now</span>
+          {/* Before — raw numbered list, no card box */}
+          <div>
+            <div className="text-[10px] tracking-[0.18em] uppercase text-muted font-medium mb-7">
+              How it runs today
             </div>
-            <ul className="space-y-4">
-              {before.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <svg className="w-4 h-4 text-muted/40 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span className="text-sm text-muted leading-relaxed">{item}</span>
+            <ul className="space-y-6">
+              {before.map((item, i) => (
+                <li key={item} className="flex items-start gap-4">
+                  <span className="font-display text-sm font-semibold text-[rgba(0,0,0,0.1)] dark:text-[rgba(255,255,255,0.1)] tabular-nums shrink-0 mt-0.5 w-6">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-base text-muted leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* After */}
-          <div className="bg-[rgba(37,99,235,0.03)] dark:bg-[rgba(37,99,235,0.06)] border border-accent/20 rounded-2xl p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                <svg className="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-accent uppercase tracking-[0.12em]">After Titan</span>
+          {/* After — accent card treatment */}
+          <div className="ring-1 ring-[rgba(0,0,0,0.08)] dark:ring-[rgba(255,255,255,0.08)] border-l-2 border-l-accent rounded-2xl p-6 sm:p-8 bg-[rgba(37,99,235,0.02)] dark:bg-[rgba(37,99,235,0.04)]">
+            <div className="text-[10px] tracking-[0.18em] uppercase text-accent font-medium mb-7">
+              What a system does instead
             </div>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {after.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <svg className="w-4 h-4 text-accent/60 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-text-light dark:text-white leading-relaxed">{item}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" aria-hidden="true" />
+                  <span className="text-base text-text-light dark:text-white leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
