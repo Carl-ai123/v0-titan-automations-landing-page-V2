@@ -6,13 +6,14 @@ type ServiceCardProps = {
   title: string
   bullets: string[]
   outcome: string
+  compact?: boolean
 }
 
-function ServiceCard({ visual, label, title, bullets, outcome }: ServiceCardProps) {
+function ServiceCard({ visual, label, title, bullets, outcome, compact }: ServiceCardProps) {
   return (
     <div className="group bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] hover:border-accent/25 dark:hover:border-accent/35 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(37,99,235,0.07)] dark:hover:shadow-[0_12px_32px_rgba(37,99,235,0.14)] transition-all duration-300 ease-out rounded-2xl overflow-hidden cursor-default flex flex-col">
       {/* Visual area */}
-      <div className="relative h-52 bg-[#0d0d0f] border-b border-[rgba(255,255,255,0.06)] overflow-hidden flex items-center justify-center">
+      <div className={`relative bg-[#0d0d0f] border-b border-[rgba(255,255,255,0.06)] overflow-hidden flex items-center justify-center ${compact ? "h-36" : "h-52"}`}>
         {visual}
       </div>
       {/* Content */}
@@ -276,41 +277,48 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* 3-col grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-up-section">
+        {/* Asymmetric grid — large left card, two stacked on right */}
+        <div className="grid lg:grid-cols-5 gap-4 fade-up-section">
 
-          <ServiceCard
-            visual={WebsiteVisual}
-            label="Web Design"
-            title="AI-Powered Website"
-            bullets={[
-              "Sub-1s load, 99+ Lighthouse score, built around your specific offer",
-              "Booking widget, live chat, and lead capture wired up on day one",
-            ]}
-            outcome="Visitors become booked clients — not just traffic."
-          />
+          {/* Large card */}
+          <div className="lg:col-span-3">
+            <ServiceCard
+              visual={WebsiteVisual}
+              label="Web Design"
+              title="AI-Powered Website"
+              bullets={[
+                "Sub-1s load, 99+ Lighthouse score, built around your specific offer",
+                "Booking widget, live chat, and lead capture wired up on day one",
+              ]}
+              outcome="Visitors become booked clients — not just traffic."
+            />
+          </div>
 
-          <ServiceCard
-            visual={BookingVisual}
-            label="Booking & CRM"
-            title="Booking System & Pipeline"
-            bullets={[
-              "Online booking with deposits, reminders, and Google Calendar sync",
-              "Every lead enters a follow-up sequence automatically — none fall through",
-            ]}
-            outcome="No missed bookings. No chased leads. No manual entry."
-          />
-
-          <ServiceCard
-            visual={ChatbotVisual}
-            label="AI Agents"
-            title="AI Chatbots & Automation"
-            bullets={[
-              "AI qualifies enquiries and books calls into your calendar at 2am",
-              "Review requests, re-engagement flows, and outreach — all automated",
-            ]}
-            outcome="Your pipeline runs whether you're working or not."
-          />
+          {/* Two smaller cards stacked */}
+          <div className="lg:col-span-2 grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            <ServiceCard
+              visual={BookingVisual}
+              label="Booking & CRM"
+              title="Booking System & Pipeline"
+              bullets={[
+                "Online booking with deposits, reminders, and Calendar sync",
+                "Every lead enters a follow-up sequence — none fall through",
+              ]}
+              outcome="No missed bookings. No chased leads."
+              compact
+            />
+            <ServiceCard
+              visual={ChatbotVisual}
+              label="AI Agents"
+              title="AI Chatbots & Automation"
+              bullets={[
+                "AI qualifies enquiries and books calls at 2am",
+                "Review requests and outreach — fully automated",
+              ]}
+              outcome="Your pipeline runs while you sleep."
+              compact
+            />
+          </div>
 
         </div>
       </div>

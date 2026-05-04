@@ -77,7 +77,7 @@ function MetricCard({ result, index }: { result: Result; index: number }) {
     if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect() } },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -86,15 +86,12 @@ function MetricCard({ result, index }: { result: Result; index: number }) {
   const count = useCountUp(result.value, 1200 + index * 150, started)
 
   return (
-    <div
-      ref={ref}
-      className="bg-card-light dark:bg-transparent ring-1 ring-[rgba(0,0,0,0.08)] dark:ring-[rgba(255,255,255,0.08)] border-l-2 border-l-accent rounded-xl p-5 sm:p-7"
-    >
-      <div className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-text-light dark:text-white mb-3 md:mb-4 tabular-nums">
+    <div ref={ref} className="pl-6 border-l-2 border-l-accent">
+      <div className="font-display text-[72px] sm:text-[88px] md:text-[104px] lg:text-[120px] font-bold text-text-light dark:text-white leading-none tabular-nums mb-4">
         {result.prefix ?? ""}{count}{result.suffix}
       </div>
-      <p className="text-sm text-muted mb-3 leading-relaxed">{result.context}</p>
-      <p className="text-sm text-accent">{result.outcome}</p>
+      <p className="text-sm text-muted leading-relaxed max-w-xs mb-2">{result.context}</p>
+      <p className="text-xs font-medium text-accent">{result.outcome}</p>
     </div>
   )
 }
@@ -116,8 +113,8 @@ export function ResultsSection() {
           </p>
         </div>
 
-        {/* Results Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 fade-up-section">
+        {/* Results — poster strip */}
+        <div className="grid md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 fade-up-section">
           {results.map((result, i) => (
             <MetricCard key={i} result={result} index={i} />
           ))}

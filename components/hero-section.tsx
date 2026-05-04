@@ -86,15 +86,17 @@ export function HeroSection() {
 
             {/* Headline */}
             <h1
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold text-text-light dark:text-white leading-[1.05] tracking-[-0.03em] mb-5 md:mb-6 text-balance opacity-0 animate-fade-up"
+              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[88px] xl:text-[96px] font-semibold text-text-light dark:text-white leading-[1.0] tracking-[-0.04em] mb-5 md:mb-7 opacity-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Your business shouldn&apos;t run on you.
+              Your business<br />
+              shouldn&apos;t run<br />
+              <span className="text-accent">on you.</span>
             </h1>
 
             {/* Subtext */}
             <p
-              className="text-base md:text-lg text-muted max-w-[480px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
+              className="text-base md:text-lg text-muted max-w-[440px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
               style={{ animationDelay: "0.35s" }}
             >
               We build AI-powered systems that handle your leads, bookings, and follow-ups automatically. You get more clients — without the manual overhead. Live in 14 days.
