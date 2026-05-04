@@ -291,12 +291,3 @@ html.light { color-scheme: light; }
   }
 }
 
-/* ── Warm colour transition flanking the light-break (Industries) section ── */
-/* AutomationFlow fades to a warm dark at its base, leading into the off-white */
-.dark #automation {
-  background: linear-gradient(to bottom, #0A0A0A 0%, #0A0A0A 55%, #13100C 100%);
-}
-/* Results emerges from the same warm dark, fading back to soft black */
-.dark #results {
-  background: linear-gradient(to bottom, #13100C 0%, #0A0A0A 40%);
-}

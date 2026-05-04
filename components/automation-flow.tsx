@@ -94,7 +94,7 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
       className={`relative flex-1 min-w-0 rounded-xl p-5 border ${
         node.isLast
           ? "bg-amber/5 border-amber/25"
-          : "bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] animate-node-ring"
+          : "bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.03)] border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] animate-node-ring"
       }`}
       style={!node.isLast ? { animationDelay: `${index * 0.5}s` } : undefined}
     >
@@ -108,7 +108,7 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
       <div className="text-[10px] tracking-[0.15em] uppercase text-muted font-medium mb-1">
         {node.label}
       </div>
-      <div className="text-sm font-medium text-white leading-snug mb-1 tracking-[-0.02em]">
+      <div className="text-sm font-medium text-text-light dark:text-white leading-snug mb-1 tracking-[-0.02em]">
         {node.title}
       </div>
       <div className="text-xs text-muted leading-relaxed">{node.sub}</div>
@@ -125,14 +125,14 @@ function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
 function DesktopConnector({ delay }: { delay: number }) {
   return (
     <div className="flex items-center w-8 shrink-0 mt-9">
-      <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)] relative overflow-hidden">
+      <div className="flex-1 h-px bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.08)] relative overflow-hidden">
         <div
           className="absolute top-0 h-full w-8 bg-accent/50 animate-flow-line"
           style={{ animationDelay: `${delay}s` }}
         />
       </div>
       <svg
-        className="shrink-0 w-2.5 h-2.5 text-[rgba(255,255,255,0.2)] -ml-px"
+        className="shrink-0 w-2.5 h-2.5 text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)] -ml-px"
         viewBox="0 0 10 10"
         fill="none"
         stroke="currentColor"
@@ -151,7 +151,7 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
       className={`w-full max-w-sm rounded-xl p-4 border ${
         node.isLast
           ? "bg-amber/5 border-amber/25"
-          : "bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)]"
+          : "bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.03)] border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]"
       }`}
     >
       <div className="flex items-start gap-3">
@@ -166,7 +166,7 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
           <div className="text-[10px] tracking-[0.15em] uppercase text-muted font-medium mb-0.5">
             {node.label}
           </div>
-          <div className="text-sm font-medium text-white leading-snug tracking-[-0.02em]">
+          <div className="text-sm font-medium text-text-light dark:text-white leading-snug tracking-[-0.02em]">
             {node.title}
           </div>
           <div className="text-xs text-muted mt-0.5 leading-relaxed">{node.sub}</div>
@@ -184,7 +184,7 @@ function MobileNodeCard({ node }: { node: FlowNode }) {
 
 function MobileConnector({ delay }: { delay: number }) {
   return (
-    <div className="h-8 w-px bg-[rgba(255,255,255,0.08)] relative overflow-hidden my-1">
+    <div className="h-8 w-px bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.08)] relative overflow-hidden my-1">
       <div
         className="absolute left-0 w-full h-8 bg-accent/40 animate-flow-line-vertical"
         style={{ animationDelay: `${delay}s` }}
@@ -195,18 +195,18 @@ function MobileConnector({ delay }: { delay: number }) {
 
 function ScenarioCard({ scenario }: { scenario: Scenario }) {
   return (
-    <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+    <div className="bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)] rounded-xl p-5">
       <div className="text-[10px] text-muted uppercase tracking-[0.15em] font-medium mb-3">
         {scenario.when}
       </div>
       <div className="flex flex-wrap items-center gap-1.5 mb-4">
         {scenario.steps.map((step, i) => (
           <Fragment key={i}>
-            <span className="text-xs bg-[rgba(255,255,255,0.06)] text-[rgba(255,255,255,0.65)] px-2 py-1 rounded-md whitespace-nowrap">
+            <span className="text-xs bg-[rgba(0,0,0,0.04)] dark:bg-[rgba(255,255,255,0.06)] text-muted dark:text-[rgba(255,255,255,0.65)] px-2 py-1 rounded-md whitespace-nowrap">
               {step}
             </span>
             {i < scenario.steps.length - 1 && (
-              <span className="text-[rgba(255,255,255,0.2)] text-xs" aria-hidden="true">→</span>
+              <span className="text-muted/40 text-xs" aria-hidden="true">→</span>
             )}
           </Fragment>
         ))}
@@ -223,14 +223,14 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
 
 export function AutomationFlow() {
   return (
-    <section id="automation" className="bg-dark py-16 md:py-24 lg:py-32">
+    <section id="automation" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32">
 
       {/* Header — constrained */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 fade-up-section">
         <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
           How it works under the hood
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-[-0.03em] text-balance">
+        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
           One trigger.<br className="hidden sm:block" /> Your entire pipeline fires.
         </h2>
         <p className="text-base text-muted max-w-lg mt-4 leading-relaxed">
@@ -239,7 +239,7 @@ export function AutomationFlow() {
       </div>
 
       {/* ── Flow diagram — Desktop: full-bleed panel ── */}
-      <div className="hidden lg:block border-y border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.015)] py-8 px-6 xl:px-16 mb-12 fade-up-section">
+      <div className="hidden lg:block border-y border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.05)] bg-[rgba(0,0,0,0.015)] dark:bg-[rgba(255,255,255,0.015)] py-8 px-6 xl:px-16 mb-12 fade-up-section">
         <div className="flex items-start gap-3">
           {nodes.map((node, i) => (
             <Fragment key={node.label}>
