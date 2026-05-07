@@ -50,6 +50,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/logo-mark.png',
+    apple: '/apple-icon.png',
+  },
 }
 
 
