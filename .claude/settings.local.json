@@ -28,7 +28,10 @@
       "WebFetch(domain:www.morningside.ai)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "WebFetch(domain:www.figma.com)",
+      "WebSearch",
+      "WebFetch(domain:help.figma.com)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads"
