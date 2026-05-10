@@ -1,0 +1,4 @@
+# Tell GitHub Linguist to ignore Claude Code skill/agent files
+# These are tooling files, not project source code
+.agents/** linguist-vendored
+.claude/** linguist-vendored
