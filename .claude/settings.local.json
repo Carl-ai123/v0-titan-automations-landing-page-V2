@@ -47,7 +47,10 @@
       "Bash(ls app/actions/)",
       "Bash(node -e \"require\\('framer-motion'\\)\")",
       "Bash(ls app/globals.css styles/)",
-      "Bash(cat styles/globals.css)"
+      "Bash(cat styles/globals.css)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' 'https://gshufnmwgevkbhxmerdy.supabase.co/rest/v1/audit_requests?limit=1' -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68')",
+      "Bash(curl -s -w '\\\\nHTTP:%{http_code}' https://gshufnmwgevkbhxmerdy.supabase.co/rest/v1/audit_requests -X POST -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68' -H 'Content-Type: application/json' -H 'Prefer: return=minimal' -d '{\"name\":\"Test Lead\",\"email\":\"test@test.com\",\"business_name\":\"Test Co\",\"industry\":\"Trades & Construction\",\"biggest_bottleneck\":\"This is a test submission - can be deleted\"}')",
+      "WebFetch(domain:svgmaker.io)"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads",
