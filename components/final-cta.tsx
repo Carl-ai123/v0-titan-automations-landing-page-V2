@@ -1,63 +1,53 @@
 "use client"
 
-const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+import { ArrowRight } from "lucide-react"
 
-const steps = [
-  { number: "01", label: "Tell us about your business", detail: "Share what you do and where the bottlenecks are. Takes 5 minutes." },
-  { number: "02", label: "20-min call, no pitch", detail: "We show you exactly what we'd build — for your business, not a template." },
-  { number: "03", label: "Fixed quote in 48 hours", detail: "A written scope and price before anything starts. No surprises, ever." },
-]
+const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
+const openCalendly = () => {
+  if (typeof window !== "undefined") {
+    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+  }
+}
 
 export function FinalCTA() {
   return (
-    <section id="cta" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto text-center fade-up-section">
-        {/* Accent rule */}
-        <div className="w-12 h-px bg-accent mx-auto mb-12" />
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-4 md:mb-6">
-          Stop running your business manually.
-        </h2>
-        <p className="text-base md:text-lg text-muted mb-10 md:mb-12 max-w-xl mx-auto leading-relaxed">
-          One call and we&apos;ll show you exactly what&apos;s costing you time and money — and what a system built around your business would look like.
-        </p>
-
-        {/* 3-step process */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-10 md:mb-12 text-left">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5"
-            >
-              <div className="text-[10px] tracking-[0.15em] uppercase text-accent font-medium mb-2">
-                {step.number}
-              </div>
-              <div className="text-sm font-medium text-text-light dark:text-white mb-1 leading-snug">
-                {step.label}
-              </div>
-              <div className="text-xs text-muted leading-relaxed">
-                {step.detail}
-              </div>
-            </div>
-          ))}
+    <section id="cta" className="py-20 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto text-center">
+        <div className="relative inline-block mb-8">
+          <div
+            className="absolute inset-0 -m-16 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,157,255,0.1) 0%, transparent 65%)" }}
+            aria-hidden="true"
+          />
+          <span className="relative inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent">
+            <span className="w-5 h-px bg-accent" aria-hidden="true" />
+            Free Automation Audit
+            <span className="w-5 h-px bg-accent" aria-hidden="true" />
+          </span>
         </div>
+
+        <h2 className="font-display text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-hi mb-6">
+          Find the manual work{" "}
+          <span style={{ background: "linear-gradient(135deg, #009DFF 0%, #006CFF 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            costing you money.
+          </span>
+        </h2>
+
+        <p className="text-lg text-lo leading-relaxed mb-10 max-w-xl mx-auto">
+          In 20 minutes, we will map where leads, time, and revenue are leaking — and show you
+          what to automate first. No commitment. No hard sell. Just the audit.
+        </p>
 
         <button
           onClick={openCalendly}
-          className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
+          className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-all duration-150 hover:-translate-y-px active:translate-y-0 shadow-[0_8px_32px_rgba(0,157,255,0.22)]"
         >
-          Book Your Free Strategy Call
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          Book Free Automation Audit
+          <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
         </button>
-        <p className="mt-4 text-xs text-muted/70">
-          We take on 3–4 new clients per month — currently 1 slot open.
-        </p>
 
-        {/* GDPR note */}
-        <p className="mt-8 text-xs text-muted/70 max-w-sm mx-auto leading-relaxed">
-          Your data is handled in line with UK GDPR. We never share your details with third parties.
+        <p className="mt-5 text-sm text-dim">
+          UK-based · No obligation · Reply within one working day
         </p>
       </div>
     </section>

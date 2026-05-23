@@ -1,76 +1,134 @@
+"use client"
+
+import { useState } from "react"
+import { Wrench, HeartPulse, Building2, Briefcase, MapPin } from "lucide-react"
+
+const SECTORS = [
+  {
+    icon:       <Wrench size={16} />,
+    label:      "Trades & Construction",
+    bottleneck: "Missed quote requests and job follow-ups cost revenue every week.",
+    automations: [
+      "Missed call → instant text back with booking link",
+      "Quote sent → automatic chaser at 2, 5, and 10 days",
+      "Job completed → review request sent automatically",
+    ],
+    outcome: "Fewer leads go cold. Reviews build up without asking.",
+  },
+  {
+    icon:       <HeartPulse size={16} />,
+    label:      "Clinics & Healthcare",
+    bottleneck: "Manual appointment booking and no-show rates cost time and revenue.",
+    automations: [
+      "Online booking with automated confirmations and reminders",
+      "No-show → automatic rebooking prompt within the hour",
+      "Treatment complete → recall message sent at the right interval",
+    ],
+    outcome: "Fewer no-shows. More returning patients. Less admin.",
+  },
+  {
+    icon:       <Building2 size={16} />,
+    label:      "Property",
+    bottleneck: "Enquiries are slow to respond to. Viewings are hard to coordinate.",
+    automations: [
+      "New enquiry → instant response with viewing availability",
+      "Viewing booked → confirmation, reminder, and feedback request",
+      "Applicant goes quiet → automated follow-up sequence",
+    ],
+    outcome: "Faster responses. More viewings booked. Less chasing.",
+  },
+  {
+    icon:       <Briefcase size={16} />,
+    label:      "Professional Services",
+    bottleneck: "Onboarding is manual. Leads go cold while waiting for a response.",
+    automations: [
+      "New lead → qualification form sent automatically",
+      "Proposal sent → follow-up if no response after 3 days",
+      "Client onboarded → document checklist and reminders triggered",
+    ],
+    outcome: "Warmer leads. Smoother onboarding. Less inbox chaos.",
+  },
+  {
+    icon:       <MapPin size={16} />,
+    label:      "Local Services",
+    bottleneck: "Missed calls are missed jobs. Repeat bookings depend on the client remembering.",
+    automations: [
+      "Missed call → SMS within 60 seconds with booking link",
+      "Job completed → follow-up for repeat booking at the right time",
+      "Google reviews → requested automatically after every service",
+    ],
+    outcome: "Missed calls recovered. Repeat business up. Reviews growing.",
+  },
+]
+
 export function IndustriesSection() {
-  const industries = [
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z" />
-        </svg>
-      ),
-      title: "Dental & Healthcare",
-      description: "Automated patient recall, online booking, and review collection — fewer no-shows, fuller diaries.",
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
-        </svg>
-      ),
-      title: "Trades & Construction",
-      description: "Stop chasing quotes. Leads are captured, followed up, and qualified before you pick up the phone.",
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M20 7h-9M14 17H5" />
-          <circle cx="17" cy="17" r="3" />
-          <circle cx="7" cy="7" r="3" />
-        </svg>
-      ),
-      title: "Professional Services",
-      description: "Client onboarding in minutes, not days. Automated follow-ups, CRM pipelines, and document workflows.",
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M3 3h18v18H3zM3 9h18M9 21V9" />
-        </svg>
-      ),
-      title: "Hospitality & Retail",
-      description: "Reservation systems, post-visit review requests, and re-engagement flows that run without staff.",
-    },
-  ]
+  const [active, setActive] = useState(0)
+  const sector = SECTORS[active]
 
   return (
-    <section id="industries" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-10 md:mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-            Who we work with
-          </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
-            This isn&apos;t for every business.
+    <section id="industries" className="py-20 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 bg-surface">
+      <div className="max-w-7xl mx-auto">
+
+        <div className="mb-12 md:mb-16 max-w-2xl">
+          <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
+            <span className="w-5 h-px bg-accent" aria-hidden="true" />
+            Who We Work With
+          </span>
+          <h2 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-hi mb-5">
+            Built for service businesses where admin delays cost money.
           </h2>
-          <p className="text-base text-muted mt-4 max-w-xl mx-auto leading-relaxed">
-            We work with owners who are done doing things manually and ready to build something that runs without them.
+          <p className="text-lg text-lo leading-relaxed">
+            We do not work with everyone. We work best where manual processes create a measurable revenue leak
+            — and where fixing it pays for itself quickly.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 fade-up-section">
-          {industries.map((industry) => (
-            <div
-              key={industry.title}
-              className="bg-card-light dark:bg-[rgba(255,255,255,0.03)] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] hover:border-[rgba(0,0,0,0.18)] dark:hover:border-[rgba(255,255,255,0.16)] transition-colors duration-200 rounded-xl p-5"
-            >
-              <div className="w-8 h-8 mb-4 text-accent">{industry.icon}</div>
-              <h3 className="font-display text-lg font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-2">
-                {industry.title}
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">{industry.description}</p>
+        <div className="grid lg:grid-cols-[280px_1fr] gap-4">
+          {/* Sector tabs */}
+          <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+            {SECTORS.map((s, i) => (
+              <button
+                key={s.label}
+                onClick={() => setActive(i)}
+                className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-left whitespace-nowrap lg:whitespace-normal transition-all duration-150 border shrink-0 ${
+                  active === i
+                    ? "bg-elevated border-accent/30 text-hi"
+                    : "bg-transparent border-white/[0.06] text-lo hover:border-white/15 hover:text-hi"
+                }`}
+              >
+                <span className={active === i ? "text-accent" : "text-dim"}>{s.icon}</span>
+                <span className="text-sm font-medium">{s.label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Detail panel */}
+          <div className="bg-elevated border border-white/[0.08] rounded-2xl p-7 sm:p-9">
+            <p className="text-sm font-semibold text-accent tracking-[-0.01em] mb-2">{sector.label}</p>
+            <p className="text-base text-lo leading-relaxed mb-7 max-w-lg">
+              <span className="font-medium text-warning/80">Bottleneck:</span> {sector.bottleneck}
+            </p>
+
+            <h3 className="text-xs font-semibold tracking-[0.14em] uppercase text-dim mb-4">What we automate</h3>
+            <ul className="space-y-3 mb-7">
+              {sector.automations.map((a) => (
+                <li key={a} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-[7px]" aria-hidden="true" />
+                  <span className="text-base text-hi leading-relaxed">{a}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex items-center gap-3 bg-success/[0.06] border border-success/20 rounded-xl px-5 py-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-success shrink-0" aria-hidden="true" />
+              <span className="text-sm text-success leading-relaxed">{sector.outcome}</span>
             </div>
-          ))}
+          </div>
         </div>
+
+        <p className="mt-8 text-sm text-dim text-center">
+          Not sure if this fits your business? Book the audit — that is exactly what it is for.
+        </p>
       </div>
     </section>
   )

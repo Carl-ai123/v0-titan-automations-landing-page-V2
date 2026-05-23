@@ -31,10 +31,27 @@
       "Bash(git push *)",
       "WebFetch(domain:www.figma.com)",
       "WebSearch",
-      "WebFetch(domain:help.figma.com)"
+      "WebFetch(domain:help.figma.com)",
+      "Bash(npm --version)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":3000\")",
+      "Bash(taskkill /PID 15364 /F)",
+      "PowerShell(Stop-Process -Id 15364 -Force)",
+      "PowerShell(netstat -ano)",
+      "Bash(grep -E \"\\\\.\\(py|ts|tsx|js\\)$|next|package\")",
+      "Bash(git commit -m 'chore: add .gitattributes to fix GitHub language detection *)",
+      "Bash(curl -L \"https://media.base44.com/images/public/6a00de27ea7707c260fd9a15/c4fb640b2_generated_image.png\" -o \"public/titan-logo-new.png\")",
+      "Bash(py --version)",
+      "Bash(node -e ' *)",
+      "Bash(cat app/actions/audit-request.ts)",
+      "Bash(ls app/actions/)",
+      "Bash(node -e \"require\\('framer-motion'\\)\")",
+      "Bash(ls app/globals.css styles/)",
+      "Bash(cat styles/globals.css)"
     ],
     "additionalDirectories": [
-      "C:\\Users\\carlw\\Downloads"
+      "C:\\Users\\carlw\\Downloads",
+      "C:\\Users\\carlw\\Coding\\TitanAutomationsV2"
     ]
   }
 }

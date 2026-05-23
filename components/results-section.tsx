@@ -1,138 +1,49 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-
-const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
-
-type Result = {
-  prefix?: string
-  value: number
-  suffix: string
-  context: string
-  outcome: string
-}
-
-const results: Result[] = [
+const SIGNALS = [
   {
-    value: 3,
-    suffix: "–4 hrs",
-    context: "Spent daily on enquiries, follow-ups, bookings, and review chasing — tasks a system handles in seconds",
-    outcome: "80+ hours a month. Back in your pocket.",
+    value: "14",
+    unit:  "days",
+    label: "Delivery guarantee",
+    sub:   "Most systems live in two weeks or we tell you why before starting.",
   },
   {
-    value: 14,
-    suffix: " days",
-    context: "Our delivery commitment — from first call to a fully live, tested system, written into every contract",
-    outcome: "Every time. No exceptions.",
+    value: "100%",
+    unit:  "",
+    label: "Client-owned systems",
+    sub:   "No platform dependency. No monthly licence. You own the code.",
   },
   {
-    prefix: "£",
-    value: 280,
-    suffix: "/mo",
-    context: "Typical monthly cost of the tools we replace — booking platform, CRM, email marketing, Zapier",
-    outcome: "One retainer. No overlapping subscriptions.",
+    value: "Fixed",
+    unit:  "",
+    label: "Scope and price",
+    sub:   "You know exactly what you are getting and what it costs before we start.",
+  },
+  {
+    value: "0",
+    unit:  "",
+    label: "Surprise invoices",
+    sub:   "Scope agreed upfront. Nothing added without your approval.",
   },
 ]
 
-function useCountUp(target: number, duration = 1400, started = false) {
-  const [count, setCount] = useState(0)
-  const rafRef = useRef<number | null>(null)
-
-  useEffect(() => {
-    if (!started) return
-    // Skip animation for users who prefer reduced motion
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setCount(target)
-      return
-    }
-    const startTime = performance.now()
-
-    const tick = (now: number) => {
-      const elapsed = now - startTime
-      const progress = Math.min(elapsed / duration, 1)
-      // Expo-out easing
-      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
-      setCount(Math.floor(eased * target))
-      if (progress < 1) {
-        rafRef.current = requestAnimationFrame(tick)
-      } else {
-        setCount(target)
-      }
-    }
-
-    rafRef.current = requestAnimationFrame(tick)
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }
-  }, [started, target, duration])
-
-  return count
-}
-
-function MetricCard({ result, index }: { result: Result; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [started, setStarted] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect() } },
-      { threshold: 0.3 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const count = useCountUp(result.value, 1200 + index * 150, started)
-
-  return (
-    <div ref={ref} className="pl-6 border-l-2 border-l-accent">
-      <div className="font-display text-[72px] sm:text-[88px] md:text-[104px] lg:text-[120px] font-bold text-text-light dark:text-white leading-none tabular-nums mb-4">
-        {result.prefix ?? ""}{count}{result.suffix}
-      </div>
-      <p className="text-sm text-muted leading-relaxed max-w-xs mb-2">{result.context}</p>
-      <p className="text-xs font-medium text-accent">{result.outcome}</p>
-    </div>
-  )
-}
-
 export function ResultsSection() {
   return (
-    <section id="results" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-10 md:mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-            The case for automation
-          </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em]">
-            What doing it manually costs you.
-          </h2>
-          <p className="text-base text-muted mt-3 max-w-xl leading-relaxed">
-            Not client results — just what we&apos;ve seen manual processes cost, and what a system built around your business eliminates.
-          </p>
-        </div>
-
-        {/* Results — poster strip */}
-        <div className="grid md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 fade-up-section">
-          {results.map((result, i) => (
-            <MetricCard key={i} result={result} index={i} />
+    <section id="proof" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-surface border-y border-white/[0.06]">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden">
+          {SIGNALS.map((s) => (
+            <div key={s.label} className="bg-surface px-7 py-8">
+              <div className="flex items-end gap-1 mb-2">
+                <span className="font-display text-4xl font-bold text-hi tracking-tight tabular-nums">{s.value}</span>
+                {s.unit && <span className="font-display text-xl font-bold text-accent mb-1">{s.unit}</span>}
+              </div>
+              <p className="text-sm font-semibold text-hi mb-1.5">{s.label}</p>
+              <p className="text-xs text-lo leading-relaxed">{s.sub}</p>
+            </div>
           ))}
         </div>
-
-        {/* CTA */}
-        <div className="text-center mt-10 md:mt-14 fade-up-section">
-          <button
-            onClick={openCalendly}
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
-          >
-            Show me what I&apos;m losing
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-          <p className="text-xs text-muted mt-3">Free 20-min call · No pitch</p>
-        </div>
+        <p className="mt-7 text-xs text-dim text-center">
+          Exact results depend on your current process. The audit shows where the leak is.
+        </p>
       </div>
     </section>
   )

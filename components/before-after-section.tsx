@@ -1,75 +1,96 @@
-const before = [
-  "Answering the same enquiry questions manually, every day",
-  "Chasing leads who never replied to your first message",
-  "Booking appointments over the phone or back-and-forth texts",
-  "Sending follow-ups when you remember — which isn't often",
-  "Forgetting to ask for reviews until it's too late",
-  "Paying for tools that don't talk to each other",
+const BEFORE = [
+  "Missed calls go unanswered for hours — sometimes days",
+  "Leads sit in the inbox with no follow-up",
+  "Quotes sent once, never chased",
+  "Bookings handled over WhatsApp and back-and-forth calls",
+  "Reviews only happen when someone remembers to ask",
+  "Staff answering the same questions every single day",
+  "CRM is a spreadsheet — or not used at all",
+  "Tools that do not connect — data entered twice",
+  "Owner is the only one who knows how anything works",
 ]
 
-const after = [
-  "AI responds to enquiries instantly — even at 2am",
-  "Leads are qualified, enriched, and followed up automatically",
-  "Clients book online and it lands straight in your calendar",
-  "Follow-up sequences run themselves from lead to close",
+const AFTER = [
+  "Every missed call triggers an instant automated text",
+  "Every lead gets a personalised follow-up within minutes",
+  "Quotes are chased automatically on a set schedule",
+  "Clients book online — it lands straight in your calendar",
   "Review requests go out automatically after every job",
-  "Everything connected — one system, zero overlap",
+  "AI handles FAQs, qualifies enquiries, routes the rest",
+  "Every opportunity tracked in a live pipeline",
+  "All tools connected — one input, everything updates",
+  "The system runs whether you are working or not",
 ]
 
 export function BeforeAfterSection() {
   return (
-    <section className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section id="problems" className="py-20 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
 
-        {/* Header — left-aligned, editorial */}
-        <div className="mb-12 md:mb-20 fade-up-section">
-          <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium mb-5">
-            The problem
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-text-light dark:text-white tracking-[-0.04em] leading-[1.1] max-w-3xl">
-            Most service businesses cap out. The owner is the bottleneck.
+        <div className="mb-14 md:mb-20 max-w-3xl">
+          <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
+            <span className="w-5 h-px bg-accent" aria-hidden="true" />
+            The Problem
+          </span>
+          <h2 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-hi mb-5">
+            Manual work is not harmless.{" "}
+            <span className="text-lo">It is a revenue leak.</span>
           </h2>
-          <p className="text-base text-muted mt-5 max-w-xl leading-relaxed">
-            If you disappeared for two weeks, would the business keep running? If not — that&apos;s the problem we fix.
+          <p className="text-lg text-lo leading-relaxed max-w-xl">
+            Every unanswered call, forgotten follow-up, and delayed reply is a job that went to someone else.
+            The cost is invisible — until you calculate it.
           </p>
         </div>
 
-        {/* Comparison — editorial two-column */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 fade-up-section">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
 
-          {/* Before — red treatment */}
-          <div className="ring-1 ring-[rgba(239,68,68,0.15)] dark:ring-[rgba(239,68,68,0.15)] border-l-2 border-l-red-500 rounded-2xl p-6 sm:p-8 bg-[rgba(239,68,68,0.02)] dark:bg-[rgba(239,68,68,0.03)]">
-            <div className="text-[10px] tracking-[0.18em] uppercase text-red-400 font-medium mb-7">
-              How it runs today
+          {/* Before */}
+          <div className="rounded-2xl border border-error/20 bg-error/[0.03] p-7 sm:p-9">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-7 h-7 rounded-lg bg-error/10 flex items-center justify-center shrink-0" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <line x1="3" y1="3" x2="10" y2="10" stroke="#FF4D4D" strokeWidth="1.6" strokeLinecap="round" />
+                  <line x1="10" y1="3" x2="3" y2="10" stroke="#FF4D4D" strokeWidth="1.6" strokeLinecap="round" />
+                </svg>
+              </div>
+              <span className="text-xs font-semibold tracking-[0.16em] uppercase text-error">How it runs today</span>
             </div>
-            <ul className="space-y-5">
-              {before.map((item, i) => (
+            <ol className="space-y-5">
+              {BEFORE.map((item, i) => (
                 <li key={item} className="flex items-start gap-4">
-                  <span className="font-display text-sm font-semibold text-red-500/25 tabular-nums shrink-0 mt-0.5 w-6">
+                  <span className="font-display text-sm font-bold text-error/20 tabular-nums shrink-0 mt-px w-5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-base text-muted leading-relaxed">{item}</span>
+                  <span className="text-base text-lo leading-relaxed">{item}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
 
-          {/* After — blue accent treatment */}
-          <div className="ring-1 ring-[rgba(37,99,235,0.15)] dark:ring-[rgba(37,99,235,0.15)] border-l-2 border-l-accent rounded-2xl p-6 sm:p-8 bg-[rgba(37,99,235,0.02)] dark:bg-[rgba(37,99,235,0.04)]">
-            <div className="text-[10px] tracking-[0.18em] uppercase text-accent font-medium mb-7">
-              What a system does instead
+          {/* After */}
+          <div className="rounded-2xl border border-accent/25 bg-accent/[0.03] p-7 sm:p-9">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center shrink-0" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M2.5 6.5l3 3 5-5.5" stroke="#009DFF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <span className="text-xs font-semibold tracking-[0.16em] uppercase text-accent">How it runs with Titan</span>
             </div>
             <ul className="space-y-5">
-              {after.map((item) => (
+              {AFTER.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" aria-hidden="true" />
-                  <span className="text-base text-text-light dark:text-white leading-relaxed">{item}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-[7px]" aria-hidden="true" />
+                  <span className="text-base text-hi leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-
         </div>
+
+        <p className="mt-10 text-sm text-dim text-center">
+          If you disappeared for two weeks, would the business keep running? If not — that is the problem we fix.
+        </p>
       </div>
     </section>
   )

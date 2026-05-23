@@ -1,95 +1,91 @@
+import { TitanLogo } from "@/components/titan-logo"
+
+const SYSTEMS = [
+  { label: "AI Website",         href: "#systems" },
+  { label: "AI Chatbot",         href: "#systems" },
+  { label: "Booking Systems",    href: "#systems" },
+  { label: "CRM Automation",     href: "#systems" },
+  { label: "Follow-Up Sequences",href: "#systems" },
+  { label: "Review Requests",    href: "#systems" },
+]
+
+const COMPANY = [
+  { label: "How It Works",  href: "#process"  },
+  { label: "FAQ",           href: "#faq"      },
+  { label: "Privacy Policy",href: "/privacy"  },
+]
+
 export function Footer() {
   return (
-    <footer className="bg-light dark:bg-dark border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
+    <footer className="bg-surface border-t border-white/[0.06] pt-16 pb-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-3 md:mb-4">
-              <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-                <rect width="64" height="64" rx="13" className="fill-[#0A0A0A] dark:fill-[#131313]"/>
-                <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="12.25" stroke="white" strokeOpacity="0.1" strokeWidth="0.5"/>
-                <rect x="9.5" y="13.5" width="45" height="9" rx="2.5" fill="white"/>
-                <rect x="27.5" y="13.5" width="9" height="37" rx="2.5" fill="white"/>
-                <circle cx="32" cy="18" r="6.5" fill="#2563EB" fillOpacity="0.2"/>
-                <circle cx="32" cy="18" r="4.5" fill="#2563EB"/>
-                <circle cx="12" cy="18" r="2.75" fill="#2563EB" fillOpacity="0.8"/>
-                <circle cx="52" cy="18" r="2.75" fill="#2563EB" fillOpacity="0.8"/>
-              </svg>
-              <div className="flex items-center gap-1">
-                <span className="font-audiowide text-sm tracking-wide text-text-light dark:text-white">Titan</span>
-                <span className="font-audiowide text-sm tracking-wide text-muted">Automations</span>
-              </div>
-            </div>
-            <p className="text-sm text-muted leading-relaxed max-w-xs">
-              AI automation for businesses that mean it.
+            <a href="/" className="inline-block mb-5">
+              <TitanLogo size="footer" />
+            </a>
+            <p className="text-sm text-lo leading-relaxed max-w-[220px]">
+              AI automation systems for UK service businesses. Built in 14 days. Owned by you.
             </p>
+            <div className="mt-5 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-success" />
+              <span className="text-xs text-dim">UK-based · Kent</span>
+            </div>
           </div>
 
-          {/* Services */}
+          {/* Systems */}
           <div>
-            <h4 className="font-display font-medium text-text-light dark:text-white mb-3 md:mb-4 text-sm sm:text-base">Services</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  AI-Powered Website
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  Booking System &amp; CRM
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  AI Chatbots &amp; Automation
-                </a>
-              </li>
+            <h4 className="text-xs font-semibold tracking-[0.14em] uppercase text-dim mb-5">Systems</h4>
+            <ul className="space-y-3">
+              {SYSTEMS.map((s) => (
+                <li key={s.label}>
+                  <a href={s.href} className="text-sm text-lo hover:text-hi transition-colors">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="font-display font-medium text-text-light dark:text-white mb-3 md:mb-4 text-sm sm:text-base">Company</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#how-it-works" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#cta" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#results" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  Results
-                </a>
-              </li>
+            <h4 className="text-xs font-semibold tracking-[0.14em] uppercase text-dim mb-5">Company</h4>
+            <ul className="space-y-3">
+              {COMPANY.map((c) => (
+                <li key={c.label}>
+                  <a href={c.href} className="text-sm text-lo hover:text-hi transition-colors">
+                    {c.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Contact */}
           <div>
-            <h4 className="font-display font-medium text-text-light dark:text-white mb-3 md:mb-4 text-sm sm:text-base">Legal</h4>
-            <ul className="space-y-2">
+            <h4 className="text-xs font-semibold tracking-[0.14em] uppercase text-dim mb-5">Get in Touch</h4>
+            <ul className="space-y-3">
               <li>
-                <a href="/privacy" className="text-sm text-muted hover:text-text-light dark:hover:text-white transition-colors">
-                  Privacy Policy
+                <a
+                  href="mailto:info@titan-automations.com"
+                  className="text-sm text-lo hover:text-hi transition-colors"
+                >
+                  info@titan-automations.com
                 </a>
               </li>
+              <li className="text-sm text-dim">Kent, United Kingdom</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 md:pt-8 border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
-          <p className="text-sm text-muted">
-            &copy; {new Date().getFullYear()} Titan Automations · Kent, UK
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p className="text-xs text-dim">
+            &copy; {new Date().getFullYear()} Titan Automations Ltd. All rights reserved.
           </p>
-          <p className="text-sm text-muted">
+          <p className="text-xs text-dim">
             Built with AI. Owned by you.
           </p>
         </div>

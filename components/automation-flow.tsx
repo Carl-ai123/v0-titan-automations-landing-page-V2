@@ -1,74 +1,15 @@
-import { Fragment, type ReactNode } from "react"
+import { Fragment } from "react"
 
-type FlowNode = {
-  label: string
-  title: string
-  sub: string
-  isLast?: boolean
-  icon: ReactNode
-}
-
-type Scenario = {
-  when: string
-  steps: string[]
-  outcome: string
-}
-
-const nodes: FlowNode[] = [
-  {
-    label: "Trigger",
-    title: "Lead captured",
-    sub: "Form, chatbot, or referral",
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
-  },
-  {
-    label: "AI",
-    title: "Scored & enriched",
-    sub: "Intent graded, data pulled",
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
-      </svg>
-    ),
-  },
-  {
-    label: "CRM",
-    title: "Record created",
-    sub: "Pipeline stage set",
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-      </svg>
-    ),
-  },
-  {
-    label: "Email",
-    title: "Sequence starts",
-    sub: "Personalised and timed",
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-      </svg>
-    ),
-  },
-  {
-    label: "Outcome",
-    title: "Call booked",
-    sub: "Discovery slot confirmed",
-    isLast: true,
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
+const NODES = [
+  { label: "Trigger",  title: "Lead captured",      sub: "Form, chatbot, or call",    outcome: false },
+  { label: "AI",       title: "Scored & enriched",  sub: "Intent graded, data pulled", outcome: false },
+  { label: "CRM",      title: "Record created",     sub: "Pipeline stage set",         outcome: false },
+  { label: "Sequence", title: "Follow-up starts",   sub: "Personalised, timed",        outcome: false },
+  { label: "Calendar", title: "Booking confirmed",  sub: "Slot filled automatically",  outcome: false },
+  { label: "Outcome",  title: "Review triggered",   sub: "Post-job request sent",      outcome: true  },
 ]
 
-const scenarios: Scenario[] = [
+const SCENARIOS = [
   {
     when: "New enquiry lands",
     steps: ["AI qualifies intent", "CRM record created", "Personalised email sent"],
@@ -86,193 +27,92 @@ const scenarios: Scenario[] = [
   },
 ]
 
-// ─── Sub-components ──────────────────────────────────────────────────────────
-
-function DesktopNodeCard({ node, index }: { node: FlowNode; index: number }) {
-  return (
-    <div
-      className={`relative flex-1 min-w-0 rounded-xl p-5 border ${
-        node.isLast
-          ? "bg-amber/5 border-amber/25"
-          : "bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.03)] border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] animate-node-ring"
-      }`}
-      style={!node.isLast ? { animationDelay: `${index * 0.5}s` } : undefined}
-    >
-      <div
-        className={`w-8 h-8 rounded-lg flex items-center justify-center mb-4 ${
-          node.isLast ? "bg-amber/10 text-amber" : "bg-accent/10 text-accent"
-        }`}
-      >
-        {node.icon}
-      </div>
-      <div className="text-[10px] tracking-[0.15em] uppercase text-muted font-medium mb-1">
-        {node.label}
-      </div>
-      <div className="text-sm font-medium text-text-light dark:text-white leading-snug mb-1 tracking-[-0.02em]">
-        {node.title}
-      </div>
-      <div className="text-xs text-muted leading-relaxed">{node.sub}</div>
-      {node.isLast && (
-        <div className="flex items-center gap-1.5 mt-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber" aria-hidden="true" />
-          <span className="text-xs text-amber font-medium">Outcome</span>
-        </div>
-      )}
-    </div>
-  )
-}
-
-function DesktopConnector({ delay }: { delay: number }) {
-  return (
-    <div className="flex items-center w-8 shrink-0 mt-9">
-      <div className="flex-1 h-px bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.08)] relative overflow-hidden">
-        <div
-          className="absolute top-0 h-full w-8 bg-accent/50 animate-flow-line"
-          style={{ animationDelay: `${delay}s` }}
-        />
-      </div>
-      <svg
-        className="shrink-0 w-2.5 h-2.5 text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)] -ml-px"
-        viewBox="0 0 10 10"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        aria-hidden="true"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2 2l4.5 3L2 8" />
-      </svg>
-    </div>
-  )
-}
-
-function MobileNodeCard({ node }: { node: FlowNode }) {
-  return (
-    <div
-      className={`w-full max-w-sm rounded-xl p-4 border ${
-        node.isLast
-          ? "bg-amber/5 border-amber/25"
-          : "bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.03)] border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]"
-      }`}
-    >
-      <div className="flex items-start gap-3">
-        <div
-          className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-            node.isLast ? "bg-amber/10 text-amber" : "bg-accent/10 text-accent"
-          }`}
-        >
-          {node.icon}
-        </div>
-        <div className="min-w-0">
-          <div className="text-[10px] tracking-[0.15em] uppercase text-muted font-medium mb-0.5">
-            {node.label}
-          </div>
-          <div className="text-sm font-medium text-text-light dark:text-white leading-snug tracking-[-0.02em]">
-            {node.title}
-          </div>
-          <div className="text-xs text-muted mt-0.5 leading-relaxed">{node.sub}</div>
-          {node.isLast && (
-            <div className="flex items-center gap-1.5 mt-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber" aria-hidden="true" />
-              <span className="text-xs text-amber font-medium">Outcome</span>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function MobileConnector({ delay }: { delay: number }) {
-  return (
-    <div className="h-8 w-px bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.08)] relative overflow-hidden my-1">
-      <div
-        className="absolute left-0 w-full h-8 bg-accent/40 animate-flow-line-vertical"
-        style={{ animationDelay: `${delay}s` }}
-      />
-    </div>
-  )
-}
-
-function ScenarioCard({ scenario }: { scenario: Scenario }) {
-  return (
-    <div className="bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-      <div className="text-[10px] text-muted uppercase tracking-[0.15em] font-medium mb-3">
-        {scenario.when}
-      </div>
-      <div className="flex flex-wrap items-center gap-1.5 mb-4">
-        {scenario.steps.map((step, i) => (
-          <Fragment key={i}>
-            <span className="text-xs bg-[rgba(0,0,0,0.04)] dark:bg-[rgba(255,255,255,0.06)] text-muted dark:text-[rgba(255,255,255,0.65)] px-2 py-1 rounded-md whitespace-nowrap">
-              {step}
-            </span>
-            {i < scenario.steps.length - 1 && (
-              <span className="text-muted/40 text-xs" aria-hidden="true">→</span>
-            )}
-          </Fragment>
-        ))}
-      </div>
-      <div className="flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" aria-hidden="true" />
-        <span className="text-xs text-amber leading-relaxed">{scenario.outcome}</span>
-      </div>
-    </div>
-  )
-}
-
-// ─── Main Export ─────────────────────────────────────────────────────────────
-
 export function AutomationFlow() {
   return (
-    <section id="automation" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32">
+    <section id="workflow" className="py-20 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
 
-      {/* Header — constrained */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 fade-up-section">
-        <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-          How it works under the hood
-        </p>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em] text-balance">
-          One trigger.<br className="hidden sm:block" /> Your entire pipeline fires.
-        </h2>
-        <p className="text-base text-muted max-w-lg mt-4 leading-relaxed">
-          The moment someone touches your business — form, chatbot, missed call — a fully connected system takes over. No delays, no manual steps, no dropped leads.
-        </p>
-      </div>
+        <div className="mb-14 md:mb-20 max-w-2xl">
+          <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
+            <span className="w-5 h-px bg-accent" aria-hidden="true" />
+            How It Works
+          </span>
+          <h2 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-hi mb-5">
+            One trigger. Your entire pipeline fires.
+          </h2>
+          <p className="text-lg text-lo leading-relaxed max-w-xl">
+            The moment someone touches your business — form, chatbot, missed call — a connected system takes over.
+            No delays, no manual steps, no dropped leads.
+          </p>
+        </div>
 
-      {/* ── Flow diagram — Desktop: full-bleed panel ── */}
-      <div className="hidden lg:block border-y border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.05)] bg-[rgba(0,0,0,0.015)] dark:bg-[rgba(255,255,255,0.015)] py-8 px-6 xl:px-16 mb-12 fade-up-section">
-        <div className="flex items-start gap-3">
-          {nodes.map((node, i) => (
+        {/* Desktop flow */}
+        <div className="hidden lg:block border border-white/[0.07] bg-surface rounded-2xl px-8 py-7 mb-10 overflow-x-auto">
+          <div className="flex items-stretch gap-2 min-w-[820px]">
+            {NODES.map((node, i) => (
+              <Fragment key={node.label}>
+                <div className={`flex-1 rounded-xl p-5 border ${node.outcome ? "bg-success/[0.04] border-success/20" : "bg-elevated border-white/[0.07]"}`}>
+                  <div className={`text-[10px] tracking-[0.16em] uppercase font-semibold mb-2 ${node.outcome ? "text-success" : "text-accent"}`}>{node.label}</div>
+                  <div className="text-sm font-semibold text-hi mb-1">{node.title}</div>
+                  <div className="text-xs text-lo">{node.sub}</div>
+                </div>
+                {i < NODES.length - 1 && (
+                  <div className="flex items-center w-6 shrink-0">
+                    <div className="flex-1 h-px bg-white/[0.08] relative overflow-hidden">
+                      <div className="absolute top-0 h-full w-6 bg-accent/50 animate-flow-line" style={{ animationDelay: `${i * 0.4}s` }} />
+                    </div>
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" className="-ml-px" aria-hidden="true">
+                      <path d="M1.5 1.5L5.5 4 1.5 6.5" stroke="rgba(255,255,255,0.18)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                )}
+              </Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile flow */}
+        <div className="lg:hidden flex flex-col gap-2 mb-10">
+          {NODES.map((node, i) => (
             <Fragment key={node.label}>
-              <DesktopNodeCard node={node} index={i} />
-              {i < nodes.length - 1 && (
-                <DesktopConnector delay={i * 0.5 + 0.25} />
+              <div className={`rounded-xl p-4 border flex items-center gap-4 ${node.outcome ? "bg-success/[0.04] border-success/20" : "bg-elevated border-white/[0.07]"}`}>
+                <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${node.outcome ? "bg-success" : "bg-accent"}`} aria-hidden="true" />
+                <div>
+                  <div className={`text-[10px] tracking-wide uppercase font-semibold ${node.outcome ? "text-success" : "text-accent"}`}>{node.label}</div>
+                  <div className="text-sm font-semibold text-hi">{node.title}</div>
+                  <div className="text-xs text-lo">{node.sub}</div>
+                </div>
+              </div>
+              {i < NODES.length - 1 && (
+                <div className="h-4 w-px bg-white/[0.08] mx-6 relative overflow-hidden">
+                  <div className="absolute left-0 w-full h-4 bg-accent/40 animate-flow-line-vertical" style={{ animationDelay: `${i * 0.4}s` }} />
+                </div>
               )}
             </Fragment>
           ))}
         </div>
-      </div>
 
-      {/* ── Flow diagram — Mobile ── */}
-      <div className="lg:hidden flex flex-col items-center mb-10 px-4 sm:px-6 fade-up-section">
-        {nodes.map((node, i) => (
-          <Fragment key={node.label}>
-            <MobileNodeCard node={node} />
-            {i < nodes.length - 1 && (
-              <MobileConnector delay={i * 0.5 + 0.25} />
-            )}
-          </Fragment>
-        ))}
-      </div>
-
-      {/* ── Scenario cards — constrained ── */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 fade-up-section">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {scenarios.map((scenario, i) => (
-            <ScenarioCard key={i} scenario={scenario} />
+        {/* Scenario cards */}
+        <div className="grid sm:grid-cols-3 gap-4">
+          {SCENARIOS.map((s) => (
+            <div key={s.when} className="bg-surface border border-white/[0.07] rounded-xl p-5">
+              <p className="text-[10px] tracking-[0.14em] uppercase text-dim font-medium mb-4">{s.when}</p>
+              <div className="flex flex-wrap items-center gap-1.5 mb-4">
+                {s.steps.map((step, i) => (
+                  <Fragment key={step}>
+                    <span className="text-xs bg-white/[0.05] text-lo px-2.5 py-1 rounded-lg">{step}</span>
+                    {i < s.steps.length - 1 && <span className="text-dim text-xs" aria-hidden="true">→</span>}
+                  </Fragment>
+                ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-success shrink-0" aria-hidden="true" />
+                <span className="text-xs text-success leading-relaxed">{s.outcome}</span>
+              </div>
+            </div>
           ))}
         </div>
       </div>
-
     </section>
   )
 }

@@ -1,293 +1,153 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+/* ── Dark-Luxe Design System ─────────────────────────────────────── */
+@theme {
+  /* Backgrounds */
+  --color-page:          #05070A;
+  --color-surface:       #0B1017;
+  --color-elevated:      #101722;
 
-:root {
-  /* Titan Automations Brand Tokens */
-  --dark-bg: #0A0A0A;
-  --light-bg: #F8F8F8;        /* clean neutral white */
-  --card-dark: #131313;       /* slightly warmer — was #111111 */
-  --card-light: #FFFFFF;      /* pure white cards */
-  --border-dark: rgba(255, 255, 255, 0.08);
-  --border-light: rgba(0, 0, 0, 0.08);
-  --accent: #2563EB;
-  --accent-tint: #EFF4FF;
-  --text-primary-light: #0A0A0A;
-  --text-primary-dark: #F5F5F5;
-  --text-muted: #888888;
-  --green: #22C55E;
-  --amber: #F59E0B;
-  
-  --background: var(--dark-bg);
-  --foreground: var(--text-primary-dark);
-  --card: var(--card-dark);
-  --card-foreground: var(--text-primary-dark);
-  --primary: var(--accent);
-  --primary-foreground: #FFFFFF;
-  --secondary: var(--card-dark);
-  --secondary-foreground: var(--text-primary-dark);
-  --muted: var(--card-dark);
-  --muted-foreground: var(--text-muted);
-  --border: var(--border-dark);
-  --input: var(--border-dark);
-  --ring: var(--accent);
-  --radius: 0.75rem;
-}
+  /* Text */
+  --color-hi:            #F5F7FA;
+  --color-lo:            #9CA8B8;
+  --color-dim:           #566474;
 
-@theme inline {
+  /* Accent */
+  --color-accent:        #009DFF;
+  --color-accent-deep:   #006CFF;
+
+  /* Semantic */
+  --color-success:       #24D18F;
+  --color-warning:       #F5A524;
+  --color-error:         #FF4D4D;
+
+  /* Radix/shadcn compat */
+  --color-background:    #05070A;
+  --color-foreground:    #F5F7FA;
+  --color-border:        rgba(255,255,255,0.10);
+  --color-ring:          #009DFF;
+  --color-muted:         rgba(255,255,255,0.06);
+  --color-muted-foreground: #9CA8B8;
+  --color-primary:       #F5F7FA;
+  --color-primary-foreground: #05070A;
+  --color-secondary:     #0B1017;
+  --color-secondary-foreground: #F5F7FA;
+  --color-card:          #0B1017;
+  --color-card-foreground: #F5F7FA;
+  --color-popover:       #101722;
+  --color-popover-foreground: #F5F7FA;
+  --color-destructive:   #FF4D4D;
+  --color-input:         rgba(255,255,255,0.10);
+
+  /* Fonts */
   --font-display: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
-  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
-  --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
-  
-  --color-dark: #0A0A0A;
-  --color-light: #F8F8F8;       /* clean neutral white */
-  --color-card-dark: #131313;   /* slightly warmer card */
-  --color-card-light: #FFFFFF;  /* pure white cards */
-  --color-accent: #2563EB;
-  --color-accent-tint: #EFF4FF;
-  --color-text-dark: #F5F5F5;
-  --color-text-light: #0A0A0A;
-  --color-muted: #888888;
-  --color-green: #22C55E;
-  --color-amber: #F59E0B;
+  --font-body:    var(--font-dm-sans), 'DM Sans', sans-serif;
+  --font-sans:    var(--font-dm-sans), 'DM Sans', sans-serif;
 
-  /* Audiowide — Google Font, applied to the "Titan Automations" brand logo only */
-  --font-audiowide: var(--font-audiowide), 'Audiowide', sans-serif;
-  
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Radius */
+  --radius:    10px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
-
+/* ── Base ─────────────────────────────────────────────────────────── */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
+
   html {
-    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
   }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  p {
-    text-wrap: pretty;
-  }
+
   body {
-    /* bg and text-color are applied via Tailwind classes in layout.tsx */
-    background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
-    background-size: 28px 28px;
+    background-color: #05070A;
+    color: #F5F7FA;
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
-  .dark body {
-    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+
+  ::selection {
+    background-color: rgba(0, 157, 255, 0.22);
+    color: #F5F7FA;
   }
-  /* Grain texture — subtle tactile surface, visible most on dark bg */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 999;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-    opacity: 0.045;
-    mix-blend-mode: overlay;
+
+  :focus-visible {
+    outline: 2px solid #009DFF;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  * {
+    border-color: rgba(255,255,255,0.10);
   }
 }
 
-/* Audiowide utility class — used for "Titan Automations" brand logo */
-.font-audiowide {
-  font-family: var(--font-audiowide);
+/* ── Skip link ────────────────────────────────────────────────────── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #009DFF;
+  color: #05070A;
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  font-size: 0.875rem;
 }
+.skip-to-content:focus { top: 0; }
 
-/* SVG network grid — stroke/fill swap for light/dark */
-.network-grid-line { stroke: rgba(0,0,0,0.08); }
-.dark .network-grid-line { stroke: rgba(255,255,255,0.08); }
-.network-dot { fill: rgba(0,0,0,0.15); }
-.dark .network-dot { fill: rgba(255,255,255,0.15); }
-
-/* Custom animations */
-
+/* ── Animations ───────────────────────────────────────────────────── */
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
+@keyframes flow-line {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(500%); }
+}
+@keyframes flow-line-vertical {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(500%); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+@keyframes ping-dot {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes check {
-  0% { stroke-dashoffset: 24; }
-  100% { stroke-dashoffset: 0; }
-}
+.animate-fade-up            { animation: fade-up 0.55s cubic-bezier(0.16,1,0.3,1) forwards; }
+.animate-flow-line          { animation: flow-line 2.2s ease-in-out infinite; }
+.animate-flow-line-vertical { animation: flow-line-vertical 2.2s ease-in-out infinite; }
+.animate-glow-pulse         { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-ping-dot           { animation: ping-dot 1.6s ease-out infinite; }
+.animate-marquee            { animation: marquee 32s linear infinite; }
 
-.animate-fade-up {
-  animation: fade-up 0.6s ease-out forwards;
-}
+/* ── Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #05070A; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.10); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
 
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-check {
-  stroke-dasharray: 24;
-  stroke-dashoffset: 24;
-  animation: check 0.4s ease-out forwards;
-}
-
-/* Intersection Observer animations */
-.fade-up-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-up-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Prevent content from being cut off on smaller screens */
-section {
-  overflow-x: hidden;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-.dark section {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Accordion styles */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-}
-
-.accordion-content.open {
-  max-height: 500px;
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.4s ease-out forwards;
-}
-
-/* AutomationFlow — traveling light on connector lines */
-@keyframes flow-line {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
-@keyframes flow-line-vertical {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(200%); }
-}
-
-/* AutomationFlow — subtle border pulse on nodes (border-only, no box-shadow) */
-/* CSS variable lets the resting color respond to light/dark mode */
-:root        { --node-ring-rest: rgba(0,0,0,0.08); }
-.dark        { --node-ring-rest: rgba(255,255,255,0.08); }
-
-@keyframes node-ring {
-  0%, 65%, 100% { border-color: var(--node-ring-rest); }
-  30%           { border-color: rgba(37, 99, 235, 0.45); }
-}
-
-.animate-flow-line {
-  animation: flow-line 2s ease-in-out infinite;
-}
-
-.animate-flow-line-vertical {
-  animation: flow-line-vertical 2s ease-in-out infinite;
-}
-
-.animate-node-ring {
-  animation: node-ring 2.5s ease-in-out infinite;
-}
-
-/* Accessible focus-visible ring — keyboard nav only */
-:focus-visible {
-  outline: 2px solid #2563EB;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* Suppress outline for mouse/touch interactions */
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Native <select> in dark mode — forces browser to render dropdown with dark colours */
-.dark select {
-  color-scheme: dark;
-}
-
-/* ── color-scheme per theme class ── */
-html.dark  { color-scheme: dark; }
-html.light { color-scheme: light; }
-
-/* ── Skip-to-content link ── */
-.skip-to-content {
-  position: absolute;
-  left: -9999px;
-  top: 1rem;
-  z-index: 9999;
-  padding: 0.5rem 1.25rem;
-  background: #2563EB;
-  color: white;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.skip-to-content:focus-visible {
-  left: 1rem;
-  outline: 2px solid white;
-  outline-offset: 2px;
-}
-
-/* ── Accessibility: respect prefers-reduced-motion ── */
+/* ── Reduced motion ───────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .fade-up-section {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }
-

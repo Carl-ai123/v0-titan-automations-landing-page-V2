@@ -1,286 +1,148 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { TitanLogoNav } from "@/components/titan-logo"
+import { X, Menu } from "lucide-react"
 
 const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
-
-type NavLink = {
-  href: string
-  label: string
-  items: string[]
+const openCalendly = () => {
+  if (typeof window !== "undefined") {
+    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+  }
 }
 
-const navLinks: NavLink[] = [
-  {
-    href: "#how-it-works",
-    label: "How It Works",
-    items: [
-      "Step 01 · Discovery Call",
-      "Step 02 · We Build It",
-      "Step 03 · You Go Live",
-    ],
-  },
-  {
-    href: "#services",
-    label: "Services",
-    items: [
-      "AI-Powered Website",
-      "Booking System & CRM Pipeline",
-      "AI Chatbots & Automation",
-    ],
-  },
-  {
-    href: "#pricing",
-    label: "Pricing",
-    items: [
-      "Project Build from £1,200",
-      "Retainer from £150/mo",
-      "Custom — let's talk",
-    ],
-  },
-  {
-    href: "#results",
-    label: "Results",
-    items: [
-      "100+ leads enriched",
-      "14-day delivery",
-      "£280/mo saved",
-    ],
-  },
-  {
-    href: "#faq",
-    label: "FAQ",
-    items: [
-      "What do you build?",
-      "How long does it take?",
-      "Do I own everything?",
-      "What does it cost?",
-    ],
-  },
+const NAV_LINKS = [
+  { href: "#problems",  label: "Problems"  },
+  { href: "#systems",   label: "Systems"   },
+  { href: "#results",   label: "Results"   },
+  { href: "#process",   label: "Process"   },
+  { href: "#faq",       label: "FAQ"       },
 ]
 
-// Stable module-level array — no need to recompute per render
-const sectionIds = navLinks.map((l) => l.href.slice(1))
-
-function useActiveSection(ids: string[]) {
-  const [active, setActive] = useState<string>("")
-
-  // Stable memo so the effect never re-runs due to reference churn
-  const stableIds = useMemo(() => ids, // eslint-disable-line react-hooks/exhaustive-deps
-    // ids is already module-level so this never changes; memo just satisfies lint
-    [ids.join(",")])
-
-  useEffect(() => {
-    const observers: IntersectionObserver[] = []
-    const visibleSections = new Map<string, number>()
-
-    const pickMostVisible = () => {
-      let best = ""
-      let bestRatio = 0
-      visibleSections.forEach((ratio, id) => {
-        if (ratio > bestRatio) { bestRatio = ratio; best = id }
-      })
-      setActive(best ? `#${best}` : "")
-    }
-
-    stableIds.forEach((id) => {
-      const el = document.getElementById(id)
-      if (!el) return
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            visibleSections.set(id, entry.intersectionRatio)
-          } else {
-            visibleSections.delete(id)
-          }
-          pickMostVisible()
-        },
-        { threshold: [0, 0.1, 0.3, 0.5, 0.75, 1] }
-      )
-      obs.observe(el)
-      observers.push(obs)
-    })
-
-    return () => observers.forEach((o) => o.disconnect())
-  }, [stableIds])
-
-  return active
-}
-
 export function FloatingNav() {
-  const [isOpen, setIsOpen] = useState(false)
-  const activeSection = useActiveSection(sectionIds)
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  // Close mobile menu on Escape key
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) setIsOpen(false)
-    }
-    document.addEventListener("keydown", handleKey)
-    return () => document.removeEventListener("keydown", handleKey)
-  }, [isOpen])
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
-  // Prevent body scroll when mobile menu is open
+  /* Lock body scroll when mobile menu is open */
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : ""
+    document.body.style.overflow = open ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
-  }, [isOpen])
+  }, [open])
+
+  /* Close on Escape */
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false) }
+    document.addEventListener("keydown", handler)
+    return () => document.removeEventListener("keydown", handler)
+  }, [])
 
   return (
     <>
-      {/* Desktop Nav */}
-      <nav className="fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 hidden md:block">
-        <div className="flex items-center gap-5 lg:gap-7 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-[rgba(250,250,249,0.9)] dark:bg-[rgba(10,10,10,0.85)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 shrink-0">
-            <img
-              src="/logo-mark.png"
-              alt="Titan Automations"
-              width={32}
-              height={32}
-              className="shrink-0 rounded-full"
-            />
-            <span className="font-audiowide text-[13px] tracking-wide text-text-light dark:text-white">Titan</span>
-            <span className="font-audiowide text-[13px] tracking-wide text-muted">Automations</span>
+      {/* ── Desktop nav ── */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300 ${
+          scrolled
+            ? "bg-elevated/95 backdrop-blur-[14px] border-b border-white/[0.07]"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+          <a href="/" aria-label="Titan Automations home">
+            <TitanLogoNav />
           </a>
 
-          {/* Separator */}
-          <span className="w-px h-4 bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.1)] shrink-0" aria-hidden="true" />
-
-          {/* Links with dropdowns */}
-          <div className="flex items-center gap-5 lg:gap-6">
-            {navLinks.map((link) => (
-              <div key={link.href} className="relative group">
+          <ul className="flex items-center gap-7">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`text-sm transition-colors whitespace-nowrap ${
-                    activeSection === link.href
-                      ? "text-text-light dark:text-white font-medium"
-                      : "text-muted hover:text-text-light dark:hover:text-white"
-                  }`}
+                  className="text-sm text-lo hover:text-hi transition-colors duration-150"
                 >
                   {link.label}
                 </a>
-
-                {/* Dropdown — pt-3 is an invisible hover bridge */}
-                <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3
-                              opacity-0 translate-y-1 pointer-events-none
-                              group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
-                              transition-all duration-150 ease-out z-10"
-                >
-                  <div
-                    className="rounded-xl p-2 min-w-[180px]
-                                bg-[rgba(250,250,249,0.97)] dark:bg-[rgba(10,10,10,0.95)]
-                                backdrop-blur-[12px]
-                                border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]"
-                  >
-                    {link.items.map((item) => (
-                      <a
-                        key={item}
-                        href={link.href}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg
-                                   text-sm text-muted whitespace-nowrap
-                                   hover:text-text-light dark:hover:text-white
-                                   hover:bg-[rgba(0,0,0,0.04)] dark:hover:bg-[rgba(255,255,255,0.04)]
-                                   transition-colors"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-accent/50 shrink-0" />
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          {/* Theme Toggle */}
-          <ThemeToggle />
-
-          {/* CTA */}
           <button
             onClick={openCalendly}
-            className="shrink-0 px-4 py-2 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
+            className="px-5 py-2.5 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
           >
-            Book a Call
+            Book Free Audit
           </button>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
-      {/* Mobile Nav */}
-      <nav className="fixed top-4 left-4 right-4 z-50 md:hidden">
-        <div className="flex items-center justify-between px-4 py-2.5 rounded-full bg-[rgba(250,250,249,0.95)] dark:bg-[rgba(10,10,10,0.9)] backdrop-blur-[12px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]">
-          <a href="#" className="flex items-center gap-2 shrink-0">
-            <img
-              src="/logo-mark.png"
-              alt="Titan Automations"
-              width={28}
-              height={28}
-              className="shrink-0 rounded-full"
-            />
-            <span className="font-audiowide text-[13px] tracking-wide text-text-light dark:text-white">Titan</span>
-            <span className="font-audiowide text-[13px] tracking-wide text-muted">Automations</span>
+      {/* ── Mobile nav bar ── */}
+      <header className="fixed top-0 left-0 right-0 z-50 md:hidden">
+        <nav
+          className={`mx-3 mt-3 px-4 h-14 flex items-center justify-between rounded-2xl transition-all duration-300 ${
+            scrolled
+              ? "bg-elevated/95 backdrop-blur-[14px] border border-white/[0.08]"
+              : "bg-elevated/80 backdrop-blur-[12px] border border-white/[0.06]"
+          }`}
+        >
+          <a href="/" aria-label="Titan Automations home">
+            <TitanLogoNav />
           </a>
-
-          <div className="flex items-center gap-1">
-            <ThemeToggle />
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative w-6 h-6 flex items-center justify-center"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
-              <span className={`absolute w-5 h-0.5 bg-text-light dark:bg-white transition-all duration-300 ${isOpen ? "rotate-45" : "-translate-y-1.5"}`} />
-              <span className={`absolute w-5 h-0.5 bg-text-light dark:bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`} />
-              <span className={`absolute w-5 h-0.5 bg-text-light dark:bg-white transition-all duration-300 ${isOpen ? "-rotate-45" : "translate-y-1.5"}`} />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        id="mobile-menu"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={`fixed inset-0 z-40 bg-light dark:bg-dark transition-opacity duration-300 md:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link, index) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-2xl font-display text-text-light dark:text-white transition-all duration-300"
-              style={{
-                transitionDelay: isOpen ? `${index * 50}ms` : "0ms",
-                opacity: isOpen ? 1 : 0,
-                transform: isOpen ? "translateY(0)" : "translateY(12px)",
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
           <button
-            onClick={() => { setIsOpen(false); openCalendly() }}
-            className="mt-4 px-6 py-3 text-lg font-medium text-white bg-accent rounded-full transition-all duration-300"
-            style={{
-              transitionDelay: isOpen ? `${navLinks.length * 50}ms` : "0ms",
-              opacity: isOpen ? 1 : 0,
-              transform: isOpen ? "translateY(0)" : "translateY(12px)",
-            }}
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="w-10 h-10 flex items-center justify-center rounded-xl text-lo hover:text-hi hover:bg-white/[0.06] transition-colors"
           >
-            Book a Call
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
-        </div>
-      </div>
+        </nav>
+      </header>
+
+      {/* ── Mobile menu overlay ── */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 md:hidden bg-page/98 backdrop-blur-xl flex flex-col"
+          >
+            <div className="flex flex-col items-center justify-center flex-1 gap-8 px-6">
+              {NAV_LINKS.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.055, duration: 0.3 }}
+                  className="text-3xl font-display font-semibold text-hi tracking-tight hover:text-accent transition-colors"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.button
+                onClick={() => { setOpen(false); openCalendly() }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: NAV_LINKS.length * 0.055, duration: 0.3 }}
+                className="mt-4 px-8 py-4 text-lg font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors w-full max-w-xs text-center"
+              >
+                Book Free Audit
+              </motion.button>
+            </div>
+            <div className="pb-8 text-center text-sm text-dim">
+              titan-automations.com
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

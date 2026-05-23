@@ -1,152 +1,90 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-
-function ChecklistItem({ label, delay, started }: { label: string; delay: number; started: boolean }) {
-  const [checked, setChecked] = useState(false)
-
-  useEffect(() => {
-    if (!started) return
-    const timer = setTimeout(() => setChecked(true), delay)
-    return () => clearTimeout(timer)
-  }, [delay, started])
-
-  return (
-    <div className="flex items-center gap-2 py-1">
-      <div className="w-4 h-4 rounded border border-[rgba(0,0,0,0.15)] dark:border-[rgba(255,255,255,0.15)] flex items-center justify-center bg-[rgba(0,0,0,0.05)] dark:bg-[rgba(255,255,255,0.05)]">
-        {checked && (
-          <svg className="w-3 h-3 text-green" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M5 13l4 4L19 7"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="animate-check"
-            />
-          </svg>
-        )}
-      </div>
-      <span className={`text-xs ${checked ? "text-text-light dark:text-white" : "text-muted"}`}>{label}</span>
-    </div>
-  )
-}
+const STEPS = [
+  {
+    n: "01",
+    title: "Automation Audit",
+    body:  "We map where leads, time, and revenue are leaking. You get a clear picture of what to automate first — before anything is built.",
+    note:  "Free. No obligation.",
+  },
+  {
+    n: "02",
+    title: "System Design",
+    body:  "We scope the build. Fixed price, clear deliverables. You know exactly what you are getting and what it costs before we start.",
+    note:  "No scope creep.",
+  },
+  {
+    n: "03",
+    title: "Build & Connect",
+    body:  "We build the automations and connect your existing tools. Most systems are live within 14 days of the first call.",
+    note:  "14-day delivery.",
+  },
+  {
+    n: "04",
+    title: "Test Real Scenarios",
+    body:  "We run the system against real enquiries, edge cases, and failure points — not just the happy path.",
+    note:  "Tested before handover.",
+  },
+  {
+    n: "05",
+    title: "Launch & Handover",
+    body:  "You get trained, documented, and fully independent. The system is yours — not locked to our platform or access.",
+    note:  "100% client-owned.",
+  },
+  {
+    n: "06",
+    title: "Monthly Optimisation",
+    body:  "Optional retainer. We monitor performance, make improvements, and add new automations as the business grows.",
+    note:  "Optional from £150/mo.",
+  },
+]
 
 export function HowItWorks() {
-  const checklistRef = useRef<HTMLDivElement>(null)
-  const [checklistStarted, setChecklistStarted] = useState(false)
-
-  useEffect(() => {
-    const el = checklistRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setChecklistStarted(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.5 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const steps = [
-    {
-      number: "01",
-      title: "Discovery Call",
-      description: "We learn about your business, identify automation opportunities, and map out your ideal system.",
-      card: (
-        <div className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-          <div className="text-xs text-muted mb-2">Available Slot</div>
-          <div className="font-display font-medium text-text-light dark:text-white mb-1">Tomorrow, 10:00 AM</div>
-          <div className="inline-flex items-center px-2 py-1 text-xs bg-accent/10 text-accent rounded">
-            20 min · Free
-          </div>
-        </div>
-      ),
-    },
-    {
-      number: "02",
-      title: "We Build It",
-      description: "I personally design, build, and test your custom AI-powered system in under two weeks.",
-      card: (
-        <div ref={checklistRef} className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-          <div className="text-xs text-muted mb-2">Build Progress</div>
-          <ChecklistItem label="Website deployed" delay={500} started={checklistStarted} />
-          <ChecklistItem label="Automations configured" delay={1500} started={checklistStarted} />
-          <ChecklistItem label="Integrations connected" delay={2500} started={checklistStarted} />
-        </div>
-      ),
-    },
-    {
-      number: "03",
-      title: "You Go Live",
-      description: "Your system launches with a full handover document. We don't close the project until everything works — and you get 30 days of support included.",
-      card: (
-        <div className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 bg-green rounded-full" />
-            <span className="text-xs font-medium text-green">System Live</span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="px-2 py-1 text-xs bg-green/10 text-green rounded">Automated</span>
-            <span className="px-2 py-1 text-xs bg-green/10 text-green rounded">Connected</span>
-            <span className="px-2 py-1 text-xs bg-green/10 text-green rounded">Monitored</span>
-            <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded">30-day support</span>
-          </div>
-        </div>
-      ),
-    },
-  ]
-
   return (
-    <section id="how-it-works" className="bg-light dark:bg-dark py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Header — left-aligned */}
-        <div className="mb-10 md:mb-16 fade-up-section">
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3 md:mb-4">
-            Simple process
-          </p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-light dark:text-white tracking-[-0.03em]">
-            Live in 14 days. No fluff.
+    <section id="process" className="py-20 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+
+        <div className="mb-14 md:mb-20 max-w-2xl">
+          <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
+            <span className="w-5 h-px bg-accent" aria-hidden="true" />
+            Process
+          </span>
+          <h2 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-hi mb-5">
+            Built, tested, and live without dragging you into technical chaos.
           </h2>
+          <p className="text-lg text-lo leading-relaxed">
+            We handle the build. You handle the business. The tools we use do not matter — only the result does.
+          </p>
         </div>
 
-        {/* Steps */}
-        <div className="grid lg:grid-cols-3 gap-10 md:gap-8 lg:gap-8 relative fade-up-section">
-          {/* Dashed line connector — large screens only */}
-          <div className="hidden lg:block absolute top-[60px] left-[16.67%] right-[16.67%] h-px border-t-2 border-dashed border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.1)]" />
-
-          {steps.map((step, index) => (
-            <div key={step.number} className="relative">
-              {/* Step Number */}
-              <div className="font-display text-[80px] font-bold text-[rgba(0,0,0,0.06)] dark:text-[rgba(255,255,255,0.06)] leading-none mb-2">
-                {step.number}
+        {/* Steps grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06] rounded-2xl overflow-hidden">
+          {STEPS.map((step) => (
+            <div key={step.n} className="bg-page p-7 flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <span className="font-display text-3xl font-bold text-accent/20 tabular-nums">{step.n}</span>
+                <span className="text-[10px] font-medium tracking-wide text-dim bg-white/[0.05] px-2.5 py-1 rounded-full">
+                  {step.note}
+                </span>
               </div>
-
-              {/* Content */}
-              <div className="relative z-10 -mt-12">
-                <h3 className="font-display text-2xl font-semibold text-text-light dark:text-white tracking-[-0.03em] mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-muted mb-4 leading-relaxed">
-                  {step.description}
-                </p>
-
-                {/* Mini UI Card */}
-                {step.card}
+              <div>
+                <h3 className="font-display text-base font-semibold text-hi tracking-[-0.02em] mb-2">{step.title}</h3>
+                <p className="text-sm text-lo leading-relaxed">{step.body}</p>
               </div>
-
-              {/* Mobile/tablet connector */}
-              {index < steps.length - 1 && (
-                <div className="lg:hidden flex justify-center py-4">
-                  <div className="w-px h-8 border-l-2 border-dashed border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.1)]" />
-                </div>
-              )}
             </div>
           ))}
+        </div>
+
+        {/* CTA nudge */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 bg-elevated rounded-2xl border border-white/[0.07] px-7 py-6">
+          <div>
+            <p className="font-display text-base font-semibold text-hi mb-1">The audit is free and takes 20 minutes.</p>
+            <p className="text-sm text-lo">We show you what to automate first. No obligation, no hard sell.</p>
+          </div>
+          <a
+            href="#cta"
+            className="shrink-0 px-6 py-3 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors whitespace-nowrap"
+          >
+            Book Free Audit
+          </a>
         </div>
       </div>
     </section>

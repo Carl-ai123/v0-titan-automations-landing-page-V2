@@ -1,214 +1,162 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
+import { ArrowRight, ChevronRight } from "lucide-react"
 
 const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+const openCalendly = () => {
+  if (typeof window !== "undefined") {
+    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+  }
+}
 
-const FEED_EVENTS = [
-  "New enquiry received and scored",
-  "Follow-up sequence triggered",
-  "Discovery call booking confirmed",
-  "Review request dispatched",
-  "CRM record created from form",
-  "Missed call follow-up sent",
-  "High-intent lead flagged",
-  "Outreach email personalised and sent",
-  "Pipeline stage updated automatically",
-  "Rebooking SMS sent after no-show",
+const TRUST = ["UK-Based", "Built in 14 Days", "Fixed Scope", "Client-Owned", "No Lock-In"]
+
+const FLOW_STAGES = [
+  { id: "trigger",  label: "Lead Captured",     sub: "Form · chatbot · missed call",  color: "#009DFF" },
+  { id: "qualify",  label: "AI Qualifies",       sub: "Intent scored, data enriched",  color: "#009DFF" },
+  { id: "crm",      label: "CRM Updated",        sub: "Record created, stage set",     color: "#009DFF" },
+  { id: "followup", label: "Follow-up Sent",     sub: "Personalised and timed",        color: "#009DFF" },
+  { id: "booking",  label: "Booking Confirmed",  sub: "Calendar slot filled",          color: "#24D18F" },
+  { id: "review",   label: "Review Requested",   sub: "Automated post-job",            color: "#24D18F" },
 ]
 
-export function HeroSection() {
-  const [leads, setLeads] = useState(47)
-  const [emails, setEmails] = useState(10)
-  const [leadsFlash, setLeadsFlash] = useState(false)
-  const [emailsFlash, setEmailsFlash] = useState(false)
-  const [feedIdx, setFeedIdx] = useState(0)
-  const [feedFading, setFeedFading] = useState(false)
-  const leadsTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const emailsTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+function FlowPreview() {
+  const [activeIdx, setActiveIdx] = useState(0)
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  // Leads — increment every 8–14 seconds (randomised)
   useEffect(() => {
-    function scheduleLeads() {
-      const delay = 8000 + Math.random() * 6000
-      leadsTimer.current = setTimeout(() => {
-        setLeadsFlash(true)
-        setLeads(c => Math.min(c + 1, 94))
-        setTimeout(() => setLeadsFlash(false), 700)
-        scheduleLeads()
-      }, delay)
-    }
-    scheduleLeads()
-    return () => { if (leadsTimer.current) clearTimeout(leadsTimer.current) }
-  }, [])
-
-  // Emails — increment every 18–28 seconds (randomised)
-  useEffect(() => {
-    function scheduleEmails() {
-      const delay = 18000 + Math.random() * 10000
-      emailsTimer.current = setTimeout(() => {
-        setEmailsFlash(true)
-        setEmails(c => Math.min(c + 1, 40))
-        setTimeout(() => setEmailsFlash(false), 700)
-        scheduleEmails()
-      }, delay)
-    }
-    scheduleEmails()
-    return () => { if (emailsTimer.current) clearTimeout(emailsTimer.current) }
-  }, [])
-
-  // Activity feed — rotate every 3.5s with a brief fade
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFeedFading(true)
-      setTimeout(() => {
-        setFeedIdx(i => (i + 1) % FEED_EVENTS.length)
-        setFeedFading(false)
-      }, 280)
-    }, 3500)
-    return () => clearInterval(interval)
+    timer.current = setInterval(() => setActiveIdx(i => (i + 1) % FLOW_STAGES.length), 1500)
+    return () => { if (timer.current) clearInterval(timer.current) }
   }, [])
 
   return (
-    <section className="bg-light dark:bg-dark min-h-[100dvh] pt-28 md:pt-36 pb-16 md:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left Column */}
+    <div className="relative bg-surface border border-white/10 rounded-2xl overflow-hidden">
+      <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06]">
+        <span className="text-[10px] tracking-[0.18em] uppercase text-dim font-medium">Automation System · Live</span>
+        <div className="flex items-center gap-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping-dot absolute inline-flex h-full w-full rounded-full bg-success opacity-60" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-success" />
+          </span>
+          <span className="text-[10px] text-success">Running</span>
+        </div>
+      </div>
+
+      <div className="p-5 space-y-2">
+        {FLOW_STAGES.map((stage, i) => {
+          const isActive = i === activeIdx
+          const isPast   = i < activeIdx
+          return (
+            <motion.div
+              key={stage.id}
+              animate={{
+                backgroundColor: isActive ? `${stage.color}10` : isPast ? "rgba(255,255,255,0.02)" : "transparent",
+                borderColor:     isActive ? `${stage.color}35` : isPast ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.04)",
+              }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-3.5 px-4 py-3 rounded-xl border"
+            >
+              <div className="w-2 h-2 rounded-full shrink-0 transition-all duration-300" style={{
+                backgroundColor: isActive ? stage.color : isPast ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)",
+                boxShadow: isActive ? `0 0 8px ${stage.color}70` : "none",
+              }} />
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-semibold transition-colors duration-300" style={{ color: isActive ? stage.color : isPast ? "#9CA8B8" : "#566474" }}>
+                  {stage.label}
+                </div>
+                <div className="text-[10px] text-dim">{stage.sub}</div>
+              </div>
+              {i < FLOW_STAGES.length - 1 && (
+                <ChevronRight size={12} className="shrink-0" style={{ color: isActive ? stage.color : "rgba(255,255,255,0.1)" }} />
+              )}
+              {isPast && (
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                  <circle cx="6" cy="6" r="5" fill="rgba(36,209,143,0.18)" />
+                  <path d="M3.5 6l2 2 3-3.5" stroke="#24D18F" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
+            </motion.div>
+          )
+        })}
+      </div>
+      <div className="pb-5 px-5">
+        <p className="text-[10px] text-dim text-center">Zero manual work · No delays · No dropped leads</p>
+      </div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-20 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(0,157,255,0.07) 0%, transparent 70%)" }} aria-hidden="true" />
+    </div>
+  )
+}
+
+const ease = [0.16, 1, 0.3, 1] as const
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 22 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease },
+})
+
+export function HeroSection() {
+  return (
+    <section id="hero" className="relative min-h-[100dvh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[480px] pointer-events-none" aria-hidden="true"
+        style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,157,255,0.065) 0%, transparent 65%)" }} />
+
+      <div className="relative max-w-7xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* Left */}
           <div>
-            {/* Eyebrow */}
-            <span
-              className="block text-xs tracking-[0.2em] uppercase text-muted font-medium mb-8 opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              AI Automation Agency · Kent &amp; South East
-            </span>
+            <motion.div {...fadeUp(0.05)} className="mb-7">
+              <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent">
+                <span className="w-5 h-px bg-accent" aria-hidden="true" />
+                AI Automation Agency · UK
+              </span>
+            </motion.div>
 
-            {/* Headline */}
-            <h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[88px] xl:text-[96px] font-semibold text-text-light dark:text-white leading-[1.0] tracking-[-0.04em] mb-5 md:mb-7 opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              Your business<br />
-              shouldn&apos;t run<br />
-              <span className="text-accent">on you.</span>
-            </h1>
+            <motion.h1 {...fadeUp(0.15)} className="font-display text-[clamp(2.5rem,5.5vw,5.25rem)] font-semibold leading-[1.03] tracking-[-0.04em] text-hi mb-6">
+              Stop running your{" "}
+              <span style={{ background: "linear-gradient(135deg, #009DFF 0%, #006CFF 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                business manually.
+              </span>
+            </motion.h1>
 
-            {/* Subtext */}
-            <p
-              className="text-base md:text-lg text-muted max-w-[440px] mb-6 md:mb-8 leading-relaxed opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.35s" }}
-            >
-              We build AI-powered systems that handle your leads, bookings, and follow-ups automatically. You get more clients — without the manual overhead. Live in 14 days.
-            </p>
+            <motion.p {...fadeUp(0.25)} className="text-lg text-lo leading-relaxed max-w-[480px] mb-8">
+              We build AI systems that capture every lead, send every follow-up, fill every booking,
+              and handle the admin — so the business runs without depending on you to do it.
+            </motion.p>
 
-            {/* CTAs */}
-            <div
-              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-6 md:mb-8 opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.5s" }}
-            >
+            <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-3 mb-9">
               <button
                 onClick={openCalendly}
-                className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-accent rounded-full hover:bg-accent/90 transition-colors hover:-translate-y-px active:translate-y-0"
+                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-all duration-150 hover:-translate-y-px active:translate-y-0"
               >
-                Book a Free Call
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                Book Free Automation Audit
+                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
-              <a
-                href="#how-it-works"
-                className="inline-flex items-center px-6 py-3 text-base font-medium text-text-light dark:text-white border border-[rgba(0,0,0,0.2)] dark:border-[rgba(255,255,255,0.2)] rounded-full hover:border-[rgba(0,0,0,0.4)] dark:hover:border-[rgba(255,255,255,0.4)] transition-colors hover:-translate-y-px active:translate-y-0"
-              >
-                How It Works
+              <a href="#systems" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-medium text-hi border border-white/20 rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all duration-150 hover:-translate-y-px">
+                See What We Automate
               </a>
-            </div>
+            </motion.div>
 
-            {/* Trust strip */}
-            <div
-              className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-muted opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.65s" }}
-            >
-              <span>14-Day Delivery</span>
-              <span className="hidden sm:inline text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)]">·</span>
-              <span>Fixed-Price Quotes</span>
-              <span className="hidden sm:inline text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)]">·</span>
-              <span>100% Client Owned</span>
-              <span className="hidden sm:inline text-[rgba(0,0,0,0.2)] dark:text-[rgba(255,255,255,0.2)]">·</span>
-              <span>Kent Based</span>
-            </div>
-          </div>
-
-          {/* Right Column — Live Dashboard Card */}
-          <div
-            className="opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            <div className="bg-card-light dark:bg-card-dark border border-[rgba(0,0,0,0.12)] dark:border-[rgba(255,255,255,0.12)] rounded-2xl p-5 sm:p-6">
-
-              {/* Card Header */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-xs tracking-[0.15em] uppercase text-muted font-medium">
-                  Example client system
+            <motion.div {...fadeUp(0.45)} className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              {TRUST.map((item, i) => (
+                <span key={item} className="flex items-center gap-2 text-xs text-dim">
+                  {i > 0 && <span className="w-px h-3 bg-white/10" aria-hidden="true" />}
+                  {item}
                 </span>
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-60" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
-                  </span>
-                  <span className="text-xs text-muted">Running live</span>
-                </div>
-              </div>
-
-              {/* 2×2 Stat Grid */}
-              <div className="grid grid-cols-2 gap-px bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden mb-5">
-                {/* Leads — live incrementing */}
-                <div className={`p-5 transition-colors duration-500 ${leadsFlash ? "bg-accent/5" : "bg-card-light dark:bg-card-dark"}`}>
-                  <div className={`text-2xl font-display font-semibold mb-1 tabular-nums transition-all duration-300 ${leadsFlash ? "text-accent" : "text-text-light dark:text-white"}`}>
-                    {leads}
-                  </div>
-                  <div className="text-xs text-muted">Leads enriched</div>
-                </div>
-
-                {/* Emails — live incrementing */}
-                <div className={`p-5 transition-colors duration-500 ${emailsFlash ? "bg-accent/5" : "bg-card-light dark:bg-card-dark"}`}>
-                  <div className={`text-2xl font-display font-semibold mb-1 tabular-nums transition-all duration-300 ${emailsFlash ? "text-accent" : "text-text-light dark:text-white"}`}>
-                    {emails}
-                  </div>
-                  <div className="text-xs text-muted">Follow-ups sent</div>
-                </div>
-
-                <div className="bg-card-light dark:bg-card-dark p-5">
-                  <div className="text-2xl font-display font-semibold text-text-light dark:text-white mb-1">2</div>
-                  <div className="text-xs text-muted">Calls booked</div>
-                </div>
-                <div className="bg-card-light dark:bg-card-dark p-5">
-                  <div className="text-2xl font-display font-semibold text-accent mb-1">100%</div>
-                  <div className="text-xs text-muted">Zero manual work</div>
-                </div>
-              </div>
-
-              {/* Activity Feed */}
-              <div className="pt-4 border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)]">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green shrink-0" aria-hidden="true" />
-                  <span
-                    className="text-xs text-muted flex-1 min-w-0 truncate transition-opacity duration-[280ms]"
-                    style={{ opacity: feedFading ? 0 : 1 }}
-                  >
-                    {FEED_EVENTS[feedIdx]}
-                  </span>
-                  <span
-                    className="text-[10px] text-muted/40 shrink-0 transition-opacity duration-[280ms]"
-                    style={{ opacity: feedFading ? 0 : 1 }}
-                  >
-                    just now
-                  </span>
-                </div>
-              </div>
-
-            </div>
+              ))}
+            </motion.div>
           </div>
+
+          {/* Right */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease }}
+          >
+            <FlowPreview />
+          </motion.div>
         </div>
       </div>
     </section>
