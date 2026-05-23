@@ -11,8 +11,6 @@ import { HowItWorks }         from "@/components/how-it-works"
 import { FAQSection }         from "@/components/faq-section"
 import { FinalCTA }           from "@/components/final-cta"
 import { Footer }             from "@/components/footer"
-import { ScrollAnimations }   from "@/components/scroll-animations"
-import { StickyMobileCTA }    from "@/components/sticky-mobile-cta"
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -51,9 +49,7 @@ export default function Home() {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ScrollAnimations />
-      <StickyMobileCTA />
-      <FloatingNav />
+<FloatingNav />
       <div className="flex flex-col">
         <HeroSection />
         <MarqueeStrip />

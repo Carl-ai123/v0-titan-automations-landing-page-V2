@@ -4,11 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight, ChevronRight } from "lucide-react"
 
-const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => {
-  if (typeof window !== "undefined") {
-    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
-  }
+const scrollToCTA = () => {
+  document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
 }
 
 const TRUST = ["UK-Based", "Built in 14 Days", "Fixed Scope", "Client-Owned", "No Lock-In"]
@@ -128,13 +125,13 @@ export function HeroSection() {
 
             <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-3 mb-9">
               <button
-                onClick={openCalendly}
-                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-all duration-150 hover:-translate-y-px active:translate-y-0"
+                onClick={scrollToCTA}
+                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-all duration-150 hover:-translate-y-px active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
               >
                 Book Free Automation Audit
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
-              <a href="#systems" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-medium text-hi border border-white/20 rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all duration-150 hover:-translate-y-px">
+              <a href="#systems" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-medium text-hi border border-white/20 rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all duration-150 hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50">
                 See What We Automate
               </a>
             </motion.div>

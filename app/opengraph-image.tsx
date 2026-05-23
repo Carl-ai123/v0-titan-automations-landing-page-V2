@@ -30,7 +30,7 @@ export default function OGImage() {
             right: '-100px',
             width: '500px',
             height: '500px',
-            background: 'radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(0,157,255,0.2) 0%, transparent 70%)',
           }}
         />
 
@@ -58,7 +58,7 @@ export default function OGImage() {
             {/* T stem */}
             <div style={{ position: 'absolute', top: '12px', left: '18px', width: '8px', height: '22px', borderRadius: '1.5px', background: 'white' }} />
             {/* Blue junction node */}
-            <div style={{ position: 'absolute', top: '9px', left: '19px', width: '6px', height: '6px', borderRadius: '50%', background: '#2563EB' }} />
+            <div style={{ position: 'absolute', top: '9px', left: '19px', width: '6px', height: '6px', borderRadius: '50%', background: '#009DFF' }} />
           </div>
           {/* Wordmark */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
@@ -73,7 +73,7 @@ export default function OGImage() {
             style={{
               fontSize: '13px',
               fontWeight: 500,
-              color: '#2563EB',
+              color: '#009DFF',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
             }}
@@ -117,7 +117,7 @@ export default function OGImage() {
           <div
             style={{
               padding: '10px 24px',
-              background: '#2563EB',
+              background: '#009DFF',
               borderRadius: '100px',
               color: '#FFFFFF',
               fontSize: '15px',

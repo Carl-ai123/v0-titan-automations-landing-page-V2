@@ -3,11 +3,8 @@
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
 
-const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => {
-  if (typeof window !== "undefined") {
-    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
-  }
+const scrollToCTA = () => {
+  document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
 }
 
 function Slider({
@@ -124,7 +121,7 @@ export function SavingsEstimator() {
             </div>
 
             <button
-              onClick={openCalendly}
+              onClick={scrollToCTA}
               className="group w-full flex items-center justify-center gap-2.5 py-3.5 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-all duration-150 hover:-translate-y-px"
             >
               Show me what to automate first

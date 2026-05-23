@@ -5,11 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { TitanLogoNav } from "@/components/titan-logo"
 import { X, Menu } from "lucide-react"
 
-const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => {
-  if (typeof window !== "undefined") {
-    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
-  }
+const scrollToCTA = () => {
+  document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
 }
 
 const NAV_LINKS = [
@@ -72,7 +69,7 @@ export function FloatingNav() {
           </ul>
 
           <button
-            onClick={openCalendly}
+            onClick={scrollToCTA}
             className="px-5 py-2.5 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
           >
             Book Free Audit
@@ -128,7 +125,7 @@ export function FloatingNav() {
                 </motion.a>
               ))}
               <motion.button
-                onClick={() => { setOpen(false); openCalendly() }}
+                onClick={() => { setOpen(false); scrollToCTA() }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: NAV_LINKS.length * 0.055, duration: 0.3 }}

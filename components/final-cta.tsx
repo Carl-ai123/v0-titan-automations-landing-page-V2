@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, Loader2, ChevronDown } from "lucide-react"
 import { submitAuditRequest } from "@/app/actions/audit-request"
 
 const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
@@ -20,6 +20,8 @@ const INDUSTRIES = [
   "Other",
 ]
 
+const inputClass = "w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi placeholder:text-dim outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent/30"
+
 export function FinalCTA() {
   const [name,        setName]        = useState("")
   const [business,    setBusiness]    = useState("")
@@ -27,12 +29,15 @@ export function FinalCTA() {
   const [phone,       setPhone]       = useState("")
   const [industry,    setIndustry]    = useState("")
   const [bottleneck,  setBottleneck]  = useState("")
+  const [honeypot,    setHoneypot]    = useState("")
   const [loading,     setLoading]     = useState(false)
   const [success,     setSuccess]     = useState(false)
   const [error,       setError]       = useState("")
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (honeypot) return  // bot trap
+
     setLoading(true)
     setError("")
 
@@ -94,97 +99,121 @@ export function FinalCTA() {
             <p className="text-lo mb-6">Your details are saved. Booking your call now — pick a time that suits you.</p>
             <button
               onClick={openCalendly}
-              className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors"
+              className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               Book your audit call
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
         ) : (
-          /* Form */
           <form
             onSubmit={handleSubmit}
             className="bg-surface border border-white/[0.08] rounded-2xl p-7 md:p-10 space-y-5"
           >
+            {/* Honeypot — hidden from real users, bots fill it in */}
+            <input
+              type="text"
+              name="website_url"
+              value={honeypot}
+              onChange={e => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              aria-hidden="true"
+              className="absolute opacity-0 pointer-events-none w-0 h-0"
+              autoComplete="off"
+            />
+
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-lo tracking-wide">Your name <span className="text-error">*</span></label>
+                <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-name">
+                  Your name <span className="text-error" aria-hidden="true">*</span>
+                </label>
                 <input
+                  id="cta-name"
                   required
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Carl Wilkins"
-                  className="w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi placeholder:text-dim outline-none transition-colors"
+                  className={inputClass}
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-lo tracking-wide">Business name</label>
+                <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-business">Business name</label>
                 <input
+                  id="cta-business"
                   value={business}
                   onChange={e => setBusiness(e.target.value)}
                   placeholder="Titan Automations"
-                  className="w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi placeholder:text-dim outline-none transition-colors"
+                  className={inputClass}
                 />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-lo tracking-wide">Email <span className="text-error">*</span></label>
+                <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-email">
+                  Email <span className="text-error" aria-hidden="true">*</span>
+                </label>
                 <input
+                  id="cta-email"
                   required
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="you@yourbusiness.com"
-                  className="w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi placeholder:text-dim outline-none transition-colors"
+                  className={inputClass}
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-lo tracking-wide">Phone</label>
+                <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-phone">Phone</label>
                 <input
+                  id="cta-phone"
                   type="tel"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
-                  placeholder="+44 7700 900000"
-                  className="w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi placeholder:text-dim outline-none transition-colors"
+                  placeholder="+44 7464 256627"
+                  className={inputClass}
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-lo tracking-wide">Industry</label>
-              <select
-                value={industry}
-                onChange={e => setIndustry(e.target.value)}
-                className="w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi outline-none transition-colors appearance-none"
-              >
-                <option value="" className="bg-elevated text-dim">Select your industry…</option>
-                {INDUSTRIES.map(i => (
-                  <option key={i} value={i} className="bg-elevated">{i}</option>
-                ))}
-              </select>
+              <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-industry">Industry</label>
+              <div className="relative">
+                <select
+                  id="cta-industry"
+                  value={industry}
+                  onChange={e => setIndustry(e.target.value)}
+                  className={`${inputClass} appearance-none pr-10`}
+                >
+                  <option value="" className="bg-elevated text-dim">Select your industry…</option>
+                  {INDUSTRIES.map(i => (
+                    <option key={i} value={i} className="bg-elevated text-hi">{i}</option>
+                  ))}
+                </select>
+                <ChevronDown size={14} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-dim pointer-events-none" />
+              </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-lo tracking-wide">Biggest bottleneck right now</label>
+              <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-bottleneck">Biggest bottleneck right now</label>
               <textarea
+                id="cta-bottleneck"
                 rows={3}
                 value={bottleneck}
                 onChange={e => setBottleneck(e.target.value)}
                 placeholder="e.g. leads going cold before we follow up, too much time on admin, missed calls not recovered…"
-                className="w-full bg-elevated border border-white/[0.08] focus:border-accent/50 rounded-xl px-4 py-3 text-sm text-hi placeholder:text-dim outline-none transition-colors resize-none"
+                className={`${inputClass} resize-none`}
               />
             </div>
 
             {error && (
-              <p className="text-sm text-error">{error}</p>
+              <p role="alert" className="text-sm text-error bg-error/10 border border-error/20 rounded-lg px-4 py-3">{error}</p>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="group w-full flex items-center justify-center gap-2.5 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-150 hover:-translate-y-px active:translate-y-0 shadow-[0_8px_32px_rgba(0,157,255,0.22)]"
+              className="group w-full flex items-center justify-center gap-2.5 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-150 hover:-translate-y-px active:translate-y-0 shadow-[0_8px_32px_rgba(0,157,255,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               {loading ? (
                 <>

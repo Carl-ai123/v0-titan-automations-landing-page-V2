@@ -17,7 +17,7 @@ export function MarqueeStrip() {
   const repeated = [...ITEMS, ...ITEMS]
   return (
     <div className="py-4 border-y border-white/[0.06] overflow-hidden bg-surface">
-      <div className="flex animate-marquee whitespace-nowrap gap-0">
+      <div className="flex animate-marquee motion-reduce:animate-none whitespace-nowrap gap-0">
         {repeated.map((item, i) => (
           <span key={i} className="inline-flex items-center gap-5 mx-0">
             <span className="text-xs font-medium tracking-[0.16em] uppercase text-dim px-5">{item}</span>
