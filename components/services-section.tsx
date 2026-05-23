@@ -1,4 +1,4 @@
-import { Bot, Calendar, Database, Mail, MessageSquare, Star, BarChart3, Globe, Workflow } from "lucide-react"
+import { Bot, Calendar, Database, Mail, Star, Globe } from "lucide-react"
 import type { ReactNode } from "react"
 
 type System = {
@@ -58,30 +58,6 @@ const SYSTEMS: System[] = [
     what:    "Automated review requests sent to every client after a job — via SMS or email, timed perfectly.",
     removes: "Forgetting to ask. Awkward manual requests. Inconsistent review volume.",
     result:  "A steady stream of 5-star Google reviews on autopilot.",
-  },
-  {
-    icon:    <Workflow size={18} />,
-    label:   "07",
-    title:   "Lead Enrichment & Outreach",
-    what:    "Find and qualify your target prospects, enrich their data, and send targeted outreach sequences.",
-    removes: "Cold outreach that gets ignored. No system for generating new pipeline.",
-    result:  "Warm, qualified conversations started without a sales team.",
-  },
-  {
-    icon:    <MessageSquare size={18} />,
-    label:   "08",
-    title:   "Internal Admin Automation",
-    what:    "Recurring reports, data entry, task creation, staff notifications — all triggered automatically.",
-    removes: "Hours spent on repetitive internal tasks. Information siloed in inboxes.",
-    result:  "The team gets the right information at the right time — automatically.",
-  },
-  {
-    icon:    <BarChart3 size={18} />,
-    label:   "09",
-    title:   "Reporting & Owner Visibility",
-    what:    "Live dashboards showing enquiries, conversions, pipeline value, and automation performance.",
-    removes: "No idea what is actually happening in the business day-to-day.",
-    result:  "Clear numbers. No guesswork. Decisions based on data.",
   },
 ]
 
