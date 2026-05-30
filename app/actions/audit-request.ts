@@ -65,9 +65,8 @@ export async function submitAuditRequest(
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!url || !key) {
-    console.warn("Supabase env vars not set. See TODO comments in audit-request.ts.")
-    /* For now fall through and return success so the form still works during dev */
-    return { success: true }
+    console.error("Supabase env vars not set: NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY")
+    return { success: false, error: "Configuration error. Please email info@titan-automations.com directly." }
   }
 
   /* ── Insert into Supabase via REST API (no SDK needed) ── */
