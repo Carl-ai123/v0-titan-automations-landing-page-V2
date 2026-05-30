@@ -61,11 +61,11 @@ export async function submitAuditRequest(
   data: AuditRequestData,
 ): Promise<AuditRequestResult> {
   /* ── Guard: check env vars are set ── */
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const url = process.env.SUPABASE_URL
+  const key = process.env.SUPABASE_ANON_KEY
 
   if (!url || !key) {
-    console.error("Supabase env vars not set: NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY")
+    console.error("Supabase env vars not set: SUPABASE_URL / SUPABASE_ANON_KEY")
     return { success: false, error: "Configuration error. Please email info@titan-automations.com directly." }
   }
 
