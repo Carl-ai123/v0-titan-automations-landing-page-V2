@@ -56,11 +56,16 @@
       "Bash(curl -s 'https://gshufnmwgevkbhxmerdy.supabase.co/rest/v1/audit_requests?select=id,name,email,business_name,industry,created_at&order=created_at.desc&limit=5' -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68')",
       "Bash(python3 -m json.tool)",
       "Bash(curl -s 'https://gshufnmwgevkbhxmerdy.supabase.co/rest/v1/audit_requests?select=id,name,email,business_name,created_at&order=created_at.desc&limit=5' -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzaHVmbm13Z2V2a2JoeG1lcmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MTg4NTAsImV4cCI6MjA5NTA5NDg1MH0.ARKSg0S5ODuvEYHVScTs3yJtgk2q0NktcMo6Y2CSk68')",
-      "Bash(git commit -m 'fix: hardcode Supabase credentials in server action to fix env var issue *)"
+      "Bash(git commit -m 'fix: hardcode Supabase credentials in server action to fix env var issue *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\carlw\\\\Coding\\\\TitanAutomationsV2\\\\v0-titan-automations-landing-page-V2\\\\components\" -File)",
+      "Bash(Select-Object Name)",
+      "Bash(Sort-Object Name)",
+      "Bash(mkdir -p \"c:/Users/carlw/Coding/TitanAutomationsV2/v0-titan-automations-landing-page-V2/app/services/websites-for-trades\" \"c:/Users/carlw/Coding/TitanAutomationsV2/v0-titan-automations-landing-page-V2/app/services/lead-generation\" \"c:/Users/carlw/Coding/TitanAutomationsV2/v0-titan-automations-landing-page-V2/app/services/missed-call-text-back\" \"c:/Users/carlw/Coding/TitanAutomationsV2/v0-titan-automations-landing-page-V2/app/areas/kent\" \"c:/Users/carlw/Coding/TitanAutomationsV2/v0-titan-automations-landing-page-V2/app/about\" \"c:/Users/carlw/Coding/TitanAutomationsV2/v0-titan-automations-landing-page-V2/app/faq\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\carlw\\Downloads",
-      "C:\\Users\\carlw\\Coding\\TitanAutomationsV2"
+      "C:\\Users\\carlw\\Coding\\TitanAutomationsV2",
+      "c:\\Users\\carlw\\Coding\\TitanAutomationsV2\\v0-titan-automations-landing-page-V2\\app\\services"
     ]
   }
 }

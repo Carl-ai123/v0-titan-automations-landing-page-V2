@@ -1,17 +1,19 @@
 import { TitanLogo } from "@/components/titan-logo"
 
 const SYSTEMS = [
-  { label: "AI Website",         href: "#systems" },
-  { label: "AI Chatbot",         href: "#systems" },
-  { label: "Booking Systems",    href: "#systems" },
-  { label: "CRM Automation",     href: "#systems" },
-  { label: "Follow-Up Sequences",href: "#systems" },
-  { label: "Review Requests",    href: "#systems" },
+  { label: "Websites for Trades",     href: "/services/websites-for-trades" },
+  { label: "Lead Generation",         href: "/services/lead-generation" },
+  { label: "Missed-Call Text-Back",   href: "/services/missed-call-text-back" },
+  { label: "CRM Automation",          href: "/#systems" },
+  { label: "Follow-Up Sequences",     href: "/#systems" },
+  { label: "Booking Systems",         href: "/#systems" },
 ]
 
 const COMPANY = [
-  { label: "How It Works",  href: "#process"  },
-  { label: "FAQ",           href: "#faq"      },
+  { label: "About",         href: "/about"    },
+  { label: "How It Works",  href: "/#process" },
+  { label: "FAQ",           href: "/faq"      },
+  { label: "Kent",          href: "/areas/kent" },
   { label: "Privacy Policy",href: "/privacy"  },
 ]
 
