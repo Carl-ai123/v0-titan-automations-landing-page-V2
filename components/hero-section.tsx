@@ -49,7 +49,7 @@ function FlowPreview() {
             <motion.div
               key={stage.id}
               animate={{
-                backgroundColor: isActive ? `${stage.color}10` : isPast ? "rgba(255,255,255,0.02)" : "transparent",
+                backgroundColor: isActive ? `${stage.color}10` : isPast ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0)",
                 borderColor:     isActive ? `${stage.color}35` : isPast ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.04)",
               }}
               transition={{ duration: 0.3 }}
