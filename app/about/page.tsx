@@ -25,6 +25,10 @@ const jsonLd = {
   address: { '@type': 'PostalAddress', addressRegion: 'Kent', addressCountry: 'GB' },
   areaServed: [{ '@type': 'AdministrativeArea', name: 'Kent' }, { '@type': 'AdministrativeArea', name: 'United Kingdom' }],
   founder: { '@type': 'Person', name: 'Carl Wilkins', jobTitle: 'Founder', worksFor: { '@type': 'Organization', name: 'Titan Automations' } },
+  sameAs: [
+    'https://www.facebook.com/titanautomations',
+    'https://www.instagram.com/titanautomations_/',
+  ],
 }
 
 export default function AboutPage() {
