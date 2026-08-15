@@ -7,10 +7,11 @@ import { Footer } from '@/components/footer'
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | Titan Automations',
   description: 'Answers to common questions about websites, lead generation and automation for UK trades and service businesses. Free audit, pricing, timelines and more.',
+  alternates: { canonical: '/faq' },
   openGraph: {
     title: 'FAQ | Titan Automations',
     description: 'Common questions about websites, lead generation and automation for UK service businesses.',
-    url: 'https://titan-automations.com/faq',
+    url: 'https://www.titan-automations.com/faq',
   },
 }
 
@@ -24,7 +25,7 @@ const FAQS = [
       },
       {
         q: 'What is a missed-call text-back system?',
-        a: "When you're up a roof or on a job you can't always answer the phone — and a missed call is usually a lost job. A missed-call text-back system automatically texts the caller the moment you miss them, so they know you'll ring back. It captures the lead instantly instead of them calling the next firm.",
+        a: "When you're up a roof or on a job you can't always answer the phone, and a missed call is usually a lost job. A missed-call text-back system automatically texts the caller the moment you miss them, so they know you'll ring back. It captures the lead instantly instead of them calling the next firm.",
       },
     ],
   },
@@ -33,11 +34,11 @@ const FAQS = [
     items: [
       {
         q: 'Do I need a website if I get work from word of mouth?',
-        a: 'Word of mouth still works, but people check you online before they call. No website, or a poor one, quietly costs you jobs you never hear about. A professional site backs up referrals, ranks for local searches, and works while you\'re on site — turning "I\'ll think about it" into booked work.',
+        a: 'Word of mouth still works, but people check you online before they call. No website, or a poor one, quietly costs you jobs you never hear about. A professional site backs up referrals, ranks for local searches, and works while you\'re on site, turning "I\'ll think about it" into booked work.',
       },
       {
         q: 'How long does it take to get a new website live?',
-        a: "A focused trades website is usually live within a couple of weeks, depending on content and how fast photos and details come through. Lead generation and automation can be layered on after launch. The priority is a working, converting site online fast, then improving it — not waiting months for perfect.",
+        a: "A focused trades website is usually live within a couple of weeks, depending on content and how fast photos and details come through. Lead generation and automation can be layered on after launch. The priority is a working, converting site online fast, then improving it, not waiting months for perfect.",
       },
     ],
   },
@@ -46,11 +47,11 @@ const FAQS = [
     items: [
       {
         q: 'How much does a website or automation system cost?',
-        a: "Cost depends on the scope — what the site needs to do, whether automation is included, and how much content is required. We scope everything on the free audit call and give you a fixed price before any work starts. No surprises.",
+        a: "Cost depends on the scope, what the site needs to do, whether automation is included, and how much content is required. We scope everything on the free audit call and give you a fixed price before any work starts. No surprises.",
       },
       {
         q: 'What makes Titan Automations different from other web agencies?',
-        a: "Titan Automations is built by someone who understands how trades and service businesses actually win work — missed calls, quote follow-ups, local reputation. It's not just pretty websites; it's lead systems that bring in jobs, explained in plain English with no agency jargon.",
+        a: "Titan Automations is built by someone who understands how trades and service businesses actually win work, missed calls, quote follow-ups, local reputation. It's not just pretty websites; it's lead systems that bring in jobs, explained in plain English with no agency jargon.",
       },
       {
         q: 'What exactly do you automate?',
@@ -62,11 +63,11 @@ const FAQS = [
       },
       {
         q: 'How long does it take to build?',
-        a: "Most single-system builds go live within 14 days of the first call. Complex multi-system builds are scoped individually — we'll tell you exactly how long before any work starts.",
+        a: "Most single-system builds go live within 14 days of the first call. Complex multi-system builds are scoped individually, we'll tell you exactly how long before any work starts.",
       },
       {
         q: 'What happens on the audit call?',
-        a: "It's a 20-minute conversation. We ask about your current process — how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we'd automate first and roughly what it would cost. No hard sell. No obligation.",
+        a: "It's a 20-minute conversation. We ask about your current process, how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we'd automate first and roughly what it would cost. No hard sell. No obligation.",
       },
     ],
   },

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | Titan Automations',
   description: 'How Titan Automations collects, uses, and protects your personal data in line with UK GDPR.',
   robots: { index: true, follow: true },
+  alternates: { canonical: '/privacy' },
 }
 
 const sections = [
@@ -21,9 +22,9 @@ const sections = [
     id: 'what-we-collect',
     heading: 'What data we collect',
     content: [
-      'Audit request form — when you submit the free audit request form on this site, we collect your name, business name, email address, phone number, industry, and a description of your biggest bottleneck. This data is stored securely in our CRM.',
-      'Email correspondence — if you contact us directly by email, we receive whatever you include in your message.',
-      'Anonymous usage data — this website uses Vercel Analytics, which collects aggregated, non-personal information about how pages are used (e.g. page views, general location by country). No cookies are set and no personally identifiable information is collected by analytics.',
+      'Audit request form, when you submit the free audit request form on this site, we collect your name, business name, email address, phone number, industry, and a description of your biggest bottleneck. This data is stored securely in our CRM.',
+      'Email correspondence, if you contact us directly by email, we receive whatever you include in your message.',
+      'Anonymous usage data, this website uses Vercel Analytics, which collects aggregated, non-personal information about how pages are used (e.g. page views, general location by country). No cookies are set and no personally identifiable information is collected by analytics.',
       'We do not use tracking pixels, remarketing scripts, or any other third-party advertising technology.',
     ],
   },
@@ -31,17 +32,17 @@ const sections = [
     id: 'why-we-collect',
     heading: 'Why we collect it and the legal basis',
     content: [
-      'Audit request — to contact you about your enquiry, prepare for your discovery call, and assess how we can help your business. Legal basis: legitimate interests (processing your contact details is necessary to respond to your request).',
-      'Email enquiries — to respond to your message and discuss potential work together. Legal basis: legitimate interests.',
-      'Analytics — to understand which content is useful and improve the site. Legal basis: legitimate interests (aggregated, anonymous data with no impact on your privacy).',
+      'Audit request, to contact you about your enquiry, prepare for your discovery call, and assess how we can help your business. Legal basis: legitimate interests (processing your contact details is necessary to respond to your request).',
+      'Email enquiries, to respond to your message and discuss potential work together. Legal basis: legitimate interests.',
+      'Analytics, to understand which content is useful and improve the site. Legal basis: legitimate interests (aggregated, anonymous data with no impact on your privacy).',
     ],
   },
   {
     id: 'how-long',
     heading: 'How long we keep your data',
     content: [
-      'Audit requests and email enquiries — we retain this data for up to 2 years from the date of submission, or until you ask us to delete it, whichever comes first.',
-      'Analytics data — Vercel Analytics retains aggregated data in line with their own retention policy. As the data is anonymous and non-personal, it does not identify you.',
+      'Audit requests and email enquiries, we retain this data for up to 2 years from the date of submission, or until you ask us to delete it, whichever comes first.',
+      'Analytics data, Vercel Analytics retains aggregated data in line with their own retention policy. As the data is anonymous and non-personal, it does not identify you.',
     ],
   },
   {
@@ -66,7 +67,7 @@ const sections = [
     heading: 'How to complain',
     content: [
       "If you are unhappy with how we have handled your personal data, you have the right to lodge a complaint with the UK's data protection regulator:",
-      "Information Commissioner's Office (ICO) — ico.org.uk — 0303 123 1113",
+      "Information Commissioner's Office (ICO), ico.org.uk, 0303 123 1113",
       'We would appreciate the chance to address your concern directly before you contact the ICO, so please get in touch with us first if possible.',
     ],
   },

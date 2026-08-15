@@ -7,10 +7,11 @@ import { Footer } from '@/components/footer'
 export const metadata: Metadata = {
   title: 'Lead Generation for Trades & Service Businesses | Titan Automations',
   description: 'Predictable local job flow for roofers, trades and service businesses. Website + automation + follow-up so you stop relying on word of mouth alone.',
+  alternates: { canonical: '/services/lead-generation' },
   openGraph: {
     title: 'Lead Generation for Trades & Service Businesses | Titan Automations',
     description: 'Predictable local job flow for roofers, trades and service businesses. Stop relying on word of mouth alone.',
-    url: 'https://titan-automations.com/services/lead-generation',
+    url: 'https://www.titan-automations.com/services/lead-generation',
   },
 }
 
@@ -18,7 +19,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Lead generation for trades and service businesses',
-  provider: { '@type': 'ProfessionalService', name: 'Titan Automations', url: 'https://titan-automations.com' },
+  provider: { '@id': 'https://www.titan-automations.com/#business' },
   areaServed: [{ '@type': 'AdministrativeArea', name: 'Kent' }, { '@type': 'AdministrativeArea', name: 'United Kingdom' }],
   description: 'Predictable local job flow for trades and service businesses using website, automation and follow-up systems.',
 }
@@ -28,7 +29,7 @@ const faqJsonLd = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'How do trades businesses get more leads?', acceptedAnswer: { '@type': 'Answer', text: "Most trades get work through word of mouth and directories, but that's unpredictable. A reliable system combines a website that ranks locally and turns visitors into enquiries, plus automation like missed-call text-back and instant follow-up so no lead goes cold. The aim is steady, predictable local jobs instead of feast-or-famine." } },
-    { '@type': 'Question', name: 'How long before I see results?', acceptedAnswer: { '@type': 'Answer', text: 'Automations like missed-call text-back work from day one. SEO takes longer — typically 3 to 6 months before you see meaningful organic traffic. The combination of both means you get quick wins while building long-term visibility.' } },
+    { '@type': 'Question', name: 'How long before I see results?', acceptedAnswer: { '@type': 'Answer', text: 'Automations like missed-call text-back work from day one. SEO takes longer, typically 3 to 6 months before you see meaningful organic traffic. The combination of both means you get quick wins while building long-term visibility.' } },
   ],
 }
 
@@ -39,11 +40,11 @@ const FAQS = [
   },
   {
     q: 'How long before I see results?',
-    a: 'Automations like missed-call text-back work from day one. SEO takes longer — typically 3 to 6 months before meaningful organic traffic. The combination of both means quick wins while building long-term visibility.',
+    a: 'Automations like missed-call text-back work from day one. SEO takes longer, typically 3 to 6 months before meaningful organic traffic. The combination of both means quick wins while building long-term visibility.',
   },
   {
     q: 'Do I need to run paid ads?',
-    a: "Not necessarily. We focus first on organic local search and automation — capturing leads you're already getting but losing. Paid ads can be layered in later if organic isn't enough. We'll tell you what makes sense for your market.",
+    a: "Not necessarily. We focus first on organic local search and automation, capturing leads you're already getting but losing. Paid ads can be layered in later if organic isn't enough. We'll tell you what makes sense for your market.",
   },
 ]
 
@@ -68,7 +69,7 @@ export default function LeadGenerationPage() {
               Lead Generation for Roofers &amp; Trades
             </h1>
             <p className="text-xl text-lo leading-relaxed max-w-2xl mb-8">
-              Feast-or-famine is the default for most trades businesses. A proper lead generation system turns that into a steady, predictable pipeline — without relying on word of mouth, directories, or paid ads alone.
+              Feast-or-famine is the default for most trades businesses. A proper lead generation system turns that into a steady, predictable pipeline, without relying on word of mouth, directories, or paid ads alone.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/#cta" className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
@@ -93,10 +94,10 @@ export default function LeadGenerationPage() {
                   Referrals are great when they come in. But you can't control the timing, the volume, or the quality. One quiet month and cashflow gets tight. Two quiet months and you're quoting for jobs that aren't right for you just to keep busy.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
-                  Directories like Checkatrade and MyBuilder send you shared leads — same job going to four or five other firms. You're competing on price before you've even had a conversation.
+                  Directories like Checkatrade and MyBuilder send you shared leads, same job going to four or five other firms. You're competing on price before you've even had a conversation.
                 </p>
                 <p className="text-lo leading-relaxed">
-                  A lead generation system gives you jobs that come to you specifically — people who found your website, read about what you do, and decided to get in touch. That's a very different conversation.
+                  A lead generation system gives you jobs that come to you specifically, people who found your website, read about what you do, and decided to get in touch. That's a very different conversation.
                 </p>
               </div>
               <div className="space-y-4">
@@ -128,12 +129,12 @@ export default function LeadGenerationPage() {
                 {
                   num: '01',
                   title: 'A website that ranks locally',
-                  desc: 'Built to appear when people in your area search for what you do. Not a brochure — a machine that captures intent and turns it into enquiries.',
+                  desc: 'Built to appear when people in your area search for what you do. Not a brochure, a machine that captures intent and turns it into enquiries.',
                 },
                 {
                   num: '02',
                   title: 'Automation that catches what you miss',
-                  desc: 'Missed-call text-back, instant enquiry responses, booking confirmations. Every lead is acknowledged the moment they reach out — even when you\'re on a job.',
+                  desc: 'Missed-call text-back, instant enquiry responses, booking confirmations. Every lead is acknowledged the moment they reach out, even when you\'re on a job.',
                 },
                 {
                   num: '03',

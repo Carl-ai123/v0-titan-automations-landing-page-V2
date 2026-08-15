@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bricolage_Grotesque, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
+import { businessJsonLd, SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const bricolage = Bricolage_Grotesque({
@@ -16,30 +17,8 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
-const siteUrl = 'https://titan-automations.com'
-
-const orgJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Titan Automations',
-  url: siteUrl,
-  email: 'info@titan-automations.com',
-  telephone: '+447464256627',
-  description: 'Websites and lead generation systems for UK trades and service businesses. Websites, missed-call text-back, CRM automation and follow-up sequences — built in Kent, serving the whole UK.',
-  address: { '@type': 'PostalAddress', addressRegion: 'Kent', addressCountry: 'GB' },
-  areaServed: [
-    { '@type': 'AdministrativeArea', name: 'Kent' },
-    { '@type': 'AdministrativeArea', name: 'United Kingdom' },
-  ],
-  founder: { '@type': 'Person', name: 'Carl Wilkins' },
-  sameAs: [
-    'https://www.facebook.com/titanautomations',
-    'https://www.instagram.com/titanautomations_/',
-  ],
-}
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: 'Titan Automations | AI Automation Agency for UK Service Businesses',
   description:
     'Titan Automations builds AI-powered systems that capture leads, automate follow-ups, manage bookings, connect CRMs, and remove repetitive admin for UK service businesses.',
@@ -55,14 +34,15 @@ export const metadata: Metadata = {
     'booking automation UK',
   ],
   authors: [{ name: 'Titan Automations' }],
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    url: siteUrl,
+    url: SITE_URL,
     title: 'Titan Automations | AI Automation Agency for UK Service Businesses',
     description:
       'AI systems that capture leads, automate follow-ups, manage bookings, and remove manual admin for UK service businesses.',
     siteName: 'Titan Automations',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Titan Automations — AI Automation Agency' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Titan Automations, AI Automation Agency' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -85,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
       </head>
       <body className={`${bricolage.variable} ${dmSans.variable} antialiased`}>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }} />
         <a href="#main-content" className="skip-to-content">Skip to content</a>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

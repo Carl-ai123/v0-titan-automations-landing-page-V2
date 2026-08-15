@@ -78,8 +78,8 @@ export function IndustriesSection() {
             Built for service businesses where admin delays cost money.
           </h2>
           <p className="text-lg text-lo leading-relaxed">
-            We do not work with everyone. We work best where manual processes create a measurable revenue leak
-            — and where fixing it pays for itself quickly.
+            We do not work with everyone. We work best where manual processes create a measurable revenue leak,
+            and where fixing it pays for itself quickly.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export function IndustriesSection() {
         </div>
 
         <p className="mt-8 text-sm text-dim text-center">
-          Not sure if this fits your business? Book the audit — that is exactly what it is for.
+          Not sure if this fits your business? Book the audit, that is exactly what it is for.
         </p>
       </div>
     </section>

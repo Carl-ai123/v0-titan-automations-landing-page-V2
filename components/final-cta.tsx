@@ -96,7 +96,7 @@ export function FinalCTA() {
           <div className="bg-surface border border-success/20 rounded-2xl p-10 text-center">
             <CheckCircle2 size={40} className="text-success mx-auto mb-4" />
             <h3 className="font-display text-xl font-semibold text-hi mb-2">You're on the list.</h3>
-            <p className="text-lo mb-6">Your details are saved. Booking your call now — pick a time that suits you.</p>
+            <p className="text-lo mb-6">Your details are saved. Booking your call now. Pick a time that suits you.</p>
             <button
               onClick={openCalendly}
               className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
@@ -110,7 +110,7 @@ export function FinalCTA() {
             onSubmit={handleSubmit}
             className="bg-surface border border-white/[0.08] rounded-2xl p-7 md:p-10 space-y-5"
           >
-            {/* Honeypot — hidden from real users, bots fill it in */}
+            {/* Honeypot, hidden from real users, bots fill it in */}
             <input
               type="text"
               name="website_url"
@@ -132,7 +132,7 @@ export function FinalCTA() {
                   required
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  placeholder="Carl Wilkins"
+                  placeholder="e.g. Alex Smith"
                   className={inputClass}
                 />
               </div>
@@ -142,7 +142,7 @@ export function FinalCTA() {
                   id="cta-business"
                   value={business}
                   onChange={e => setBusiness(e.target.value)}
-                  placeholder="Titan Automations"
+                  placeholder="e.g. Your business name"
                   className={inputClass}
                 />
               </div>
@@ -170,7 +170,7 @@ export function FinalCTA() {
                   type="tel"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
-                  placeholder="+44 7464 256627"
+                  placeholder="e.g. 07700 900123"
                   className={inputClass}
                 />
               </div>

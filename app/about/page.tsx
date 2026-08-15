@@ -6,29 +6,28 @@ import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'About Titan Automations | Carl Wilkins, Kent',
-  description: 'Titan Automations is built by Carl Wilkins — a Kent-based automation specialist who helps UK service businesses and trades win more local work with websites and lead generation systems.',
+  description: 'Titan Automations is built by Carl Wilkins, a Kent-based automation specialist who helps UK service businesses and trades win more local work with websites and lead generation systems.',
+  alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Titan Automations | Carl Wilkins, Kent',
-    description: 'Titan Automations is built by Carl Wilkins — helping UK service businesses win more local work with websites and lead generation systems.',
-    url: 'https://titan-automations.com/about',
+    description: 'Titan Automations is built by Carl Wilkins, helping UK service businesses win more local work with websites and lead generation systems.',
+    url: 'https://www.titan-automations.com/about',
   },
 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Titan Automations',
-  url: 'https://titan-automations.com',
-  email: 'info@titan-automations.com',
-  telephone: '+447464256627',
-  description: 'Websites and lead generation systems for UK trades and service businesses.',
-  address: { '@type': 'PostalAddress', addressRegion: 'Kent', addressCountry: 'GB' },
-  areaServed: [{ '@type': 'AdministrativeArea', name: 'Kent' }, { '@type': 'AdministrativeArea', name: 'United Kingdom' }],
-  founder: { '@type': 'Person', name: 'Carl Wilkins', jobTitle: 'Founder', worksFor: { '@type': 'Organization', name: 'Titan Automations' } },
-  sameAs: [
-    'https://www.facebook.com/titanautomations',
-    'https://www.instagram.com/titanautomations_/',
-  ],
+  '@type': 'AboutPage',
+  '@id': 'https://www.titan-automations.com/about#page',
+  url: 'https://www.titan-automations.com/about',
+  name: 'About Titan Automations',
+  mainEntity: { '@id': 'https://www.titan-automations.com/#business' },
+  about: {
+    '@type': 'Person',
+    name: 'Carl Wilkins',
+    jobTitle: 'Founder',
+    worksFor: { '@id': 'https://www.titan-automations.com/#business' },
+  },
 }
 
 export default function AboutPage() {
@@ -51,7 +50,7 @@ export default function AboutPage() {
               Built for the businesses that keep things running
             </h1>
             <p className="text-xl text-lo leading-relaxed max-w-2xl">
-              Titan Automations helps UK service businesses — trades, clinics, property businesses, local services — stop losing work to missed calls, slow follow-up and no online presence. We build the systems that sort it.
+              Titan Automations helps UK service businesses, trades, clinics, property businesses, local services, stop losing work to missed calls, slow follow-up and no online presence. We build the systems that sort it.
             </p>
           </div>
         </section>
@@ -69,13 +68,13 @@ export default function AboutPage() {
                   Carl Wilkins
                 </h2>
                 <p className="text-lo leading-relaxed mb-4">
-                  Carl comes from a trades and construction background — he's worked on site as a steel erector and knows the industry from the ground up. That background shapes how Titan Automations works: no fluff, no agency jargon, just systems that solve real problems.
+                  Carl comes from a trades and construction background, he's worked on site as a steel erector and knows the industry from the ground up. That background shapes how Titan Automations works: no fluff, no agency jargon, just systems that solve real problems.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
-                  The businesses we work with don't want to become marketing experts. They want the phone to ring, enquiries to be followed up, and jobs to be booked — without adding another thing to their plate. That's what we build.
+                  The businesses we work with don't want to become marketing experts. They want the phone to ring, enquiries to be followed up, and jobs to be booked, without adding another thing to their plate. That's what we build.
                 </p>
                 <p className="text-lo leading-relaxed mb-6">
-                  Titan Automations is based in Kent and works with service businesses across the UK. Every system is built from scratch for the specific business — no templates, no one-size-fits-all packages.
+                  Titan Automations is based in Kent and works with service businesses across the UK. Every system is built from scratch for the specific business, no templates, no one-size-fits-all packages.
                 </p>
                 <div className="flex items-center gap-3 text-sm text-dim">
                   <span className="w-1.5 h-1.5 rounded-full bg-success" />
@@ -86,13 +85,13 @@ export default function AboutPage() {
                 <div className="bg-elevated border border-white/[0.08] rounded-2xl p-6">
                   <p className="text-sm font-semibold text-hi mb-3">Why service businesses specifically</p>
                   <p className="text-sm text-lo leading-relaxed">
-                    Service businesses — trades especially — have a specific pattern: great at the work, not set up for the admin and follow-up side. Leads come in and fall through the cracks. Calls are missed. Quotes don't get chased. It's not laziness, it's just that no one set up a system. That's the gap we fill.
+                    Service businesses, trades especially, have a specific pattern: great at the work, not set up for the admin and follow-up side. Leads come in and fall through the cracks. Calls are missed. Quotes don't get chased. It's not laziness, it's just that no one set up a system. That's the gap we fill.
                   </p>
                 </div>
                 <div className="bg-elevated border border-accent/20 rounded-2xl p-6">
                   <p className="text-sm font-semibold text-accent mb-3">What makes this different</p>
                   <p className="text-sm text-lo leading-relaxed">
-                    Most agencies build websites. We build lead systems — the website plus the automation that catches every enquiry and follows up automatically. The goal isn't a pretty site; it's more jobs at the end of each month.
+                    Most agencies build websites. We build lead systems, the website plus the automation that catches every enquiry and follows up automatically. The goal isn't a pretty site; it's more jobs at the end of each month.
                   </p>
                 </div>
               </div>
@@ -110,7 +109,7 @@ export default function AboutPage() {
               {[
                 { title: 'Fixed scope, fixed price', desc: "You know exactly what you're getting and what it costs before we start. No surprises, no scope creep, no invoice at the end that doesn't match the quote." },
                 { title: 'You own everything', desc: "Every system, every workflow, every piece of code is yours. There's no recurring licence that stops working if you leave. You can take it anywhere." },
-                { title: 'Plain English, always', desc: "We don't use marketing jargon. We explain what we're building, why it works, and what to expect — in terms that make sense to someone running a real business." },
+                { title: 'Plain English, always', desc: "We don't use marketing jargon. We explain what we're building, why it works, and what to expect, in terms that make sense to someone running a real business." },
                 { title: 'Fast delivery', desc: 'Most builds go live within 14 days of the first call. We move quickly because a system sitting in development isn\'t catching leads or saving you time.' },
               ].map((v) => (
                 <div key={v.title} className="bg-surface border border-white/[0.08] rounded-2xl p-6">

@@ -6,11 +6,12 @@ import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'Websites & Lead Generation for Trades in Kent | Titan Automations',
-  description: 'Titan Automations serves trades and service businesses across Kent — Medway, Chatham, Maidstone, Canterbury, Ashford and beyond. Websites, automation and lead generation built locally.',
+  description: 'Titan Automations serves trades and service businesses across Kent, Medway, Chatham, Maidstone, Canterbury, Ashford and beyond. Websites, automation and lead generation built locally.',
+  alternates: { canonical: '/areas/kent' },
   openGraph: {
     title: 'Websites & Lead Generation for Trades in Kent | Titan Automations',
-    description: 'Websites, automation and lead generation for trades across Kent — Medway, Chatham, Maidstone, Canterbury, Ashford and the South East.',
-    url: 'https://titan-automations.com/areas/kent',
+    description: 'Websites, automation and lead generation for trades across Kent, Medway, Chatham, Maidstone, Canterbury, Ashford and the South East.',
+    url: 'https://www.titan-automations.com/areas/kent',
   },
 }
 
@@ -18,7 +19,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Website design and lead generation for trades in Kent',
-  provider: { '@type': 'ProfessionalService', name: 'Titan Automations', url: 'https://titan-automations.com' },
+  provider: { '@id': 'https://www.titan-automations.com/#business' },
   areaServed: { '@type': 'AdministrativeArea', name: 'Kent', containedInPlace: { '@type': 'AdministrativeArea', name: 'South East England' } },
   description: 'Websites and lead generation systems for trades and service businesses across Kent, including Medway, Chatham, Maidstone, Canterbury and Ashford.',
 }
@@ -43,14 +44,14 @@ export default function KentPage() {
               </nav>
               <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent">
                 <span className="w-5 h-px bg-accent" aria-hidden="true" />
-                Area — Kent &amp; South East
+                Area, Kent &amp; South East
               </span>
             </div>
             <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-hi mb-6">
               Websites &amp; Lead Generation for Trades in Kent
             </h1>
             <p className="text-xl text-lo leading-relaxed max-w-2xl mb-8">
-              Titan Automations is based in Kent. We work with roofers, builders, electricians, plumbers and other service businesses across Medway, Maidstone, Canterbury, Ashford and the wider South East — building the systems that bring in steady, local work.
+              Titan Automations is based in Kent. We work with roofers, builders, electricians, plumbers and other service businesses across Medway, Maidstone, Canterbury, Ashford and the wider South East, building the systems that bring in steady, local work.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
               Get a Free Audit <ArrowRight size={16} />
@@ -70,7 +71,7 @@ export default function KentPage() {
                   Kent is one of the busiest counties in England for construction and property work. The M2 and M20 corridors have seen sustained housing development around Medway, Maidstone and Ashford for years. Canterbury's student and rental market keeps demand for maintenance trades consistently high. Coastal areas from Folkestone to Thanet have their own mix of commercial and residential work.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
-                  Competition is real — there are a lot of trades businesses across the county. The ones that win more than their share have one thing in common: they're easy to find, easy to contact, and they follow up fast. Most trades businesses in Kent don't do all three.
+                  Competition is real, there are a lot of trades businesses across the county. The ones that win more than their share have one thing in common: they're easy to find, easy to contact, and they follow up fast. Most trades businesses in Kent don't do all three.
                 </p>
                 <p className="text-lo leading-relaxed">
                   That's the gap. A properly built website, combined with automation that catches every enquiry and follows up automatically, puts you ahead of the competition without you having to work harder.
@@ -139,7 +140,7 @@ export default function KentPage() {
               Trades we work with across Kent
             </h2>
             <p className="text-lo leading-relaxed mb-8 max-w-2xl">
-              If your business takes enquiries by phone or form, does local jobs, and relies on a steady flow of new customers — we can help. We work with:
+              If your business takes enquiries by phone or form, does local jobs, and relies on a steady flow of new customers, we can help. We work with:
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
               {['Roofers', 'Builders & Contractors', 'Electricians', 'Plumbers & Heating', 'Landscapers & Gardeners', 'Painters & Decorators', 'Kitchen & Bathroom Fitters', 'Cleaners', 'Property Maintenance'].map((trade) => (
@@ -159,7 +160,7 @@ export default function KentPage() {
               Kent-based. Built for local trades.
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              Free 20-minute audit — we map your local market, look at what competitors are doing, and tell you exactly what would move the needle for your business.
+              Free 20-minute audit, we map your local market, look at what competitors are doing, and tell you exactly what would move the needle for your business.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

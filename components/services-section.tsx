@@ -1,10 +1,12 @@
 import { Bot, Calendar, Database, Mail, Star, Globe } from "lucide-react"
 import type { ReactNode } from "react"
+import Link from "next/link"
 
 type System = {
   icon:     ReactNode
   label:    string
   title:    string
+  href:     string
   what:     string
   removes:  string
   result:   string
@@ -15,7 +17,8 @@ const SYSTEMS: System[] = [
     icon:    <Globe size={18} />,
     label:   "01",
     title:   "AI-Powered Website",
-    what:    "Conversion-focused site built for Google — not just to look good. Booking embedded on day one.",
+    href:    "/services/websites-for-trades",
+    what:    "Conversion-focused site built for Google, not just to look good. Booking embedded on day one.",
     removes: "A website that gets traffic but converts no one.",
     result:  "Visitors become booked enquiries without you lifting a finger.",
   },
@@ -23,6 +26,7 @@ const SYSTEMS: System[] = [
     icon:    <Bot size={18} />,
     label:   "02",
     title:   "AI Chatbot & Qualification",
+    href:    "/services/ai-chatbots",
     what:    "Answers common questions, qualifies intent, collects contact details, and routes the right leads to you.",
     removes: "Staff answering the same questions. Leads leaving because no one responded.",
     result:  "Qualified enquiries in your inbox. At 2am if needed.",
@@ -31,6 +35,7 @@ const SYSTEMS: System[] = [
     icon:    <Calendar size={18} />,
     label:   "03",
     title:   "Booking & Calendar System",
+    href:    "/services/booking-automation",
     what:    "Online booking with automated reminders, calendar sync, and no-show recovery.",
     removes: "Booking appointments over the phone. Back-and-forth texts.",
     result:  "Clients book themselves. You get the notification.",
@@ -39,7 +44,8 @@ const SYSTEMS: System[] = [
     icon:    <Database size={18} />,
     label:   "04",
     title:   "CRM Pipeline Automation",
-    what:    "Every enquiry, lead, and client tracked through a live pipeline — automatically updated as things progress.",
+    href:    "/services/crm-automation",
+    what:    "Every enquiry, lead, and client tracked through a live pipeline, automatically updated as things progress.",
     removes: "Opportunities falling through the cracks. No visibility on where deals stand.",
     result:  "Full pipeline visibility. Nothing forgotten.",
   },
@@ -47,17 +53,19 @@ const SYSTEMS: System[] = [
     icon:    <Mail size={18} />,
     label:   "05",
     title:   "Lead Follow-Up Sequences",
+    href:    "/services/follow-up-automation",
     what:    "Automated multi-touch sequences that follow up by email, SMS, or WhatsApp until the lead replies or converts.",
-    removes: "Chasing leads manually. Following up when you remember — which is not often enough.",
+    removes: "Chasing leads manually. Following up when you remember, which is not often enough.",
     result:  "Leads followed up consistently. Revenue recovered from the ignored inbox.",
   },
   {
     icon:    <Star size={18} />,
     label:   "06",
     title:   "Review Request System",
-    what:    "Automated review requests sent to every client after a job — via SMS or email, timed perfectly.",
+    href:    "/services/review-automation",
+    what:    "Automated review requests sent to every client after a job, via SMS or email, timed perfectly.",
     removes: "Forgetting to ask. Awkward manual requests. Inconsistent review volume.",
-    result:  "A steady stream of 5-star Google reviews on autopilot.",
+    result:  "A steady stream of genuine Google review requests on autopilot.",
   },
 ]
 
@@ -74,6 +82,9 @@ function SystemCard({ sys }: { sys: System }) {
       <div>
         <h3 className="font-display text-base font-semibold text-hi tracking-[-0.02em] mb-2">{sys.title}</h3>
         <p className="text-sm text-lo leading-relaxed">{sys.what}</p>
+        <Link href={sys.href} className="inline-flex items-center mt-3 text-xs font-semibold text-accent hover:text-accent/80 transition-colors">
+          Learn more <span aria-hidden="true" className="ml-1">→</span>
+        </Link>
       </div>
 
       <div className="flex flex-col gap-2 mt-auto pt-4 border-t border-white/[0.06]">

@@ -13,7 +13,7 @@ const SCENARIOS = [
   {
     when: "New enquiry lands",
     steps: ["AI qualifies intent", "CRM record created", "Personalised email sent"],
-    outcome: "Discovery call booked — no human required",
+    outcome: "Discovery call booked, no human required",
   },
   {
     when: "Client no-shows",
@@ -23,7 +23,7 @@ const SCENARIOS = [
   {
     when: "Job marked complete",
     steps: ["Trigger fires on status change", "Review request sent", "Response logged"],
-    outcome: "5-star Google review — fully automated",
+    outcome: "Google review request, fully automated",
   },
 ]
 
@@ -41,7 +41,7 @@ export function AutomationFlow() {
             One trigger. Your entire pipeline fires.
           </h2>
           <p className="text-lg text-lo leading-relaxed max-w-xl">
-            The moment someone touches your business — form, chatbot, missed call — a connected system takes over.
+            The moment someone touches your business, form, chatbot, missed call, a connected system takes over.
             No delays, no manual steps, no dropped leads.
           </p>
         </div>

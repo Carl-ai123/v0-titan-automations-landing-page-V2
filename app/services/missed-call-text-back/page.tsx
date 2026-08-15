@@ -7,10 +7,11 @@ import { Footer } from '@/components/footer'
 export const metadata: Metadata = {
   title: 'Missed-Call Text-Back for Trades | Titan Automations',
   description: 'Automatically text anyone who calls and you miss. Capture the lead instantly instead of losing the job to whoever answers first. Set up in days.',
+  alternates: { canonical: '/services/missed-call-text-back' },
   openGraph: {
     title: 'Missed-Call Text-Back for Trades | Titan Automations',
     description: 'Automatically text anyone who calls and you miss. Capture the lead instantly instead of losing the job to whoever answers first.',
-    url: 'https://titan-automations.com/services/missed-call-text-back',
+    url: 'https://www.titan-automations.com/services/missed-call-text-back',
   },
 }
 
@@ -18,7 +19,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Missed call text-back automation for trades and service businesses',
-  provider: { '@type': 'ProfessionalService', name: 'Titan Automations', url: 'https://titan-automations.com' },
+  provider: { '@id': 'https://www.titan-automations.com/#business' },
   areaServed: [{ '@type': 'AdministrativeArea', name: 'Kent' }, { '@type': 'AdministrativeArea', name: 'United Kingdom' }],
   description: 'Automated text message sent to any caller you miss, capturing the lead before they call someone else.',
 }
@@ -27,28 +28,28 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'What is a missed-call text-back system?', acceptedAnswer: { '@type': 'Answer', text: "When you're up a roof or on a job you can't always answer the phone — and a missed call is usually a lost job. A missed-call text-back system automatically texts the caller the moment you miss them, so they know you'll ring back. It captures the lead instantly instead of them calling the next firm." } },
-    { '@type': 'Question', name: 'How quickly does the text go out?', acceptedAnswer: { '@type': 'Answer', text: 'Within seconds of the missed call. Speed is the whole point — the sooner they hear from you, the less likely they are to call someone else.' } },
-    { '@type': 'Question', name: 'Can I customise the message?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We set up the message to sound like you — your name, your business, your tone. You can update it anytime. We also set up routing so that replies come to your phone as a normal conversation.' } },
+    { '@type': 'Question', name: 'What is a missed-call text-back system?', acceptedAnswer: { '@type': 'Answer', text: "When you're up a roof or on a job you can't always answer the phone, and a missed call is usually a lost job. A missed-call text-back system automatically texts the caller the moment you miss them, so they know you'll ring back. It captures the lead instantly instead of them calling the next firm." } },
+    { '@type': 'Question', name: 'How quickly does the text go out?', acceptedAnswer: { '@type': 'Answer', text: 'Within seconds of the missed call. Speed is the whole point, the sooner they hear from you, the less likely they are to call someone else.' } },
+    { '@type': 'Question', name: 'Can I customise the message?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We set up the message to sound like you, your name, your business, your tone. You can update it anytime. We also set up routing so that replies come to your phone as a normal conversation.' } },
   ],
 }
 
 const FAQS = [
   {
     q: 'What is a missed-call text-back system?',
-    a: "When you're up a roof or on a job you can't always answer the phone — and a missed call is usually a lost job. A missed-call text-back system automatically texts the caller the moment you miss them, so they know you'll ring back. It captures the lead instantly instead of them calling the next firm.",
+    a: "When you're up a roof or on a job you can't always answer the phone, and a missed call is usually a lost job. A missed-call text-back system automatically texts the caller the moment you miss them, so they know you'll ring back. It captures the lead instantly instead of them calling the next firm.",
   },
   {
     q: 'How quickly does the text go out?',
-    a: 'Within seconds of the missed call. Speed is the whole point — the sooner they hear from you, the less likely they are to call someone else.',
+    a: 'Within seconds of the missed call. Speed is the whole point, the sooner they hear from you, the less likely they are to call someone else.',
   },
   {
     q: 'Can I customise the message?',
-    a: "Yes. We set up the message to sound like you — your name, your business, your tone. You can update it anytime. Replies come through as a normal text conversation on your phone.",
+    a: "Yes. We set up the message to sound like you, your name, your business, your tone. You can update it anytime. Replies come through as a normal text conversation on your phone.",
   },
   {
     q: 'What if I already have someone answering calls?',
-    a: "The text-back only fires on genuine missed calls — if your call is answered, nothing goes out. It's a safety net, not a replacement for a real conversation.",
+    a: "The text-back only fires on genuine missed calls, if your call is answered, nothing goes out. It's a safety net, not a replacement for a real conversation.",
   },
 ]
 
@@ -95,7 +96,7 @@ export default function MissedCallTextBackPage() {
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               {[
                 { step: '01', title: 'You miss a call', desc: "You're on the tools, driving, or just can't get to the phone. The call goes unanswered." },
-                { step: '02', title: 'Text goes out instantly', desc: 'Within seconds, the caller receives a text from your number: "Hi, I missed your call — I\'ll ring you back shortly. Carl from [Business]."' },
+                { step: '02', title: 'Text goes out instantly', desc: 'Within seconds, the caller receives a text from your number: "Hi, I missed your call, I\'ll ring you back shortly. Carl from [Business]."' },
                 { step: '03', title: 'Lead is captured', desc: "They know you're real and they'll hear from you. Most stay. The ones who reply get an immediate conversation started." },
               ].map((s) => (
                 <div key={s.step} className="bg-elevated border border-white/[0.08] rounded-2xl p-6">
@@ -108,7 +109,7 @@ export default function MissedCallTextBackPage() {
             <div className="bg-elevated border border-accent/20 rounded-2xl p-6">
               <p className="text-sm text-lo leading-relaxed">
                 <span className="text-accent font-semibold">The problem it solves: </span>
-                Most new callers don't leave voicemails and won't try again. By the time you see the missed call and ring back — 20 minutes, an hour, end of day — they've already booked someone who answered. The text-back keeps the door open.
+                Most new callers don't leave voicemails and won't try again. By the time you see the missed call and ring back, 20 minutes, an hour, end of day, they've already booked someone who answered. The text-back keeps the door open.
               </p>
             </div>
           </div>
