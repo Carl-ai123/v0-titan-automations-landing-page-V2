@@ -120,7 +120,7 @@ export function HeroSection() {
 
             <motion.p {...fadeUp(0.25)} className="text-lg text-lo leading-relaxed max-w-[480px] mb-8">
               We build AI systems that capture every lead, send every follow-up, fill every booking,
-              and handle the admin — so the business runs without depending on you to do it.
+              and handle the admin, so the business runs without depending on you to do it.
             </motion.p>
 
             <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-3 mb-9">

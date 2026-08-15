@@ -6,7 +6,7 @@ const demos = [
     trade: "Roofing",
     tradeColor: "amber" as const,
     url: "#",
-    description: "New website, missed call replies, and Google reviews — all sorted.",
+    description: "New website, missed call replies, and Google reviews, all sorted.",
   },
   {
     business: "Your trade here",

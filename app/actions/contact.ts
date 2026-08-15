@@ -31,7 +31,7 @@ export async function submitContact(data: ContactFormData): Promise<ContactResul
       from: "Titan Automations <noreply@titan-automations.com>",
       to: "info@titan-automations.com",
       replyTo: data.email,
-      subject: `New enquiry — ${data.businessName} (${data.name})`,
+      subject: `New enquiry, ${data.businessName} (${data.name})`,
       text: [
         "New enquiry from titan-automations.com",
         "",

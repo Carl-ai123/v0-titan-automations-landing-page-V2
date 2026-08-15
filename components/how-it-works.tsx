@@ -2,7 +2,7 @@ const STEPS = [
   {
     n: "01",
     title: "Automation Audit",
-    body:  "We map where leads, time, and revenue are leaking. You get a clear picture of what to automate first — before anything is built.",
+    body:  "We map where leads, time, and revenue are leaking. You get a clear picture of what to automate first, before anything is built.",
     note:  "Free. No obligation.",
   },
   {
@@ -20,13 +20,13 @@ const STEPS = [
   {
     n: "04",
     title: "Test Real Scenarios",
-    body:  "We run the system against real enquiries, edge cases, and failure points — not just the happy path.",
+    body:  "We run the system against real enquiries, edge cases, and failure points, not just the happy path.",
     note:  "Tested before handover.",
   },
   {
     n: "05",
     title: "Launch & Handover",
-    body:  "You get trained, documented, and fully independent. The system is yours — not locked to our platform or access.",
+    body:  "You get trained, documented, and fully independent. The system is yours, not locked to our platform or access.",
     note:  "100% client-owned.",
   },
   {
@@ -51,7 +51,7 @@ export function HowItWorks() {
             Built, tested, and live without dragging you into technical chaos.
           </h2>
           <p className="text-lg text-lo leading-relaxed">
-            We handle the build. You handle the business. The tools we use do not matter — only the result does.
+            We handle the build. You handle the business. The tools we use do not matter, only the result does.
           </p>
         </div>
 

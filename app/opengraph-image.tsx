@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Titan Automations — AI Automation Agency'
+export const alt = 'Titan Automations, AI Automation Agency'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -34,7 +34,7 @@ export default function OGImage() {
           }}
         />
 
-        {/* Logo — T mark icon + wordmark */}
+        {/* Logo, T mark icon + wordmark */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           {/* T mark */}
           <div
@@ -100,7 +100,7 @@ export default function OGImage() {
               maxWidth: '640px',
             }}
           >
-            Websites, automations, chatbots, and CRM pipelines — built and owned by you.
+            Websites, automations, chatbots, and CRM pipelines, built and owned by you.
           </div>
         </div>
 

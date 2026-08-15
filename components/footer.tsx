@@ -1,12 +1,15 @@
 import { TitanLogo } from "@/components/titan-logo"
+import { BUSINESS } from "@/lib/site"
 
 const SYSTEMS = [
   { label: "Websites for Trades",     href: "/services/websites-for-trades" },
   { label: "Lead Generation",         href: "/services/lead-generation" },
   { label: "Missed-Call Text-Back",   href: "/services/missed-call-text-back" },
-  { label: "CRM Automation",          href: "/#systems" },
-  { label: "Follow-Up Sequences",     href: "/#systems" },
-  { label: "Booking Systems",         href: "/#systems" },
+  { label: "AI Chatbots",             href: "/services/ai-chatbots" },
+  { label: "CRM Automation",          href: "/services/crm-automation" },
+  { label: "Follow-Up Automation",    href: "/services/follow-up-automation" },
+  { label: "Booking Automation",      href: "/services/booking-automation" },
+  { label: "Review Automation",       href: "/services/review-automation" },
 ]
 
 const COMPANY = [
@@ -71,13 +74,23 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:info@titan-automations.com"
+                  href={`mailto:${BUSINESS.email}`}
                   className="text-sm text-lo hover:text-hi transition-colors"
                 >
-                  info@titan-automations.com
+                  {BUSINESS.email}
                 </a>
               </li>
-              <li className="text-sm text-dim">Kent, United Kingdom</li>
+              <li>
+                <a href={`tel:${BUSINESS.phone}`} className="text-sm text-lo hover:text-hi transition-colors">
+                  {BUSINESS.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a href="/#cta" className="text-sm text-accent hover:text-accent/80 transition-colors">
+                  Book Free Automation Audit
+                </a>
+              </li>
+              <li className="text-sm text-dim">{BUSINESS.location}</li>
             </ul>
           </div>
         </div>

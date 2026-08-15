@@ -77,7 +77,7 @@ export function SavingsEstimator() {
             Find out what manual work is costing you.
           </h2>
           <p className="text-lg text-lo leading-relaxed">
-            Adjust the inputs. See the estimated numbers. These are conservative — your real numbers are likely higher.
+            Adjust the inputs. See the estimated numbers. These are conservative, your real numbers are likely higher.
           </p>
         </div>
 

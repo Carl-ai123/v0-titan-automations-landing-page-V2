@@ -30,7 +30,7 @@ const TIERS = [
       "Live in 14 days",
       "Tested against real scenarios",
       "Full handover and documentation",
-      "You own everything — no platform lock-in",
+      "You own everything, no platform lock-in",
     ],
     cta:     "Book Free Audit",
     accent:  true,

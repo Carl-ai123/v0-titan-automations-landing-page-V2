@@ -10,15 +10,15 @@ const FAQS = [
   },
   {
     q: "Do I need to change my current tools?",
-    a: "Usually not. We build around the tools you already use — whether that is Google Calendar, HubSpot, GoHighLevel, WhatsApp, or something else. If a tool is causing problems, we will flag it during the audit.",
+    a: "Usually not. We build around the tools you already use, whether that is Google Calendar, HubSpot, GoHighLevel, WhatsApp, or something else. If a tool is causing problems, we will flag it during the audit.",
   },
   {
     q: "Can this work for my industry?",
-    a: "If your business has leads, bookings, follow-ups, admin tasks, or customer communications that currently rely on someone remembering to do them — yes. We work with trades, clinics, property businesses, professional services, and other owner-led service businesses.",
+    a: "If your business has leads, bookings, follow-ups, admin tasks, or customer communications that currently rely on someone remembering to do them, yes. We work with trades, clinics, property businesses, professional services, and other owner-led service businesses.",
   },
   {
     q: "How long does it take to build?",
-    a: "Most single-system builds go live within 14 days of the first call. Complex multi-system builds are scoped individually — we will tell you exactly how long before any work starts.",
+    a: "Most single-system builds go live within 14 days of the first call. Complex multi-system builds are scoped individually, we will tell you exactly how long before any work starts.",
   },
   {
     q: "Do I own everything you build?",
@@ -26,11 +26,11 @@ const FAQS = [
   },
   {
     q: "What if I already have a website?",
-    a: "We can work around an existing site. In many cases we add a booking system, chatbot, or contact form automation on top of what you already have. If the site is genuinely holding back conversions, we will say so — but there is no pressure to rebuild.",
+    a: "We can work around an existing site. In many cases we add a booking system, chatbot, or contact form automation on top of what you already have. If the site is genuinely holding back conversions, we will say so, but there is no pressure to rebuild.",
   },
   {
     q: "Can you automate our internal processes?",
-    a: "Yes. If your team is doing something repetitive — generating reports, sending reminders, updating records, notifying staff — there is likely an automation for it. Bring it to the audit and we will assess it.",
+    a: "Yes. If your team is doing something repetitive, generating reports, sending reminders, updating records, notifying staff, there is likely an automation for it. Bring it to the audit and we will assess it.",
   },
   {
     q: "Is AI reliable enough for customer-facing enquiries?",
@@ -38,11 +38,11 @@ const FAQS = [
   },
   {
     q: "What does it cost?",
-    a: "The audit is free and there is no obligation. Pricing is scoped to your specific build — we go through it at the end of the audit call so you know exactly what is involved before committing to anything.",
+    a: "The audit is free and there is no obligation. Pricing is scoped to your specific build, we go through it at the end of the audit call so you know exactly what is involved before committing to anything.",
   },
   {
     q: "What happens on the audit call?",
-    a: "It is a 20-minute conversation. We ask about your current process — how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we would automate first and roughly what it would cost. No hard sell. No obligation.",
+    a: "It is a 20-minute conversation. We ask about your current process, how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we would automate first and roughly what it would cost. No hard sell. No obligation.",
   },
 ]
 

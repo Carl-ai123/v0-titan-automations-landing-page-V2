@@ -1,12 +1,12 @@
 const BEFORE = [
-  "Missed calls go unanswered for hours — sometimes days",
+  "Missed calls go unanswered for hours, sometimes days",
   "Leads sit in the inbox with no follow-up",
   "Quotes sent once, never chased",
   "Bookings handled over WhatsApp and back-and-forth calls",
   "Reviews only happen when someone remembers to ask",
   "Staff answering the same questions every single day",
-  "CRM is a spreadsheet — or not used at all",
-  "Tools that do not connect — data entered twice",
+  "CRM is a spreadsheet, or not used at all",
+  "Tools that do not connect, data entered twice",
   "Owner is the only one who knows how anything works",
 ]
 
@@ -14,11 +14,11 @@ const AFTER = [
   "Every missed call triggers an instant automated text",
   "Every lead gets a personalised follow-up within minutes",
   "Quotes are chased automatically on a set schedule",
-  "Clients book online — it lands straight in your calendar",
+  "Clients book online, it lands straight in your calendar",
   "Review requests go out automatically after every job",
   "AI handles FAQs, qualifies enquiries, routes the rest",
   "Every opportunity tracked in a live pipeline",
-  "All tools connected — one input, everything updates",
+  "All tools connected, one input, everything updates",
   "The system runs whether you are working or not",
 ]
 
@@ -38,7 +38,7 @@ export function BeforeAfterSection() {
           </h2>
           <p className="text-lg text-lo leading-relaxed max-w-xl">
             Every unanswered call, forgotten follow-up, and delayed reply is a job that went to someone else.
-            The cost is invisible — until you calculate it.
+            The cost is invisible, until you calculate it.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export function BeforeAfterSection() {
         </div>
 
         <p className="mt-10 text-sm text-dim text-center">
-          If you disappeared for two weeks, would the business keep running? If not — that is the problem we fix.
+          If you disappeared for two weeks, would the business keep running? If not, that is the problem we fix.
         </p>
       </div>
     </section>

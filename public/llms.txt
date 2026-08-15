@@ -1,18 +1,23 @@
 # Titan Automations
 
-> Titan Automations builds websites and lead generation systems for UK trades and service businesses — roofers, builders, electricians, plumbers, and other owner-led service businesses across Kent and the South East. Built by someone who understands how trades win work.
+> Titan Automations builds websites and lead generation systems for UK trades and service businesses, roofers, builders, electricians, plumbers, and other owner-led service businesses across Kent and the South East. Built by someone who understands how trades win work.
 
 ## Services
-- [Websites for Trades](https://titan-automations.com/services/websites-for-trades): Professional websites for tradesmen that rank locally and convert visitors into enquiries.
-- [Lead Generation](https://titan-automations.com/services/lead-generation): Predictable local job flow for roofers and trades using website + automation + follow-up.
-- [Missed-Call Text-Back](https://titan-automations.com/services/missed-call-text-back): Automatically texts callers you miss so you never lose a job to a missed call.
+- [Websites for Trades](https://www.titan-automations.com/services/websites-for-trades): Professional websites for tradesmen that rank locally and convert visitors into enquiries.
+- [Lead Generation](https://www.titan-automations.com/services/lead-generation): Predictable local job flow for roofers and trades using website + automation + follow-up.
+- [Missed-Call Text-Back](https://www.titan-automations.com/services/missed-call-text-back): Automatically texts callers you miss so you never lose a job to a missed call.
+- [AI Chatbots](https://www.titan-automations.com/services/ai-chatbots): AI chatbots that answer common questions, qualify enquiries and capture customer details.
+- [Booking Automation](https://www.titan-automations.com/services/booking-automation): Online booking, calendar sync, reminders and no-show follow-up.
+- [CRM Automation](https://www.titan-automations.com/services/crm-automation): Connected CRM pipelines that capture enquiries and keep every opportunity visible.
+- [Follow-Up Automation](https://www.titan-automations.com/services/follow-up-automation): Automated email, SMS and WhatsApp follow-up sequences.
+- [Review Automation](https://www.titan-automations.com/services/review-automation): Consistent Google review requests after completed work.
 
 ## Areas
-- [Kent](https://titan-automations.com/areas/kent): Serving trades and service businesses across Medway, Chatham, Maidstone, Canterbury, Ashford and the wider South East.
+- [Kent](https://www.titan-automations.com/areas/kent): Serving trades and service businesses across Medway, Chatham, Maidstone, Canterbury, Ashford and the wider South East.
 
 ## Company
-- [About](https://titan-automations.com/about): Founded by Carl Wilkins, a Kent-based specialist in websites and automation for trades and service businesses.
-- [FAQ](https://titan-automations.com/faq): Answers to common questions about websites, lead generation and automation.
+- [About](https://www.titan-automations.com/about): Founded by Carl Wilkins, a Kent-based specialist in websites and automation for trades and service businesses.
+- [FAQ](https://www.titan-automations.com/faq): Answers to common questions about websites, lead generation and automation.
 
 ## Contact
 - Email: info@titan-automations.com

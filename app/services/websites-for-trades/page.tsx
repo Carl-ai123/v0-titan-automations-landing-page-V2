@@ -7,10 +7,11 @@ import { Footer } from '@/components/footer'
 export const metadata: Metadata = {
   title: 'Websites for Trades & Service Businesses | Titan Automations',
   description: 'Professional websites for tradesmen and service businesses that rank locally and turn visitors into booked enquiries. Built in Kent, serving the whole UK.',
+  alternates: { canonical: '/services/websites-for-trades' },
   openGraph: {
     title: 'Websites for Trades & Service Businesses | Titan Automations',
     description: 'Professional websites for tradesmen and service businesses that rank locally and turn visitors into booked enquiries.',
-    url: 'https://titan-automations.com/services/websites-for-trades',
+    url: 'https://www.titan-automations.com/services/websites-for-trades',
   },
 }
 
@@ -18,7 +19,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Website design and development for trades and service businesses',
-  provider: { '@type': 'ProfessionalService', name: 'Titan Automations', url: 'https://titan-automations.com' },
+  provider: { '@id': 'https://www.titan-automations.com/#business' },
   areaServed: [{ '@type': 'AdministrativeArea', name: 'Kent' }, { '@type': 'AdministrativeArea', name: 'United Kingdom' }],
   description: 'Conversion-focused websites for tradesmen and service businesses that rank in local search and turn visitors into enquiries.',
 }
@@ -27,39 +28,39 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Do I need a website if I get work from word of mouth?', acceptedAnswer: { '@type': 'Answer', text: 'Word of mouth still works, but people check you online before they call. No website, or a poor one, quietly costs you jobs you never hear about. A professional site backs up referrals, ranks for local searches, and works while you\'re on site — turning "I\'ll think about it" into booked work.' } },
-    { '@type': 'Question', name: 'How long does it take to get a new website live?', acceptedAnswer: { '@type': 'Answer', text: 'A focused trades website is usually live within a couple of weeks, depending on content and how fast photos and details come through. The priority is a working, converting site online fast, then improving it — not waiting months for perfect.' } },
-    { '@type': 'Question', name: 'What makes Titan Automations different from other web agencies?', acceptedAnswer: { '@type': 'Answer', text: 'Titan Automations is built by someone who understands how trades actually win work — missed calls, quote follow-ups, local reputation. It\'s not just pretty websites; it\'s lead systems explained in plain English with no agency jargon.' } },
+    { '@type': 'Question', name: 'Do I need a website if I get work from word of mouth?', acceptedAnswer: { '@type': 'Answer', text: 'Word of mouth still works, but people check you online before they call. No website, or a poor one, quietly costs you jobs you never hear about. A professional site backs up referrals, ranks for local searches, and works while you\'re on site, turning "I\'ll think about it" into booked work.' } },
+    { '@type': 'Question', name: 'How long does it take to get a new website live?', acceptedAnswer: { '@type': 'Answer', text: 'A focused trades website is usually live within a couple of weeks, depending on content and how fast photos and details come through. The priority is a working, converting site online fast, then improving it, not waiting months for perfect.' } },
+    { '@type': 'Question', name: 'What makes Titan Automations different from other web agencies?', acceptedAnswer: { '@type': 'Answer', text: 'Titan Automations is built by someone who understands how trades actually win work, missed calls, quote follow-ups, local reputation. It\'s not just pretty websites; it\'s lead systems explained in plain English with no agency jargon.' } },
   ],
 }
 
 const INCLUDED = [
   'Conversion-focused design built to turn visitors into enquiries',
   'Local SEO setup so you appear in Google searches near you',
-  'Mobile-first — most of your visitors are on a phone',
+  'Mobile-first, most of your visitors are on a phone',
   'Online booking or enquiry form embedded from day one',
-  'Fast load times — slow sites lose jobs before anyone reads a word',
+  'Fast load times, slow sites lose jobs before anyone reads a word',
   'Clear calls to action on every page',
   'Google Business Profile optimisation guidance',
-  'Hosted and maintained — no technical headaches for you',
+  'Hosted and maintained, no technical headaches for you',
 ]
 
 const FAQS = [
   {
     q: 'Do I need a website if I get work from word of mouth?',
-    a: 'Word of mouth still works, but people check you online before they call. No website, or a poor one, quietly costs you jobs you never hear about. A professional site backs up referrals, ranks for local searches, and works while you\'re on site — turning "I\'ll think about it" into booked work.',
+    a: 'Word of mouth still works, but people check you online before they call. No website, or a poor one, quietly costs you jobs you never hear about. A professional site backs up referrals, ranks for local searches, and works while you\'re on site, turning "I\'ll think about it" into booked work.',
   },
   {
     q: 'How long does it take to get a new website live?',
-    a: 'A focused trades website is usually live within a couple of weeks, depending on content and how fast photos and details come through. The priority is a working, converting site online fast, then improving it — not waiting months for perfect.',
+    a: 'A focused trades website is usually live within a couple of weeks, depending on content and how fast photos and details come through. The priority is a working, converting site online fast, then improving it, not waiting months for perfect.',
   },
   {
     q: 'What makes Titan Automations different from other web agencies?',
-    a: "Titan Automations is built by someone who understands how trades and service businesses actually win work — missed calls, quote follow-ups, local reputation. It's not just pretty websites; it's lead systems explained in plain English with no agency jargon.",
+    a: "Titan Automations is built by someone who understands how trades and service businesses actually win work, missed calls, quote follow-ups, local reputation. It's not just pretty websites; it's lead systems explained in plain English with no agency jargon.",
   },
   {
     q: 'Will my website rank on Google?',
-    a: "We build every site with local SEO from the ground up — proper page titles, structured data, fast load times, and a Google Business Profile strategy. You won't rank overnight, but you'll have the foundations in place from day one rather than retrofitting later.",
+    a: "We build every site with local SEO from the ground up, proper page titles, structured data, fast load times, and a Google Business Profile strategy. You won't rank overnight, but you'll have the foundations in place from day one rather than retrofitting later.",
   },
 ]
 
@@ -84,7 +85,7 @@ export default function WebsitesForTradesPage() {
               Websites for Tradesmen That Win Work
             </h1>
             <p className="text-xl text-lo leading-relaxed max-w-2xl mb-8">
-              Most trades websites look the part but don't actually bring in jobs. We build sites that rank locally, load fast, and turn visitors into enquiries — not ones that just sit there looking pretty.
+              Most trades websites look the part but don't actually bring in jobs. We build sites that rank locally, load fast, and turn visitors into enquiries, not ones that just sit there looking pretty.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/#cta" className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
@@ -106,19 +107,19 @@ export default function WebsitesForTradesPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-lo leading-relaxed mb-4">
-                  Most tradespeople rely on word of mouth — and it works, until it doesn't. When work slows down, the phone stops ringing and there's no reliable way to get it going again.
+                  Most tradespeople rely on word of mouth, and it works, until it doesn't. When work slows down, the phone stops ringing and there's no reliable way to get it going again.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
                   Even for businesses with strong referrals, the first thing a new prospect does is Google you. If they find nothing, or a site that looks like it was built in 2009, a chunk of them quietly move on to someone who looks more established.
                 </p>
                 <p className="text-lo leading-relaxed">
-                  You never know how many jobs you've lost this way. That's the problem — the cost is invisible.
+                  You never know how many jobs you've lost this way. That's the problem, the cost is invisible.
                 </p>
               </div>
               <div className="space-y-4">
                 <div className="bg-elevated border border-error/20 rounded-xl p-5">
                   <p className="text-sm font-semibold text-error mb-1">The real cost of no online presence</p>
-                  <p className="text-sm text-lo">Every prospect who Googles you and finds nothing — or finds a poor site — and moves on is a job you lost without knowing it. Multiply that over a year and the number is significant.</p>
+                  <p className="text-sm text-lo">Every prospect who Googles you and finds nothing, or finds a poor site, and moves on is a job you lost without knowing it. Multiply that over a year and the number is significant.</p>
                 </div>
                 <div className="bg-elevated border border-accent/20 rounded-xl p-5">
                   <p className="text-sm font-semibold text-accent mb-1">What a good site does</p>
@@ -137,7 +138,7 @@ export default function WebsitesForTradesPage() {
               What's included
             </span>
             <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.03em] text-hi mb-10">
-              Built to rank and convert — not just look good
+              Built to rank and convert, not just look good
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {INCLUDED.map((item) => (
