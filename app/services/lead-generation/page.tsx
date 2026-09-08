@@ -54,7 +54,7 @@ export default function LeadGenerationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <FloatingNav />
-      <main className="bg-page min-h-screen">
+      <main id="main-content" className="bg-page min-h-screen">
 
         {/* Hero */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -86,24 +86,24 @@ export default function LeadGenerationPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-surface">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.03em] text-hi mb-6">
-              Word of mouth isn't a lead generation strategy
+              Word of mouth isn&apos;t a lead generation strategy
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-lo leading-relaxed mb-4">
-                  Referrals are great when they come in. But you can't control the timing, the volume, or the quality. One quiet month and cashflow gets tight. Two quiet months and you're quoting for jobs that aren't right for you just to keep busy.
+                  Referrals are great when they come in. But you can&apos;t control the timing, the volume, or the quality. One quiet month and cashflow gets tight. Two quiet months and you&apos;re quoting for jobs that aren&apos;t right for you just to keep busy.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
-                  Directories like Checkatrade and MyBuilder send you shared leads, same job going to four or five other firms. You're competing on price before you've even had a conversation.
+                  Directories like Checkatrade and MyBuilder send you shared leads, same job going to four or five other firms. You&apos;re competing on price before you&apos;ve even had a conversation.
                 </p>
                 <p className="text-lo leading-relaxed">
-                  A lead generation system gives you jobs that come to you specifically, people who found your website, read about what you do, and decided to get in touch. That's a very different conversation.
+                  A lead generation system gives you jobs that come to you specifically, people who found your website, read about what you do, and decided to get in touch. That&apos;s a very different conversation.
                 </p>
               </div>
               <div className="space-y-4">
                 <div className="bg-elevated border border-error/20 rounded-xl p-5">
                   <p className="text-sm font-semibold text-error mb-1">Feast-or-famine cycle</p>
-                  <p className="text-sm text-lo">Too busy to chase leads when you're working. Not enough work when you're free. No way to predict next month's pipeline.</p>
+                  <p className="text-sm text-lo">Too busy to chase leads when you&apos;re working. Not enough work when you&apos;re free. No way to predict next month&apos;s pipeline.</p>
                 </div>
                 <div className="bg-elevated border border-accent/20 rounded-xl p-5">
                   <p className="text-sm font-semibold text-accent mb-1">Predictable pipeline</p>
@@ -209,7 +209,7 @@ export default function LeadGenerationPage() {
               Find out where your leads are going
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              Free 20-minute audit. We map where enquiries are leaking and tell you what to fix first. No obligation.
+              Free 30-minute audit. We map where enquiries are leaking and tell you what to fix first. No obligation.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

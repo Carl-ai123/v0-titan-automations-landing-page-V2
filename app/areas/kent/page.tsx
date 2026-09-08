@@ -31,7 +31,7 @@ export default function KentPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <FloatingNav />
-      <main className="bg-page min-h-screen">
+      <main id="main-content" className="bg-page min-h-screen">
 
         {/* Hero */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -68,13 +68,13 @@ export default function KentPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-lo leading-relaxed mb-4">
-                  Kent is one of the busiest counties in England for construction and property work. The M2 and M20 corridors have seen sustained housing development around Medway, Maidstone and Ashford for years. Canterbury's student and rental market keeps demand for maintenance trades consistently high. Coastal areas from Folkestone to Thanet have their own mix of commercial and residential work.
+                  Kent is one of the busiest counties in England for construction and property work. The M2 and M20 corridors have seen sustained housing development around Medway, Maidstone and Ashford for years. Canterbury&apos;s student and rental market keeps demand for maintenance trades consistently high. Coastal areas from Folkestone to Thanet have their own mix of commercial and residential work.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
-                  Competition is real, there are a lot of trades businesses across the county. The ones that win more than their share have one thing in common: they're easy to find, easy to contact, and they follow up fast. Most trades businesses in Kent don't do all three.
+                  Competition is real, there are a lot of trades businesses across the county. The ones that win more than their share have one thing in common: they&apos;re easy to find, easy to contact, and they follow up fast. Most trades businesses in Kent don&apos;t do all three.
                 </p>
                 <p className="text-lo leading-relaxed">
-                  That's the gap. A properly built website, combined with automation that catches every enquiry and follows up automatically, puts you ahead of the competition without you having to work harder.
+                  That&apos;s the gap. A properly built website, combined with automation that catches every enquiry and follows up automatically, puts you ahead of the competition without you having to work harder.
                 </p>
               </div>
               <div className="space-y-4">
@@ -88,7 +88,7 @@ export default function KentPage() {
                 </div>
                 <div className="bg-elevated border border-accent/20 rounded-xl p-5">
                   <p className="text-sm font-semibold text-accent mb-1">Local knowledge</p>
-                  <p className="text-sm text-lo">We're Kent-based. We know the local market, the competition, and the search terms your customers actually use.</p>
+                  <p className="text-sm text-lo">We&apos;re Kent-based. We know the local market, the competition, and the search terms your customers actually use.</p>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function KentPage() {
               Kent-based. Built for local trades.
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              Free 20-minute audit, we map your local market, look at what competitors are doing, and tell you exactly what would move the needle for your business.
+              Free 30-minute audit, we map your local market, look at what competitors are doing, and tell you exactly what would move the needle for your business.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

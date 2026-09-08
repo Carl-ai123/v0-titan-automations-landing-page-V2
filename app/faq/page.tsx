@@ -59,15 +59,15 @@ const FAQS = [
       },
       {
         q: 'Do I own everything you build?',
-        a: "Yes. Every workflow, website, and system is fully yours. No platform lock-in. No recurring licence that stops working if you leave. You can hand it to any developer or agency in the future.",
+        a: "You own the delivered code and workflows and can hand them to another developer. Third-party hosting, software licences and usage fees may still apply; we explain these when scoping the work.",
       },
       {
         q: 'How long does it take to build?',
-        a: "Most single-system builds go live within 14 days of the first call. Complex multi-system builds are scoped individually, we'll tell you exactly how long before any work starts.",
+        a: "Our typical target is 14 days for a scoped single-system build once content and access are ready. Complex multi-system builds are scoped individually, we'll tell you exactly how long before any work starts.",
       },
       {
         q: 'What happens on the audit call?',
-        a: "It's a 20-minute conversation. We ask about your current process, how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we'd automate first and roughly what it would cost. No hard sell. No obligation.",
+        a: "It's a 30-minute conversation. We ask about your current process, how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we'd automate first and roughly what it would cost. No hard sell. No obligation.",
       },
     ],
   },
@@ -90,7 +90,7 @@ export default function FAQPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <FloatingNav />
-      <main className="bg-page min-h-screen">
+      <main id="main-content" className="bg-page min-h-screen">
 
         {/* Hero */}
         <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -156,7 +156,7 @@ export default function FAQPage() {
               Still have questions?
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              The free audit call is the best way to get answers specific to your business. 20 minutes, no obligation.
+              The free audit call is the best way to get answers specific to your business. 30 minutes, no obligation.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

@@ -2,14 +2,14 @@ const SIGNALS = [
   {
     value: "14",
     unit:  "days",
-    label: "Delivery guarantee",
-    sub:   "Most systems live in two weeks or we tell you why before starting.",
+    label: "Typical delivery target",
+    sub:   "Two weeks for a scoped single system once content and access are ready. Timing is agreed before work starts.",
   },
   {
     value: "100%",
     unit:  "",
     label: "Client-owned systems",
-    sub:   "No platform dependency. No monthly licence. You own the code.",
+    sub:   "You own the delivered code. Hosting and third-party services may have separate running costs.",
   },
   {
     value: "Fixed",

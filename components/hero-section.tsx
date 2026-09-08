@@ -31,13 +31,13 @@ function FlowPreview() {
   return (
     <div className="relative bg-surface border border-white/10 rounded-2xl overflow-hidden">
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06]">
-        <span className="text-[10px] tracking-[0.18em] uppercase text-dim font-medium">Automation System · Live</span>
+        <span className="text-[10px] tracking-[0.18em] uppercase text-dim font-medium">Example automation flow</span>
         <div className="flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping-dot absolute inline-flex h-full w-full rounded-full bg-success opacity-60" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-success" />
           </span>
-          <span className="text-[10px] text-success">Running</span>
+          <span className="text-[10px] text-success">Demo</span>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ function FlowPreview() {
         })}
       </div>
       <div className="pb-5 px-5">
-        <p className="text-[10px] text-dim text-center">Zero manual work · No delays · No dropped leads</p>
+        <p className="text-[10px] text-dim text-center">Illustration of an enquiry-to-booking workflow</p>
       </div>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-20 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(0,157,255,0.07) 0%, transparent 70%)" }} aria-hidden="true" />
     </div>

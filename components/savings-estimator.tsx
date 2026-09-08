@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useId, useState } from "react"
 import { ArrowRight } from "lucide-react"
 
 const scrollToCTA = () => {
@@ -19,30 +19,24 @@ function Slider({
   format: (v: number) => string
   onChange: (v: number) => void
 }) {
-  const pct = ((value - min) / (max - min)) * 100
+  const id = useId()
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <label className="text-sm text-lo">{label}</label>
+        <label htmlFor={id} className="text-sm text-lo">{label}</label>
         <span className="text-sm font-semibold text-hi tabular-nums">{format(value)}</span>
       </div>
-      <div className="relative h-1.5 bg-white/[0.08] rounded-full">
-        <div className="absolute left-0 top-0 h-full rounded-full bg-accent" style={{ width: `${pct}%` }} />
         <input
+          id={id}
           type="range"
           min={min}
           max={max}
           step={step}
           value={value}
           onChange={e => onChange(Number(e.target.value))}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          style={{ WebkitAppearance: "none" }}
+          aria-valuetext={format(value)}
+          className="block w-full h-10 accent-accent cursor-pointer rounded focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
         />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-accent border-2 border-page shadow-[0_0_8px_rgba(0,157,255,0.5)] pointer-events-none transition-[left] duration-75"
-          style={{ left: `calc(${pct}% - 8px)` }}
-        />
-      </div>
     </div>
   )
 }
@@ -52,7 +46,6 @@ function fmtH(v: number)   { return `${v}h/wk` }
 function fmtN(v: number)   { return `${v}` }
 
 export function SavingsEstimator() {
-  const [leads,       setLeads]       = useState(15)
   const [jobValue,    setJobValue]    = useState(500)
   const [adminHours,  setAdminHours]  = useState(10)
   const [missedLeads, setMissedLeads] = useState(3)
@@ -77,7 +70,7 @@ export function SavingsEstimator() {
             Find out what manual work is costing you.
           </h2>
           <p className="text-lg text-lo leading-relaxed">
-            Adjust the inputs. See the estimated numbers. These are conservative, your real numbers are likely higher.
+            Adjust the inputs to explore an illustrative estimate of admin time and missed opportunities.
           </p>
         </div>
 
@@ -85,7 +78,6 @@ export function SavingsEstimator() {
 
           {/* Inputs */}
           <div className="bg-surface border border-white/[0.08] rounded-2xl p-7 space-y-8">
-            <Slider label="Enquiries per week"                 min={1}  max={200} value={leads}       format={fmtN} onChange={setLeads} />
             <Slider label="Average job / client value"         min={50} max={5000} step={50} value={jobValue} format={fmtGBP} onChange={setJobValue} />
             <Slider label="Hours on admin and follow-up / week" min={1} max={40} value={adminHours} format={fmtH} onChange={setAdminHours} />
             <Slider label="Missed or forgotten leads / week"   min={0}  max={20} value={missedLeads} format={fmtN} onChange={setMissedLeads} />
@@ -101,13 +93,13 @@ export function SavingsEstimator() {
             </div>
 
             <div className="bg-elevated border border-error/20 rounded-2xl p-6 flex flex-col gap-1">
-              <p className="text-xs text-error/80 uppercase tracking-wide font-medium">Monthly lost revenue</p>
+              <p className="text-xs text-error/80 uppercase tracking-wide font-medium">Potential monthly missed revenue</p>
               <p className="font-display text-4xl font-bold text-error tabular-nums">{fmtGBP(monthlyLostRevenue)}</p>
               <p className="text-xs text-lo">From missed leads at a 30% close rate</p>
             </div>
 
             <div className="bg-elevated border border-accent/20 rounded-2xl p-6 flex flex-col gap-1">
-              <p className="text-xs text-accent/80 uppercase tracking-wide font-medium">Hours back per month</p>
+              <p className="text-xs text-accent/80 uppercase tracking-wide font-medium">Potential hours back per month</p>
               <p className="font-display text-4xl font-bold text-accent tabular-nums">{monthlyHoursBack}h</p>
               <p className="text-xs text-lo">From automating 70% of your current admin load</p>
             </div>
@@ -131,7 +123,9 @@ export function SavingsEstimator() {
         </div>
 
         <p className="mt-6 text-xs text-dim text-center">
-          Estimates based on typical automation outcomes. Your audit will show the real numbers.
+          Illustration only: assumes 4.33 weeks per month, a 30% close rate on missed leads and 70% of admin time saved.
+          Annual figures use 52 weeks. Revenue is not profit; implementation and running costs are excluded.
+          Results depend on your business and are not guaranteed.
         </p>
       </div>
     </section>

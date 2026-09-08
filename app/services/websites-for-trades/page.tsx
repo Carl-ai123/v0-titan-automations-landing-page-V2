@@ -70,7 +70,7 @@ export default function WebsitesForTradesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <FloatingNav />
-      <main className="bg-page min-h-screen">
+      <main id="main-content" className="bg-page min-h-screen">
 
         {/* Hero */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -85,7 +85,7 @@ export default function WebsitesForTradesPage() {
               Websites for Tradesmen That Win Work
             </h1>
             <p className="text-xl text-lo leading-relaxed max-w-2xl mb-8">
-              Most trades websites look the part but don't actually bring in jobs. We build sites that rank locally, load fast, and turn visitors into enquiries, not ones that just sit there looking pretty.
+              Most trades websites look the part but don&apos;t actually bring in jobs. We build sites that rank locally, load fast, and turn visitors into enquiries, not ones that just sit there looking pretty.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/#cta" className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
@@ -107,13 +107,13 @@ export default function WebsitesForTradesPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-lo leading-relaxed mb-4">
-                  Most tradespeople rely on word of mouth, and it works, until it doesn't. When work slows down, the phone stops ringing and there's no reliable way to get it going again.
+                  Most tradespeople rely on word of mouth, and it works, until it doesn&apos;t. When work slows down, the phone stops ringing and there&apos;s no reliable way to get it going again.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
                   Even for businesses with strong referrals, the first thing a new prospect does is Google you. If they find nothing, or a site that looks like it was built in 2009, a chunk of them quietly move on to someone who looks more established.
                 </p>
                 <p className="text-lo leading-relaxed">
-                  You never know how many jobs you've lost this way. That's the problem, the cost is invisible.
+                  You never know how many jobs you&apos;ve lost this way. That&apos;s the problem, the cost is invisible.
                 </p>
               </div>
               <div className="space-y-4">
@@ -123,7 +123,7 @@ export default function WebsitesForTradesPage() {
                 </div>
                 <div className="bg-elevated border border-accent/20 rounded-xl p-5">
                   <p className="text-sm font-semibold text-accent mb-1">What a good site does</p>
-                  <p className="text-sm text-lo">Ranks in local searches. Backs up every referral. Converts visitors into calls and enquiries. Works while you're on site, in the evening, at weekends.</p>
+                  <p className="text-sm text-lo">Ranks in local searches. Backs up every referral. Converts visitors into calls and enquiries. Works while you&apos;re on site, in the evening, at weekends.</p>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function WebsitesForTradesPage() {
           <div className="max-w-4xl mx-auto">
             <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
               <span className="w-5 h-px bg-accent" aria-hidden="true" />
-              What's included
+              What&apos;s included
             </span>
             <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.03em] text-hi mb-10">
               Built to rank and convert, not just look good
@@ -163,7 +163,7 @@ export default function WebsitesForTradesPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { step: '01', title: 'Free audit call', desc: '20 minutes. We map your business, your market, what you want to rank for, and what the site needs to do.' },
+                { step: '01', title: 'Free audit call', desc: '30 minutes. We map your business, your market, what you want to rank for, and what the site needs to do.' },
                 { step: '02', title: 'Build', desc: 'We write the copy, design the pages, set up the forms and booking system, and connect everything. You review and approve.' },
                 { step: '03', title: 'Live + optimised', desc: 'Site goes live. We set up analytics, Google Search Console, and give you a plain-English guide to what to do next.' },
               ].map((s) => (
@@ -204,7 +204,7 @@ export default function WebsitesForTradesPage() {
               Find out what your site should be doing
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              Free 20-minute audit. We look at your current setup, your local market, and tell you exactly what to fix first. No obligation.
+              Free 30-minute audit. We look at your current setup, your local market, and tell you exactly what to fix first. No obligation.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />
