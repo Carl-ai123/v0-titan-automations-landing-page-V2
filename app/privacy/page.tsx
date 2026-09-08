@@ -82,7 +82,7 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-page min-h-screen px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <main id="main-content" className="bg-page min-h-screen px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div className="max-w-3xl mx-auto">
 
         <Link

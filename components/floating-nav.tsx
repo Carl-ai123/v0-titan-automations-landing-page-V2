@@ -1,20 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { TitanLogoNav } from "@/components/titan-logo"
 import { X, Menu } from "lucide-react"
 
-const scrollToCTA = () => {
-  document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
-}
-
 const NAV_LINKS = [
-  { href: "#problems",  label: "Problems"  },
-  { href: "#systems",   label: "Systems"   },
-  { href: "#results",   label: "Results"   },
-  { href: "#process",   label: "Process"   },
-  { href: "#faq",       label: "FAQ"       },
+  { href: "/#problems",  label: "Problems"  },
+  { href: "/#systems",   label: "Systems"   },
+  { href: "/#proof",     label: "Results"   },
+  { href: "/#process",   label: "Process"   },
+  { href: "/#faq",       label: "FAQ"       },
 ]
 
 export function FloatingNav() {
@@ -51,9 +48,9 @@ export function FloatingNav() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="/" aria-label="Titan Automations home">
+          <Link href="/" aria-label="Titan Automations home">
             <TitanLogoNav />
-          </a>
+          </Link>
 
           <ul className="flex items-center gap-7">
             {NAV_LINKS.map((link) => (
@@ -68,12 +65,12 @@ export function FloatingNav() {
             ))}
           </ul>
 
-          <button
-            onClick={scrollToCTA}
+          <Link
+            href="/#cta"
             className="px-5 py-2.5 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
           >
             Book Free Audit
-          </button>
+          </Link>
         </nav>
       </header>
 
@@ -86,9 +83,9 @@ export function FloatingNav() {
               : "bg-elevated/80 backdrop-blur-[12px] border border-white/[0.06]"
           }`}
         >
-          <a href="/" aria-label="Titan Automations home">
+          <Link href="/" aria-label="Titan Automations home">
             <TitanLogoNav />
-          </a>
+          </Link>
           <button
             onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -124,15 +121,16 @@ export function FloatingNav() {
                   {link.label}
                 </motion.a>
               ))}
-              <motion.button
-                onClick={() => { setOpen(false); scrollToCTA() }}
+              <motion.a
+                href="/#cta"
+                onClick={() => setOpen(false)}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: NAV_LINKS.length * 0.055, duration: 0.3 }}
                 className="mt-4 px-8 py-4 text-lg font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors w-full max-w-xs text-center"
               >
                 Book Free Audit
-              </motion.button>
+              </motion.a>
             </div>
             <div className="pb-8 text-center text-sm text-dim">
               titan-automations.com

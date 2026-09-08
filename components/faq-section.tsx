@@ -18,11 +18,11 @@ const FAQS = [
   },
   {
     q: "How long does it take to build?",
-    a: "Most single-system builds go live within 14 days of the first call. Complex multi-system builds are scoped individually, we will tell you exactly how long before any work starts.",
+    a: "Our typical target is 14 days for a scoped single-system build once content and access are ready. Complex multi-system builds are scoped individually, we will tell you exactly how long before any work starts.",
   },
   {
     q: "Do I own everything you build?",
-    a: "Yes. Every workflow, website, and system is fully yours. No platform lock-in. No recurring licence that stops working if you leave. You can hand it to any developer or agency in the future.",
+    a: "You own the delivered code and workflows and can hand them to another developer. Third-party hosting, software licences and usage fees may still apply; we explain these when scoping the work.",
   },
   {
     q: "What if I already have a website?",
@@ -42,7 +42,7 @@ const FAQS = [
   },
   {
     q: "What happens on the audit call?",
-    a: "It is a 20-minute conversation. We ask about your current process, how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we would automate first and roughly what it would cost. No hard sell. No obligation.",
+    a: "It is a 30-minute conversation. We ask about your current process, how leads come in, where they get lost, what admin your team does repeatedly. At the end, we tell you what we would automate first and roughly what it would cost. No hard sell. No obligation.",
   },
 ]
 

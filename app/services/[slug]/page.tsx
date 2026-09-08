@@ -142,7 +142,7 @@ export default async function ServicePage({ params }: PageProps) {
               Find out what to automate first
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              Book a free 20-minute audit. We will map the bottleneck, explain the best first step and give you a clear scope.
+              Book a free 30-minute audit. We will map the bottleneck, explain the best first step and give you a clear scope.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

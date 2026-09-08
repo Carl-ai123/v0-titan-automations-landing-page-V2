@@ -1,4 +1,5 @@
 import { TitanLogo } from "@/components/titan-logo"
+import Link from "next/link"
 import { BUSINESS } from "@/lib/site"
 
 const SYSTEMS = [
@@ -28,11 +29,11 @@ export function Footer() {
 
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <a href="/" className="inline-block mb-5">
+            <Link href="/" className="inline-block mb-5">
               <TitanLogo size="footer" />
-            </a>
+            </Link>
             <p className="text-sm text-lo leading-relaxed max-w-[220px]">
-              AI automation systems for UK service businesses. Built in 14 days. Owned by you.
+              AI automation systems for UK service businesses. Clearly scoped. Owned by you.
             </p>
             <div className="mt-5 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-success" />
@@ -86,9 +87,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#cta" className="text-sm text-accent hover:text-accent/80 transition-colors">
+                <Link href="/#cta" className="text-sm text-accent hover:text-accent/80 transition-colors">
                   Book Free Automation Audit
-                </a>
+                </Link>
               </li>
               <li className="text-sm text-dim">{BUSINESS.location}</li>
             </ul>
@@ -98,7 +99,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-xs text-dim">
-            &copy; {new Date().getFullYear()} Titan Automations Ltd. All rights reserved.
+            &copy; {new Date().getFullYear()} Titan Automations. All rights reserved.
           </p>
           <p className="text-xs text-dim">
             Built with AI. Owned by you.

@@ -59,7 +59,7 @@ export default function MissedCallTextBackPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <FloatingNav />
-      <main className="bg-page min-h-screen">
+      <main id="main-content" className="bg-page min-h-screen">
 
         {/* Hero */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ export default function MissedCallTextBackPage() {
               Never Lose a Job to a Missed Call
             </h1>
             <p className="text-xl text-lo leading-relaxed max-w-2xl mb-8">
-              A missed call from a new customer is almost always a lost job. They'll ring the next number on Google before you've had a chance to call back. Missed-call text-back fixes this in seconds.
+              A missed call from a new customer is almost always a lost job. They&apos;ll ring the next number on Google before you&apos;ve had a chance to call back. Missed-call text-back fixes this in seconds.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/#cta" className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
@@ -109,7 +109,7 @@ export default function MissedCallTextBackPage() {
             <div className="bg-elevated border border-accent/20 rounded-2xl p-6">
               <p className="text-sm text-lo leading-relaxed">
                 <span className="text-accent font-semibold">The problem it solves: </span>
-                Most new callers don't leave voicemails and won't try again. By the time you see the missed call and ring back, 20 minutes, an hour, end of day, they've already booked someone who answered. The text-back keeps the door open.
+                Most new callers don&apos;t leave voicemails and won&apos;t try again. By the time you see the missed call and ring back, 20 minutes, an hour, end of day, they&apos;ve already booked someone who answered. The text-back keeps the door open.
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function MissedCallTextBackPage() {
               What a missed call actually costs
             </h2>
             <p className="text-lo leading-relaxed mb-8 max-w-2xl">
-              If you miss 5 calls a week and convert 30% of answered enquiries into jobs, that's 1–2 jobs a week you're not getting. At an average job value of £500–£2,000, a simple text-back system pays for itself many times over.
+              If you miss 5 calls a week and convert 30% of answered enquiries into jobs, that&apos;s 1–2 jobs a week you&apos;re not getting. At an average job value of £500–£2,000, a simple text-back system pays for itself many times over.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               {[
@@ -165,7 +165,7 @@ export default function MissedCallTextBackPage() {
               Stop losing jobs to the missed call
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              Takes minutes to set up. Works from day one. Book a free audit and we'll show you exactly how it fits into your setup.
+              Takes minutes to set up. Works from day one. Book a free audit and we&apos;ll show you exactly how it fits into your setup.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

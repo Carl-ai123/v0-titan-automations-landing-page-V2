@@ -13,7 +13,7 @@ const TIERS = [
     price:   "Free",
     sub:     "No obligation",
     bullets: [
-      "20-minute discovery call",
+      "30-minute discovery call",
       "We map your biggest manual bottleneck",
       "You get a clear picture of what to automate first",
       "Written summary of findings",

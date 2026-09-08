@@ -5,9 +5,14 @@ import { ArrowRight, CheckCircle2, Loader2, ChevronDown } from "lucide-react"
 import { submitAuditRequest } from "@/app/actions/audit-request"
 
 const CALENDLY_URL = "https://calendly.com/carl-titan-automations/titan-onboarding-call"
-const openCalendly = () => {
-  if (typeof window !== "undefined") {
-    window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
+const openCalendly = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  if (window.Calendly) {
+    try {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL })
+      event.preventDefault()
+    } catch {
+      // Keep the ordinary link usable if the third-party widget fails.
+    }
   }
 }
 
@@ -36,29 +41,33 @@ export function FinalCTA() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (honeypot) return  // bot trap
+    if (loading) return
 
     setLoading(true)
     setError("")
 
-    const result = await submitAuditRequest({
-      name,
-      business_name:      business,
-      email,
-      phone,
-      industry,
-      biggest_bottleneck: bottleneck,
-    })
+    try {
+      const result = await submitAuditRequest({
+        name,
+        business_name: business,
+        email,
+        phone,
+        industry,
+        biggest_bottleneck: bottleneck,
+        website_url: honeypot,
+      })
 
-    setLoading(false)
+      if (!result.success) {
+        setError(result.error)
+        return
+      }
 
-    if (!result.success) {
-      setError(result.error)
-      return
+      setSuccess(true)
+    } catch {
+      setError("We couldn't confirm your enquiry. Please try again or email info@titan-automations.com directly.")
+    } finally {
+      setLoading(false)
     }
-
-    setSuccess(true)
-    setTimeout(openCalendly, 600)
   }
 
   return (
@@ -87,23 +96,24 @@ export function FinalCTA() {
             </span>
           </h2>
           <p className="text-lg text-lo leading-relaxed max-w-xl mx-auto">
-            Tell us about your business and we will come prepared. 20 minutes. No commitment. No hard sell.
+            Tell us about your business and we will come prepared. 30 minutes. No commitment. No hard sell.
           </p>
         </div>
 
         {/* Success state */}
         {success ? (
-          <div className="bg-surface border border-success/20 rounded-2xl p-10 text-center">
+          <div role="status" className="bg-surface border border-success/20 rounded-2xl p-10 text-center">
             <CheckCircle2 size={40} className="text-success mx-auto mb-4" />
-            <h3 className="font-display text-xl font-semibold text-hi mb-2">You're on the list.</h3>
-            <p className="text-lo mb-6">Your details are saved. Booking your call now. Pick a time that suits you.</p>
-            <button
+            <h3 className="font-display text-xl font-semibold text-hi mb-2">You&apos;re on the list.</h3>
+            <p className="text-lo mb-6">Your details are saved. Choose a time below to complete your booking.</p>
+            <a
+              href={CALENDLY_URL}
               onClick={openCalendly}
               className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               Book your audit call
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            </a>
           </div>
         ) : (
           <form
@@ -129,6 +139,9 @@ export function FinalCTA() {
                 </label>
                 <input
                   id="cta-name"
+                  name="name"
+                  autoComplete="name"
+                  maxLength={120}
                   required
                   value={name}
                   onChange={e => setName(e.target.value)}
@@ -140,6 +153,9 @@ export function FinalCTA() {
                 <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-business">Business name</label>
                 <input
                   id="cta-business"
+                  name="business_name"
+                  autoComplete="organization"
+                  maxLength={200}
                   value={business}
                   onChange={e => setBusiness(e.target.value)}
                   placeholder="e.g. Your business name"
@@ -155,6 +171,9 @@ export function FinalCTA() {
                 </label>
                 <input
                   id="cta-email"
+                  name="email"
+                  autoComplete="email"
+                  maxLength={254}
                   required
                   type="email"
                   value={email}
@@ -167,6 +186,9 @@ export function FinalCTA() {
                 <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-phone">Phone</label>
                 <input
                   id="cta-phone"
+                  name="phone"
+                  autoComplete="tel"
+                  maxLength={50}
                   type="tel"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
@@ -198,6 +220,7 @@ export function FinalCTA() {
               <label className="text-xs font-medium text-lo tracking-wide" htmlFor="cta-bottleneck">Biggest bottleneck right now</label>
               <textarea
                 id="cta-bottleneck"
+                maxLength={3000}
                 rows={3}
                 value={bottleneck}
                 onChange={e => setBottleneck(e.target.value)}
@@ -229,7 +252,8 @@ export function FinalCTA() {
             </button>
 
             <p className="text-xs text-dim text-center pt-1">
-              UK-based · No obligation · Your details are never shared
+              UK-based · No obligation · Read our{" "}
+              <a href="/privacy" className="underline hover:text-hi">privacy policy</a>
             </p>
           </form>
         )}

@@ -104,7 +104,12 @@ export function RecentDemos() {
                 {demo.url === "#" ? (
                   <a
                     href={CALENDLY_URL}
-                    onClick={(e) => { e.preventDefault(); (window as any).Calendly?.initPopupWidget({ url: CALENDLY_URL }) }}
+                    onClick={(e) => {
+                      if (window.Calendly) {
+                        window.Calendly.initPopupWidget({ url: CALENDLY_URL })
+                        e.preventDefault()
+                      }
+                    }}
                     className="text-sm font-medium text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1.5"
                   >
                     Book a call →

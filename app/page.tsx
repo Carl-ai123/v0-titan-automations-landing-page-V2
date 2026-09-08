@@ -18,10 +18,10 @@ const jsonLd = {
   "@id": "https://www.titan-automations.com/#faq",
   mainEntity: [
     { "@type": "Question", name: "What exactly do you automate?", acceptedAnswer: { "@type": "Answer", text: "Lead capture, AI qualification, CRM pipelines, follow-up sequences, appointment booking, review requests, missed call recovery, and internal admin automations." } },
-    { "@type": "Question", name: "How long does it take to build?", acceptedAnswer: { "@type": "Answer", text: "Most single-system builds go live within 14 days of the first call." } },
-    { "@type": "Question", name: "Do I own everything you build?", acceptedAnswer: { "@type": "Answer", text: "Yes. Every system is fully yours. No platform lock-in, no recurring licence." } },
+    { "@type": "Question", name: "How long does it take to build?", acceptedAnswer: { "@type": "Answer", text: "Our typical target is 14 days for a scoped single-system build once content and access are ready." } },
+    { "@type": "Question", name: "Do I own everything you build?", acceptedAnswer: { "@type": "Answer", text: "You own the delivered code and workflows. Hosting, software and usage fees may apply and are explained when we scope the work." } },
     { "@type": "Question", name: "What does it cost?", acceptedAnswer: { "@type": "Answer", text: "The audit is free and there is no obligation. Pricing is scoped to your specific build and discussed at the end of the audit call." } },
-    { "@type": "Question", name: "What happens on the audit call?", acceptedAnswer: { "@type": "Answer", text: "A 20-minute conversation where we map your biggest bottleneck and tell you what to automate first. No obligation." } },
+    { "@type": "Question", name: "What happens on the audit call?", acceptedAnswer: { "@type": "Answer", text: "A 30-minute conversation where we map your biggest bottleneck and tell you what to automate first. No obligation." } },
   ],
 }
 
@@ -30,7 +30,6 @@ export default function Home() {
     <main id="main-content" className="min-h-screen overflow-x-hidden">
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 <FloatingNav />

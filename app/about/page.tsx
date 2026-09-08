@@ -35,7 +35,7 @@ export default function AboutPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <FloatingNav />
-      <main className="bg-page min-h-screen">
+      <main id="main-content" className="bg-page min-h-screen">
 
         {/* Hero */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -68,13 +68,13 @@ export default function AboutPage() {
                   Carl Wilkins
                 </h2>
                 <p className="text-lo leading-relaxed mb-4">
-                  Carl comes from a trades and construction background, he's worked on site as a steel erector and knows the industry from the ground up. That background shapes how Titan Automations works: no fluff, no agency jargon, just systems that solve real problems.
+                  Carl comes from a trades and construction background, he&apos;s worked on site as a steel erector and knows the industry from the ground up. That background shapes how Titan Automations works: no fluff, no agency jargon, just systems that solve real problems.
                 </p>
                 <p className="text-lo leading-relaxed mb-4">
-                  The businesses we work with don't want to become marketing experts. They want the phone to ring, enquiries to be followed up, and jobs to be booked, without adding another thing to their plate. That's what we build.
+                  The businesses we work with don&apos;t want to become marketing experts. They want the phone to ring, enquiries to be followed up, and jobs to be booked, without adding another thing to their plate. That&apos;s what we build.
                 </p>
                 <p className="text-lo leading-relaxed mb-6">
-                  Titan Automations is based in Kent and works with service businesses across the UK. Every system is built from scratch for the specific business, no templates, no one-size-fits-all packages.
+                  Titan Automations is based in Kent and works with service businesses across the UK. Each system is tailored to the business, using established tools and components where they fit the outcome.
                 </p>
                 <div className="flex items-center gap-3 text-sm text-dim">
                   <span className="w-1.5 h-1.5 rounded-full bg-success" />
@@ -85,13 +85,13 @@ export default function AboutPage() {
                 <div className="bg-elevated border border-white/[0.08] rounded-2xl p-6">
                   <p className="text-sm font-semibold text-hi mb-3">Why service businesses specifically</p>
                   <p className="text-sm text-lo leading-relaxed">
-                    Service businesses, trades especially, have a specific pattern: great at the work, not set up for the admin and follow-up side. Leads come in and fall through the cracks. Calls are missed. Quotes don't get chased. It's not laziness, it's just that no one set up a system. That's the gap we fill.
+                    Service businesses, trades especially, have a specific pattern: great at the work, not set up for the admin and follow-up side. Leads come in and fall through the cracks. Calls are missed. Quotes don&apos;t get chased. It&apos;s not laziness, it&apos;s just that no one set up a system. That&apos;s the gap we fill.
                   </p>
                 </div>
                 <div className="bg-elevated border border-accent/20 rounded-2xl p-6">
                   <p className="text-sm font-semibold text-accent mb-3">What makes this different</p>
                   <p className="text-sm text-lo leading-relaxed">
-                    Most agencies build websites. We build lead systems, the website plus the automation that catches every enquiry and follows up automatically. The goal isn't a pretty site; it's more jobs at the end of each month.
+                    Most agencies build websites. We build lead systems, the website plus the automation that catches every enquiry and follows up automatically. The goal isn&apos;t a pretty site; it&apos;s more jobs at the end of each month.
                   </p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function AboutPage() {
             <div className="grid sm:grid-cols-2 gap-6">
               {[
                 { title: 'Fixed scope, fixed price', desc: "You know exactly what you're getting and what it costs before we start. No surprises, no scope creep, no invoice at the end that doesn't match the quote." },
-                { title: 'You own everything', desc: "Every system, every workflow, every piece of code is yours. There's no recurring licence that stops working if you leave. You can take it anywhere." },
+                { title: 'You own everything', desc: "You own the delivered code and workflows. Third-party hosting, software and usage fees are explained upfront." },
                 { title: 'Plain English, always', desc: "We don't use marketing jargon. We explain what we're building, why it works, and what to expect, in terms that make sense to someone running a real business." },
                 { title: 'Fast delivery', desc: 'Most builds go live within 14 days of the first call. We move quickly because a system sitting in development isn\'t catching leads or saving you time.' },
               ].map((v) => (
@@ -150,7 +150,7 @@ export default function AboutPage() {
               Start with a free audit
             </h2>
             <p className="text-lo leading-relaxed mb-8">
-              20 minutes. We map your business, look at what's leaking, and tell you what to fix first. No commitment required.
+              30 minutes. We map your business, look at what&apos;s leaking, and tell you what to fix first. No commitment required.
             </p>
             <Link href="/#cta" className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-colors shadow-[0_8px_32px_rgba(0,157,255,0.22)]">
               Book Free Audit <ArrowRight size={16} />

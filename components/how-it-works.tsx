@@ -76,7 +76,7 @@ export function HowItWorks() {
         {/* CTA nudge */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 bg-elevated rounded-2xl border border-white/[0.07] px-7 py-6">
           <div>
-            <p className="font-display text-base font-semibold text-hi mb-1">The audit is free and takes 20 minutes.</p>
+            <p className="font-display text-base font-semibold text-hi mb-1">The audit is free and takes 30 minutes.</p>
             <p className="text-sm text-lo">We show you what to automate first. No obligation, no hard sell.</p>
           </div>
           <a
