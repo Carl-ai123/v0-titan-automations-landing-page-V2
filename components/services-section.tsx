@@ -1,4 +1,4 @@
-import { Bot, Calendar, Database, Mail, Star, Globe } from "lucide-react"
+import { Bot, Database, Mail, Star, Globe, PhoneCall } from "lucide-react"
 import type { ReactNode } from "react"
 import Link from "next/link"
 
@@ -16,56 +16,56 @@ const SYSTEMS: System[] = [
   {
     icon:    <Globe size={18} />,
     label:   "01",
-    title:   "AI-Powered Website",
+    title:   "Contractor Website & Enquiry Capture",
     href:    "/services/websites-for-trades",
-    what:    "Conversion-focused site built for Google, not just to look good. Booking embedded on day one.",
-    removes: "A website that gets traffic but converts no one.",
-    result:  "Visitors become booked enquiries without you lifting a finger.",
+    what:    "A mobile-first site built around the work you actually want, with structured enquiry forms for scope, location, drawings and deadlines.",
+    removes: "Generic contact forms and brochure sites that collect too little information.",
+    result:  "Better enquiries enter the business with the details needed to act quickly.",
   },
   {
     icon:    <Bot size={18} />,
     label:   "02",
-    title:   "AI Chatbot & Qualification",
+    title:   "Enquiry Qualification & Routing",
     href:    "/services/ai-chatbots",
-    what:    "Answers common questions, qualifies intent, collects contact details, and routes the right leads to you.",
-    removes: "Staff answering the same questions. Leads leaving because no one responded.",
-    result:  "Qualified enquiries in your inbox. At 2am if needed.",
-  },
-  {
-    icon:    <Calendar size={18} />,
-    label:   "03",
-    title:   "Booking & Calendar System",
-    href:    "/services/booking-automation",
-    what:    "Online booking with automated reminders, calendar sync, and no-show recovery.",
-    removes: "Booking appointments over the phone. Back-and-forth texts.",
-    result:  "Clients book themselves. You get the notification.",
+    what:    "Incoming opportunities are qualified by job type, value, location and urgency, then routed to the right person with a clean brief.",
+    removes: "Back-and-forth just to understand what the prospect wants.",
+    result:  "The right person gets the right opportunity with the next action clear.",
   },
   {
     icon:    <Database size={18} />,
-    label:   "04",
-    title:   "CRM Pipeline Automation",
+    label:   "03",
+    title:   "Opportunity Pipeline",
     href:    "/services/crm-automation",
-    what:    "Every enquiry, lead, and client tracked through a live pipeline, automatically updated as things progress.",
-    removes: "Opportunities falling through the cracks. No visibility on where deals stand.",
-    result:  "Full pipeline visibility. Nothing forgotten.",
+    what:    "Every enquiry, referral and tender is tracked from new opportunity through qualification, quote, follow-up, won or lost.",
+    removes: "Work living across inboxes, WhatsApp threads and spreadsheets with no single owner.",
+    result:  "Management can see what is live, what is stuck and what needs action.",
   },
   {
     icon:    <Mail size={18} />,
-    label:   "05",
-    title:   "Lead Follow-Up Sequences",
+    label:   "04",
+    title:   "Quote & Tender Follow-Up",
     href:    "/services/follow-up-automation",
-    what:    "Automated multi-touch sequences that follow up by email, SMS, or WhatsApp until the lead replies or converts.",
-    removes: "Chasing leads manually. Following up when you remember, which is not often enough.",
-    result:  "Leads followed up consistently. Revenue recovered from the ignored inbox.",
+    what:    "Timed email, SMS and internal reminders keep quotes and tender opportunities moving until there is a clear outcome.",
+    removes: "Following up when somebody remembers, or not following up at all.",
+    result:  "More opportunities get a second and third touch without adding admin.",
+  },
+  {
+    icon:    <PhoneCall size={18} />,
+    label:   "05",
+    title:   "Missed Enquiry Recovery",
+    href:    "/services/missed-call-text-back",
+    what:    "Missed calls and out-of-hours enquiries trigger an immediate response and capture the job details while the prospect is still looking.",
+    removes: "Good prospects moving on because nobody answered at the right moment.",
+    result:  "More inbound opportunities are recovered before they reach another contractor.",
   },
   {
     icon:    <Star size={18} />,
     label:   "06",
-    title:   "Review Request System",
+    title:   "Review, Referral & Reactivation",
     href:    "/services/review-automation",
-    what:    "Automated review requests sent to every client after a job, via SMS or email, timed perfectly.",
-    removes: "Forgetting to ask. Awkward manual requests. Inconsistent review volume.",
-    result:  "A steady stream of genuine Google review requests on autopilot.",
+    what:    "Completed work triggers review requests, referral prompts and future reactivation so the client database keeps producing value.",
+    removes: "Finishing a job and relying on the client to remember you next time.",
+    result:  "More proof, more repeat work and a warmer pipeline from existing relationships.",
   },
 ]
 
@@ -109,14 +109,13 @@ export function ServicesSection() {
         <div className="mb-14 md:mb-18 max-w-2xl">
           <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
             <span className="w-5 h-px bg-accent" aria-hidden="true" />
-            Systems
+            Contractor Growth System
           </span>
           <h2 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-hi mb-5">
-            Systems we build around your business.
+            One connected system from first enquiry to won work.
           </h2>
           <p className="text-lg text-lo leading-relaxed">
-            Not apps. Not tools you have to learn. Connected systems that do the work your team
-            is currently doing manually.
+            Titan connects the website, opportunity pipeline and follow-up around your existing sales process. We automate the gaps without forcing your team into a complicated new way of working.
           </p>
         </div>
 
