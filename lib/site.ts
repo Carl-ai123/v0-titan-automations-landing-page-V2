@@ -21,7 +21,7 @@ export const businessJsonLd = {
   email: BUSINESS.email,
   telephone: BUSINESS.phone,
   description:
-    'AI automation systems, websites and lead generation for UK service businesses, built in Kent and delivered across the UK.',
+    'Growth systems for UK commercial contractors, connecting websites, enquiry capture, CRM pipelines and automated follow-up.',
   address: {
     '@type': 'PostalAddress',
     addressRegion: 'Kent',
