@@ -128,8 +128,8 @@ export function HeroSection() {
                 Book Free Contractor Audit
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
-              <a href="#systems" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-medium text-hi border border-white/20 rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all duration-150 hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50">
-                See the System
+              <a href="/demo" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-medium text-hi border border-white/20 rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all duration-150 hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50">
+                Try Live Demo
               </a>
             </motion.div>
 
