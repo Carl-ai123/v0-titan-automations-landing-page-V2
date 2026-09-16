@@ -8,15 +8,15 @@ const scrollToCTA = () => {
   document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
 }
 
-const TRUST = ["UK-Based", "Built in 14 Days", "Fixed Scope", "Client-Owned", "No Lock-In"]
+const TRUST = ["UK-Based", "Commercial Contractors", "Built in 14 Days", "Client-Owned", "No Lock-In"]
 
 const FLOW_STAGES = [
-  { id: "trigger",  label: "Lead Captured",     sub: "Form · chatbot · missed call",  color: "#009DFF" },
-  { id: "qualify",  label: "AI Qualifies",       sub: "Intent scored, data enriched",  color: "#009DFF" },
-  { id: "crm",      label: "CRM Updated",        sub: "Record created, stage set",     color: "#009DFF" },
-  { id: "followup", label: "Follow-up Sent",     sub: "Personalised and timed",        color: "#009DFF" },
-  { id: "booking",  label: "Booking Confirmed",  sub: "Calendar slot filled",          color: "#24D18F" },
-  { id: "review",   label: "Review Requested",   sub: "Automated post-job",            color: "#24D18F" },
+  { id: "trigger",  label: "Enquiry Captured",   sub: "Website · email · missed call",      color: "#009DFF" },
+  { id: "qualify",  label: "Job Details Logged", sub: "Scope, location, value, deadline",  color: "#009DFF" },
+  { id: "crm",      label: "Pipeline Updated",   sub: "Opportunity created automatically", color: "#009DFF" },
+  { id: "notify",   label: "Estimator Notified", sub: "Right person gets the next action", color: "#009DFF" },
+  { id: "followup", label: "Quote Followed Up",  sub: "Timed chase until reply",           color: "#24D18F" },
+  { id: "won",      label: "Outcome Tracked",    sub: "Won · lost · future follow-up",     color: "#24D18F" },
 ]
 
 function FlowPreview() {
@@ -31,7 +31,7 @@ function FlowPreview() {
   return (
     <div className="relative bg-surface border border-white/10 rounded-2xl overflow-hidden">
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06]">
-        <span className="text-[10px] tracking-[0.18em] uppercase text-dim font-medium">Example automation flow</span>
+        <span className="text-[10px] tracking-[0.18em] uppercase text-dim font-medium">Example contractor growth system</span>
         <div className="flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping-dot absolute inline-flex h-full w-full rounded-full bg-success opacity-60" />
@@ -79,7 +79,7 @@ function FlowPreview() {
         })}
       </div>
       <div className="pb-5 px-5">
-        <p className="text-[10px] text-dim text-center">Illustration of an enquiry-to-booking workflow</p>
+        <p className="text-[10px] text-dim text-center">Illustration of an enquiry-to-quote workflow</p>
       </div>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-20 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(0,157,255,0.07) 0%, transparent 70%)" }} aria-hidden="true" />
     </div>
@@ -101,26 +101,23 @@ export function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* Left */}
           <div>
             <motion.div {...fadeUp(0.05)} className="mb-7">
               <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent">
                 <span className="w-5 h-px bg-accent" aria-hidden="true" />
-                AI Automation Agency · UK
+                Growth systems for UK commercial contractors
               </span>
             </motion.div>
 
             <motion.h1 {...fadeUp(0.15)} className="font-display text-[clamp(2.5rem,5.5vw,5.25rem)] font-semibold leading-[1.03] tracking-[-0.04em] text-hi mb-6">
-              Stop running your{" "}
+              Stop letting enquiries and quotes{" "}
               <span style={{ background: "linear-gradient(135deg, #009DFF 0%, #006CFF 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                business manually.
+                disappear into inboxes.
               </span>
             </motion.h1>
 
-            <motion.p {...fadeUp(0.25)} className="text-lg text-lo leading-relaxed max-w-[480px] mb-8">
-              We build AI systems that capture every lead, send every follow-up, fill every booking,
-              and handle the admin, so the business runs without depending on you to do it.
+            <motion.p {...fadeUp(0.25)} className="text-lg text-lo leading-relaxed max-w-[520px] mb-8">
+              Titan connects your website, enquiry capture, CRM and follow-up into one contractor sales system, so every opportunity is logged, owned and chased until there is an outcome.
             </motion.p>
 
             <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-3 mb-9">
@@ -128,11 +125,11 @@ export function HeroSection() {
                 onClick={scrollToCTA}
                 className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-page bg-accent rounded-full hover:bg-accent-deep transition-all duration-150 hover:-translate-y-px active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
               >
-                Book Free Automation Audit
+                Book Free Contractor Audit
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
               <a href="#systems" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-medium text-hi border border-white/20 rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all duration-150 hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50">
-                See What We Automate
+                See the System
               </a>
             </motion.div>
 
@@ -146,7 +143,6 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}

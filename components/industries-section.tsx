@@ -1,63 +1,63 @@
 "use client"
 
 import { useState } from "react"
-import { Wrench, HeartPulse, Building2, Briefcase, MapPin } from "lucide-react"
+import { Zap, Building2, Wrench, Hammer, ShieldCheck } from "lucide-react"
 
 const SECTORS = [
   {
-    icon:       <Wrench size={16} />,
-    label:      "Trades & Construction",
-    bottleneck: "Missed quote requests and job follow-ups cost revenue every week.",
+    icon:       <Zap size={16} />,
+    label:      "Electrical & M&E",
+    bottleneck: "Enquiries, tender invites and quote follow-ups are split across inboxes, phones and spreadsheets.",
     automations: [
-      "Missed call → instant text back with booking link",
-      "Quote sent → automatic chaser at 2, 5, and 10 days",
-      "Job completed → review request sent automatically",
+      "New enquiry → capture job details and create an opportunity automatically",
+      "Quote or tender sent → timed follow-up and internal reminder sequence",
+      "No reply or missed call → automatic response so the opportunity is not lost",
     ],
-    outcome: "Fewer leads go cold. Reviews build up without asking.",
-  },
-  {
-    icon:       <HeartPulse size={16} />,
-    label:      "Clinics & Healthcare",
-    bottleneck: "Manual appointment booking and no-show rates cost time and revenue.",
-    automations: [
-      "Online booking with automated confirmations and reminders",
-      "No-show → automatic rebooking prompt within the hour",
-      "Treatment complete → recall message sent at the right interval",
-    ],
-    outcome: "Fewer no-shows. More returning patients. Less admin.",
+    outcome: "Every opportunity gets logged, owned and followed through to an outcome.",
   },
   {
     icon:       <Building2 size={16} />,
-    label:      "Property",
-    bottleneck: "Enquiries are slow to respond to. Viewings are hard to coordinate.",
+    label:      "Structural Steel & Fabrication",
+    bottleneck: "Valuable enquiries arrive with incomplete drawings, unclear scope or no structured handover to estimating.",
     automations: [
-      "New enquiry → instant response with viewing availability",
-      "Viewing booked → confirmation, reminder, and feedback request",
-      "Applicant goes quiet → automated follow-up sequence",
+      "Enquiry form collects drawings, programme, location and scope up front",
+      "New opportunity → estimator notified with a clean job brief",
+      "Quote issued → follow-up tracked until won, lost or deferred",
     ],
-    outcome: "Faster responses. More viewings booked. Less chasing.",
+    outcome: "Estimators get cleaner information and fewer opportunities disappear after pricing.",
   },
   {
-    icon:       <Briefcase size={16} />,
-    label:      "Professional Services",
-    bottleneck: "Onboarding is manual. Leads go cold while waiting for a response.",
+    icon:       <Hammer size={16} />,
+    label:      "Civils & Groundworks",
+    bottleneck: "Work comes from relationships and tender platforms, but pipeline visibility and follow-up are often manual.",
     automations: [
-      "New lead → qualification form sent automatically",
-      "Proposal sent → follow-up if no response after 3 days",
-      "Client onboarded → document checklist and reminders triggered",
+      "Tender or referral lead → opportunity created with deadline and next action",
+      "Deadline approaching → automatic reminders to the responsible person",
+      "Lost or postponed work → future reactivation task created automatically",
     ],
-    outcome: "Warmer leads. Smoother onboarding. Less inbox chaos.",
+    outcome: "Management can see what is live, what needs action and what has gone cold.",
   },
   {
-    icon:       <MapPin size={16} />,
-    label:      "Local Services",
-    bottleneck: "Missed calls are missed jobs. Repeat bookings depend on the client remembering.",
+    icon:       <Wrench size={16} />,
+    label:      "Commercial HVAC & Building Services",
+    bottleneck: "Reactive enquiries, planned works and maintenance opportunities can be difficult to prioritise and chase consistently.",
     automations: [
-      "Missed call → SMS within 60 seconds with booking link",
-      "Job completed → follow-up for repeat booking at the right time",
-      "Google reviews → requested automatically after every service",
+      "Enquiry → route by service type, urgency and location",
+      "Site visit or quote → automatic confirmation and follow-up",
+      "Completed work → review, maintenance reminder or repeat-work sequence",
     ],
-    outcome: "Missed calls recovered. Repeat business up. Reviews growing.",
+    outcome: "Faster response, tighter follow-up and more repeat work from the same client base.",
+  },
+  {
+    icon:       <ShieldCheck size={16} />,
+    label:      "Fire, Security & Specialist Contractors",
+    bottleneck: "Small teams lose time switching between technical delivery, sales admin and client communication.",
+    automations: [
+      "Incoming opportunity → qualify and route to the right person",
+      "Proposal sent → follow-up sequence without manual chasing",
+      "Existing client → service, renewal or compliance reminder triggered automatically",
+    ],
+    outcome: "More consistent sales activity without adding another administrator.",
   },
 ]
 
@@ -72,19 +72,17 @@ export function IndustriesSection() {
         <div className="mb-12 md:mb-16 max-w-2xl">
           <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] uppercase text-accent mb-5">
             <span className="w-5 h-px bg-accent" aria-hidden="true" />
-            Who We Work With
+            Built for Contractors
           </span>
           <h2 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-hi mb-5">
-            Built for service businesses where admin delays cost money.
+            Built around how commercial contractors actually win work.
           </h2>
           <p className="text-lg text-lo leading-relaxed">
-            We do not work with everyone. We work best where manual processes create a measurable revenue leak,
-            and where fixing it pays for itself quickly.
+            Referrals, tender platforms and repeat clients still matter. Titan sits behind those channels and makes sure every opportunity is captured, followed up and visible to the people responsible for winning it.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-[280px_1fr] gap-4">
-          {/* Sector tabs */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
             {SECTORS.map((s, i) => (
               <button
@@ -102,14 +100,13 @@ export function IndustriesSection() {
             ))}
           </div>
 
-          {/* Detail panel */}
           <div className="bg-elevated border border-white/[0.08] rounded-2xl p-7 sm:p-9">
             <p className="text-sm font-semibold text-accent tracking-[-0.01em] mb-2">{sector.label}</p>
             <p className="text-base text-lo leading-relaxed mb-7 max-w-lg">
               <span className="font-medium text-warning/80">Bottleneck:</span> {sector.bottleneck}
             </p>
 
-            <h3 className="text-xs font-semibold tracking-[0.14em] uppercase text-dim mb-4">What we automate</h3>
+            <h3 className="text-xs font-semibold tracking-[0.14em] uppercase text-dim mb-4">What the system handles</h3>
             <ul className="space-y-3 mb-7">
               {sector.automations.map((a) => (
                 <li key={a} className="flex items-start gap-3">
@@ -127,7 +124,7 @@ export function IndustriesSection() {
         </div>
 
         <p className="mt-8 text-sm text-dim text-center">
-          Not sure if this fits your business? Book the audit, that is exactly what it is for.
+          The first audit maps how work currently enters the business, who owns it, where it gets stuck and what should be automated first.
         </p>
       </div>
     </section>
